@@ -9,9 +9,17 @@ class TagsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$tags = Tag::all();
+		$search = Input::get('search');
+		
+		if ($search) {
+			$query = Post::with('user')->where('title', 'LIKE', '%' . $search . '%')->orWhere('body', 'LIKE', '%' . $search . '%');
+		} else {
+			$query = Post::with('user');
+		}
 
-		return View::make('tags.index', compact('tags'));
+		$posts = $query->orderBy('created_at', 'desc')->paginate(4);
+
+		return View::make('tags.index')->with(['posts' => $posts, 'search' => $search]);
 	}
 
 	/**
