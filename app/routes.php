@@ -11,16 +11,13 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@showWelcome');
 
-Route::get('index', function(){
-	return "Test";
-});
+
+
 
 Route::resource('tutorials', 'TutorialsController');
 Route::resource('qas', 'QasController');
 Route::resource('tags', 'TagsController');
 Route::resource('comments', 'CommentsController');
+

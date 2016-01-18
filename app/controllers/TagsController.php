@@ -2,6 +2,13 @@
 
 class TagsController extends \BaseController {
 
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->beforeFilter('auth', array('except' => array('index', 'show')));
+	}
+
 	/**
 	 * Display a listing of tags
 	 *
@@ -9,9 +16,17 @@ class TagsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$tags = Tag::all();
+		$search = Input::get('search');
+		
+		if ($search) {
+			$query = Tag::with('user')->where('title', 'LIKE', '%' . $search . '%')->orWhere('body', 'LIKE', '%' . $search . '%');
+		} else {
+			$query = Tag::with('user');
+		}
 
-		return View::make('tags.index', compact('tags'));
+		$tags = $query->orderBy('created_at', 'desc')->paginate(4);
+
+		return View::make('tags.index')->with(['tags' => $tags, 'search' => $search]);
 	}
 
 	/**
@@ -31,16 +46,10 @@ class TagsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Tag::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		Tag::create($data);
-
-		return Redirect::route('tags.index');
+		$tag = new Tag();
+		Session::flash('successMessage', 'Your post has been saved.');
+		Log::info(Input::all());
+		return $this->validateAndSave($tag);
 	}
 
 	/**
@@ -51,9 +60,12 @@ class TagsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$tag = Tag::findOrFail($id);
+		$tag = Tag::find($id);
+		if(!$tag) {
+			App::abort(404);
+		}
 
-		return View::make('tags.show', compact('tag'));
+		return View::make('tags.show')->with('tag', $tag);
 	}
 
 	/**
@@ -65,8 +77,7 @@ class TagsController extends \BaseController {
 	public function edit($id)
 	{
 		$tag = Tag::find($id);
-
-		return View::make('tags.edit', compact('tag'));
+		return View::make('tags.edit')->with('tag', $tag);
 	}
 
 	/**
@@ -77,18 +88,8 @@ class TagsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$tag = Tag::findOrFail($id);
-
-		$validator = Validator::make($data = Input::all(), Tag::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$tag->update($data);
-
-		return Redirect::route('tags.index');
+		$tag = Tag::find($id);
+		return $this->validateAndSave($tag);
 	}
 
 	/**
@@ -99,9 +100,33 @@ class TagsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		Tag::destroy($id);
+		$tag = Tag::find($id);
+		$tag->delete();
+		Session::flash('successMessage', 'Your post has been deleted.');
+		return Redirect::action('tags.index');
+	}
 
-		return Redirect::route('tags.index');
+	protected function validateAndSave($post)
+	{
+		$validator = Validator::make(Input::all(), Tag::$rules);
+
+		if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$tag->title = Input::get('title');
+			$tag->body = Input::get('body');
+			$tag->user_id = Auth::id();
+
+			$result = $post->save();
+
+			if($result) {
+				Session::flash('successMessage', 'Your post has been saved.');
+				return Redirect::action('TagsController@show', $tag->id);
+			} else {
+				return Redirect::back()->withInput();
+			}
+		}
 	}
 
 }
