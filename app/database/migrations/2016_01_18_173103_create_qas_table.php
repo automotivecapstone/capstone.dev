@@ -19,6 +19,8 @@ class CreateQasTable extends Migration {
 			$table->string('image', 250);
 			$table->string('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
+		    $table->string('user_id')->unsigned();
+		    $table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
 		});
 	}
