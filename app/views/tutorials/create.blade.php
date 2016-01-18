@@ -1,0 +1,1 @@
+/vagrant/sites/capstone.dev/app/views/tutorials/create.blade.php
