@@ -2,6 +2,13 @@
 
 class TutorialsController extends \BaseController {
 
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->beforeFilter('auth', array('except' => array('index', 'show')));
+	}
+
 	/**
 	 * Display a listing of tutorials
 	 *
@@ -9,9 +16,17 @@ class TutorialsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$tutorials = Tutorial::all();
+		$search = Input::get('search');
+		
+		if ($search) {
+			$query = Tutorial::with('user')->where('title', 'LIKE', '%' . $search . '%')->orWhere('body', 'LIKE', '%' . $search . '%');
+		} else {
+			$query = Tutorial::with('user');
+		}
 
-		return View::make('tutorials.index', compact('tutorials'));
+		$tutorials = $query->orderBy('created_at', 'desc')->paginate(4);
+
+		return View::make('tutorials.index')->with(['tutorials' => $tutorials, 'search' => $search]);
 	}
 
 	/**
@@ -31,16 +46,10 @@ class TutorialsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Tutorial::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		Tutorial::create($data);
-
-		return Redirect::route('tutorials.index');
+		$tutorial = new Tutorial();
+		Session::flash('successMessage', 'Your post has been saved.');
+		Log::info(Input::all());
+		return $this->validateAndSave($tutorial);
 	}
 
 	/**
@@ -51,9 +60,12 @@ class TutorialsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$tutorial = Tutorial::findOrFail($id);
+		$tutorial = Tutorial::find($id);
+		if(!$tutorial) {
+			App::abort(404);
+		}
 
-		return View::make('tutorials.show', compact('tutorial'));
+		return View::make('tutorials.show')->with('tutorial', $tutorial);
 	}
 
 	/**
@@ -65,8 +77,7 @@ class TutorialsController extends \BaseController {
 	public function edit($id)
 	{
 		$tutorial = Tutorial::find($id);
-
-		return View::make('tutorials.edit', compact('tutorial'));
+		return View::make('tutorials.edit')->with('tutorial', $tutorial);
 	}
 
 	/**
@@ -77,18 +88,8 @@ class TutorialsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$tutorial = Tutorial::findOrFail($id);
-
-		$validator = Validator::make($data = Input::all(), Tutorial::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$tutorial->update($data);
-
-		return Redirect::route('tutorials.index');
+		$tutorial = Tutorial::find($id);
+		return $this->validateAndSave($tutorial);
 	}
 
 	/**
@@ -99,9 +100,10 @@ class TutorialsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		Tutorial::destroy($id);
-
-		return Redirect::route('tutorials.index');
+		$tutorial = Tutorial::find($id);
+		$tutorial->delete();
+		Session::flash('successMessage', 'Your tutorial has been deleted.');
+		return Redirect::action('tutorials.index');
 	}
 
 }
