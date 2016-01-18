@@ -19,3 +19,8 @@ Route::get('/', function()
 Route::get('index', function(){
 	return "Test";
 });
+
+Route::resource('tutorials', 'TutorialsController');
+Route::resource('qas', 'QasController');
+Route::resource('tags', 'TagsController');
+Route::resource('comments', 'CommentsController');
