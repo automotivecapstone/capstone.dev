@@ -16,8 +16,12 @@ class CreateCommentsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->text('content');
-			$table->string('user_id')->unsigned();
+			$table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
+		    $table->integer('qa_id')->unsigned()->nullable();
+		    $table->foreign('qa_id')->references('id')->on('qas');
+		    $table->integer('tutorial_id')->unsigned()->nullable();
+		    $table->foreign('tutorial_id')->references('id')->on('tutorials');
 			$table->timestamps();
 		});
 	}

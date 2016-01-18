@@ -13,8 +13,13 @@
 
 Route::get('/', 'HomeController@showWelcome');
 
+Route::get('login', 'HomeController@getLogin');
 
+Route::post('login', 'HomeController@postLogin');
 
+Route::get('logout', 'HomeController@getLogout');
+
+Route::get('profile', 'HomeController@showProfile');
 
 Route::resource('tutorials', 'TutorialsController');
 Route::resource('qas', 'QasController');
