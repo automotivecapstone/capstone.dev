@@ -25,13 +25,18 @@ class HomeController extends BaseController {
 		return View::make('login');
 	}
 	
+	public function showProfile()
+	{
+		return View::make('profile');
+	}
+
 	public function postLogin()
 	{
 		$email = Input::get('email');
 		$password = Input::get('password');
 
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
-		    return Redirect::intended('');
+		    return Redirect::intended('profile');
 		} else {
 		    // login failed, go back to the login screen
 		    Session::flash('errorMessage', 'Wrong email or password!');
