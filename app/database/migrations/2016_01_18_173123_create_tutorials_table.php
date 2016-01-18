@@ -15,6 +15,14 @@ class CreateTutorialsTable extends Migration {
 		Schema::create('tutorials', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('title', 50)->unique();
+			$table->text('content');
+			$table->string('description', 255);
+			$table->string('image', 250);
+			$table->string('user_id')->unsigned();
+		    $table->foreign('user_id')->references('id')->on('users');
+		    $table->string('tags_id')->unsigned();
+		    $table->foreign('tags_id')->references('id')->on('tags');
 			$table->timestamps();
 		});
 	}
