@@ -39,10 +39,10 @@
 	                    @else
 
 		                    <li class="">
-		                        <a class="page-scroll" href="">Login</a>
+		                        <a class="page-scroll" href="/login.blade.php">Login</a>
 		                    </li>
 		                    <li class="">
-		                        <a class="page-scroll" href="">Sign Up</a>
+		                        <a class="page-scroll" href="/signup.php">Sign Up</a>
 		                    </li>
 
 	                    @endif

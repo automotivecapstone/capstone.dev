@@ -35,6 +35,7 @@
 				<p>forgot your password? <a href="#">click here</a></p>
 				<p>new user? <a href="{{ action('HomeController@showWelcome') }}">create new account</a></p>
 			</div>
+		{{-- once authenticated, need direction to profile page: "create a post" and/or "reveiw profile info" --}}
 		</form>
 	</div>
 </div>
