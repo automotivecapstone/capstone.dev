@@ -13,4 +13,11 @@
 
 Route::get('/', 'HomeController@showWelcome');
 
-Route::get('login', 'HomeController@getLogin');
+
+
+
+Route::resource('tutorials', 'TutorialsController');
+Route::resource('qas', 'QasController');
+Route::resource('tags', 'TagsController');
+Route::resource('comments', 'CommentsController');
+

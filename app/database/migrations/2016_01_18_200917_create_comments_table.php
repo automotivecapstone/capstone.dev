@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTutorialsTable extends Migration {
+class CreateCommentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,10 @@ class CreateTutorialsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tutorials', function(Blueprint $table)
+		Schema::create('comments', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('title', 50)->unique();
 			$table->text('content');
-			$table->string('description', 255);
-			$table->string('image', 250);
 			$table->string('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
@@ -33,7 +30,7 @@ class CreateTutorialsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tutorials');
+		Schema::drop('comments');
 	}
 
 }
