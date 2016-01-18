@@ -108,4 +108,27 @@ class QasController extends \BaseController {
 		return Redirect::route('qas.index');
 	}
 
+	protected function validateAndSave($qa)
+	{
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+		if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$qa->title = Input::get('title');
+			$qa->body = Input::get('body');
+			$qa->user_id = Auth::id();
+
+			$result = $qa->save();
+
+			if($result) {
+				Session::flash('successMessage', 'Your post has been saved.');
+				return Redirect::action('QasController@show', $qa->id);
+			} else {
+				return Redirect::back()->withInput();
+			}
+		}
+	}
+
 }
