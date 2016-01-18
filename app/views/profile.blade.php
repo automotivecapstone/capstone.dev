@@ -8,7 +8,11 @@
 @stop
 
 @section('content')
-
+	<div>
+		<h2>Profile Page</h2>
+		<a href="/create_tutorial.php">Create a Tutorial</a>
+		<a href="/create_qa.php">Ask a Question</a>
+	</div>
 	
 	<div class="container">
 	<div class="col-md-12">
@@ -42,3 +46,4 @@
 	<script src="/js/profile.js"></script>
 
 @stop
+
