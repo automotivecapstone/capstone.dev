@@ -19,7 +19,7 @@ class CreateTutorialsTable extends Migration {
 			$table->text('content');
 			$table->string('description', 255);
 			$table->string('image', 250);
-			$table->string('user_id')->unsigned();
+			$table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();
 		});
