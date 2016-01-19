@@ -12,11 +12,11 @@ class Tag extends \Eloquent {
 
 	public function qas()
 	{
-	    return $this->hasMany('Qa');
+	    return $this->belongsToMany('Qa');
 	}
 
 	public function tutorials()
 	{
-	    return $this->hasMany('Tutorial');
+	    return $this->belongsToMany('Tutorial');
 	}
 }
