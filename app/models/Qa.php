@@ -22,7 +22,7 @@ class Qa extends \Eloquent {
 
 	public function tags()
 	{
-	    return $this->hasMany('Tag');
+	    return $this->belongsToMany('Tag');
 	}
 
 

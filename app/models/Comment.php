@@ -25,9 +25,6 @@ class Comment extends \Eloquent {
     	return $this->belongsTo('Qa');
     }
 
-    public function comment()
-    {
-    	return $this->belongsTo('Comment');
-    }
+    
 
 }

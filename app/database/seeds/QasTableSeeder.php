@@ -7,12 +7,16 @@ class QasTableSeeder extends Seeder {
 
 	public function run()
 	{
+		$user = User::firstOrFail();
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 100) as $index)
 		{
+			
 			Qa::create([
-
+            'question' => $faker->paragraph,
+            'image' =>'/uploaded/stockimage.png',
+            'user_id'=> $user->id
 			]);
 		}
 	}
