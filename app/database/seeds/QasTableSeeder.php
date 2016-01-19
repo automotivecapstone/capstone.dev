@@ -14,7 +14,8 @@ class QasTableSeeder extends Seeder {
 		{
 			
 			Qa::create([
-            'question' => $faker->paragraph,
+            'question' => $faker->sentence,
+            'content' => $faker->paragraph,
             'image' =>'/uploaded/stockimage.png',
             'user_id'=> $user->id
 			]);

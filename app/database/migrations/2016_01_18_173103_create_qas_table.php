@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Schema\Blueprint; 
 
 class CreateQasTable extends Migration {
 
@@ -16,7 +16,8 @@ class CreateQasTable extends Migration {
 		{
 			$table->increments('id');
 			$table->text('question');
-			$table->string('image', 250);
+			$table->text('content');
+			$table->string('image', 250)->nullable();
 			$table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
 			$table->timestamps();

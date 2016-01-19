@@ -102,7 +102,7 @@ class QasController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$qa = Qa::destroy($id);
+		$qa = Qa::find($id);
 		$qa->delete();
 		Session::flash('successMessage', 'Your post has been deleted.');
 		return Redirect::route('qas.index');
@@ -110,14 +110,14 @@ class QasController extends \BaseController {
 
 	protected function validateAndSave($qa)
 	{
-		$validator = Validator::make(Input::all(), Post::$rules);
+		$validator = Validator::make(Input::all(), Qa::$rules);
 
 		if ($validator->fails()) {
 	        // validation failed, redirect to the post create page with validation errors and old inputs
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
-			$qa->title = Input::get('title');
-			$qa->body = Input::get('body');
+			$qa->question = Input::get('question');
+			$qa->image = Input::get('image');
 			$qa->user_id = Auth::id();
 
 			$result = $qa->save();
