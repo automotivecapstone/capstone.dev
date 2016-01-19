@@ -19,8 +19,6 @@ Route::post('login', 'HomeController@postLogin');
 
 Route::get('logout', 'HomeController@getLogout');
 
-Route::get('profile', 'HomeController@showProfile');
-
 Route::resource('tutorials', 'TutorialsController');
 
 Route::resource('qas', 'QasController');
@@ -28,4 +26,8 @@ Route::resource('qas', 'QasController');
 Route::resource('tags', 'TagsController');
 
 Route::resource('comments', 'CommentsController');
+
+Route::resource('users', 'UsersController');
+
+
 

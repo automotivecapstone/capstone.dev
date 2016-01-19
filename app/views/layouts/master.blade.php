@@ -17,6 +17,12 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		
 		@yield('top-script')
+
+		<style type="text/css">
+			body{
+				margin-top: 60px;
+			}
+		</style>
 	</head>
 	<body>
 		@include('partials.navbar')
