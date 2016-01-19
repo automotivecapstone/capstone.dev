@@ -35,7 +35,7 @@
 		                        <a class="page-scroll" href="{{ action('HomeController@getLogin') }}">Login</a>
 		                    </li>
 		                    <li class="">
-		                        {{-- <a class="page-scroll" href="{{ action('HomeController@getSignup') }}">Sign Up</a> --}}
+		                        <a class="page-scroll" href="{{ action('UsersController@create') }}">Sign Up</a>
 		                    </li>
 	                    @endif
 	                </ul>
