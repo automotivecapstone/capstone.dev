@@ -17,12 +17,12 @@ class Tutorial extends \Eloquent {
 
     public function tags()
 	{
-	    return $this->hasMany('Tag');
+	    return $this->belongsToMany('Tag');
 	}
 
 	public function comments()
 	{
-		return $this->hasMany('Comment');
+		return $this->belongsToMany('Comment');
 	}
 
 }

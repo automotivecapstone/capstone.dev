@@ -19,7 +19,6 @@ class CreateTagTutorialTable extends Migration {
 			$table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
 			$table->integer('tutorial_id')->unsigned()->index();
 			$table->foreign('tutorial_id')->references('id')->on('tutorials')->onDelete('cascade');
-			$table->timestamps();
 		});
 	}
 

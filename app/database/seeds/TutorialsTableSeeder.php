@@ -7,12 +7,17 @@ class TutorialsTableSeeder extends Seeder {
 
 	public function run()
 	{
+		$user = User::firstOrFail();
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 50) as $index)
 		{
 			Tutorial::create([
-
+            'title' => $faker->sentence,
+            'content'=> $faker->paragraph,
+            'description'=> $faker->sentence,
+            'image'=>'/uploaded/stockimage.png',
+            'user_id'=>$user->id
 			]);
 		}
 	}
