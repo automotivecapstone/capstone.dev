@@ -16,6 +16,7 @@ class CreateQasTable extends Migration {
 		{
 			$table->increments('id');
 			$table->text('question');
+			$table->text('content');
 			$table->string('image', 250)->nullable();
 			$table->integer('user_id')->unsigned();
 		    $table->foreign('user_id')->references('id')->on('users');
