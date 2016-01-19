@@ -1,1 +1,7 @@
-/vagrant/sites/capstone.dev/app/views/tutorials/create.blade.php
+@extends('layouts.master')
+
+@section('content')
+
+<div>
+	<h2>Create - Tutorials</h2>
+</div>

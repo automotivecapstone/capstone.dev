@@ -22,7 +22,10 @@ Route::get('logout', 'HomeController@getLogout');
 Route::get('profile', 'HomeController@showProfile');
 
 Route::resource('tutorials', 'TutorialsController');
+
 Route::resource('qas', 'QasController');
+
 Route::resource('tags', 'TagsController');
+
 Route::resource('comments', 'CommentsController');
 
