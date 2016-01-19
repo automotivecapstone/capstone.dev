@@ -1,1 +1,30 @@
-/vagrant/sites/capstone.dev/app/views/qas/edit.blade.php
+@extends('layouts.master')
+
+@section('content')
+
+
+	{{ Form::model($qa, array('action' => array('QasController@update', $qa->id), 'method' => 'PUT')) }}
+		<div class="form-group {{ ($errors->has('question')) ? 'has-error' : ''}}">
+			{{ Form::label('question', 'Question') }}
+			{{ Form::text('question', null, ['class' => 'form-control', 'placeholder' => 'Enter your blog question']) }}
+		</div>
+
+		<div class="form-group {{ ($errors->has('content')) ? 'has-error' : ''}}">
+			{{ Form::label('content', 'Content') }}
+			{{ Form::text('content', null, ['class' => 'form-control', 'placeholder' => 'Enter your content']) }}
+		</div>
+
+		<div class="form-group  {{ ($errors->has('image')) ? 'has-error' : ''}}">
+			{{ Form::label('image', 'Image') }}
+			{{ Form::textarea('image', null, ['class' => 'form-control', 'placeholder' => 'Enter your image']) }}
+		</div>
+
+	  	<button type="submit" class="btn btn-default">Submit Changes</button>
+	{{ Form::close() }}
+
+	
+
+
+
+	
+@stop
