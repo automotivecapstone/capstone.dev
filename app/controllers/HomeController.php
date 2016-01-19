@@ -36,7 +36,8 @@ class HomeController extends BaseController {
 		$password = Input::get('password');
 
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
-		    return Redirect::intended('action(UsersController@show)');
+			//need to grab user object somehow
+		    return Redirect::action('HomeController@showWelcome');
 		} else {
 		    // login failed, go back to the login screen
 		    Session::flash('errorMessage', 'Wrong email or password!');
