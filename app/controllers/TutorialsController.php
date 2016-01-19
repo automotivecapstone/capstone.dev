@@ -19,7 +19,7 @@ class TutorialsController extends \BaseController {
 		$search = Input::get('search');
 		
 		if ($search) {
-			$query = Tutorial::with('user')->where('title', 'LIKE', '%' . $search . '%')->orWhere('body', 'LIKE', '%' . $search . '%');
+			$query = Tutorial::with('user')->where('title', 'LIKE', '%' . $search . '%')->orWhere('content', 'LIKE', '%' . $search . '%');
 		} else {
 			$query = Tutorial::with('user');
 		}
@@ -47,7 +47,7 @@ class TutorialsController extends \BaseController {
 	public function store()
 	{
 		$tutorial = new Tutorial();
-		Session::flash('successMessage', 'Your post has been saved.');
+		Session::flash('successMessage', 'Your tutorial has been saved.');
 		Log::info(Input::all());
 		return $this->validateAndSave($tutorial);
 	}
@@ -106,7 +106,7 @@ class TutorialsController extends \BaseController {
 		return Redirect::action('tutorials.index');
 	}
 
-	protected function validateAndSave($post)
+	protected function validateAndSave($tutorial)
 	{
 		$validator = Validator::make(Input::all(), Tutorial::$rules);
 
@@ -114,19 +114,22 @@ class TutorialsController extends \BaseController {
 	        // validation failed, redirect to the tutorial create page with validation errors and old inputs
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
+	    	
+	    	$image = Input::file('image');
+			$filename = $image->getClientOriginalName();
+
 			$tutorial->title = Input::get('title');
-			$tutorial->body = Input::get('body');
-			// $image = Input::file('image');
-			// $image->move($destinationPath, $fileName);
-			// $Tutorial->image = $destinationPath . $filename;
+			$tutorial->content = Input::get('content');
+			$tutorial->image = '/uploaded/' . $filename;
+			$image->move('uploaded/', $filename);
+
 			$tutorial->user_id = Auth::id();
 
-			dd(Input::file('image')->getRealPath());
 			$result = $tutorial->save();
 
 			if($result) {
 				Session::flash('successMessage', 'Your tutorial has been saved.');
-				return Redirect::action('TutorialController@show', $tutorial->id);
+				return Redirect::action('TutorialsController@show', $tutorial->id);
 			} else {
 				return Redirect::back()->withInput();
 			}
