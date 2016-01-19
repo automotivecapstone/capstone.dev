@@ -30,7 +30,6 @@
 			    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
 			@endif
 		</div>
-		@yield('content')
 		<!-- JQUERY -->
 		<script src="/js/jquery-2.1.4.min.js"></script>
 		<!-- BOOTSTRAP JS -->
