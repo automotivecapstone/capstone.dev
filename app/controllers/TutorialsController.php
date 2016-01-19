@@ -106,4 +106,31 @@ class TutorialsController extends \BaseController {
 		return Redirect::action('tutorials.index');
 	}
 
+	protected function validateAndSave($post)
+	{
+		$validator = Validator::make(Input::all(), Tutorial::$rules);
+
+		if ($validator->fails()) {
+	        // validation failed, redirect to the tutorial create page with validation errors and old inputs
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$tutorial->title = Input::get('title');
+			$tutorial->body = Input::get('body');
+			// $image = Input::file('image');
+			// $image->move($destinationPath, $fileName);
+			// $Tutorial->image = $destinationPath . $filename;
+			$tutorial->user_id = Auth::id();
+
+			dd(Input::file('image')->getRealPath());
+			$result = $tutorial->save();
+
+			if($result) {
+				Session::flash('successMessage', 'Your tutorial has been saved.');
+				return Redirect::action('TutorialController@show', $tutorial->id);
+			} else {
+				return Redirect::back()->withInput();
+			}
+		}
+	}
+
 }

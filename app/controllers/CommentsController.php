@@ -104,4 +104,30 @@ class CommentsController extends \BaseController {
 		return Redirect::route('comments.index');
 	}
 
+	protected function validateAndSave($post)
+	{
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+		if ($validator->fails()) {
+	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$post->title = Input::get('title');
+			$post->body = Input::get('body');
+			$image = Input::file('image');
+			$image->move($destinationPath, $fileName);
+			$post->image = $destinationPath . $filename;
+			$post->user_id = Auth::id();
+
+			$result = $post->save();
+
+			if($result) {
+				Session::flash('successMessage', 'Your post has been saved.');
+				return Redirect::action('PostController@show', $post->id);
+			} else {
+				return Redirect::back()->withInput();
+			}
+		}
+	}
+	
 }
