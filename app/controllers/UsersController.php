@@ -42,18 +42,13 @@ class UsersController extends \BaseController {
 	{
 		$user = new User();
         Log::info(Input::all());
-		$result= $this->validateAndSave($user);
 		
+		$this->validateAndSave($user);
 
-		if($result) {
-			Auth::login($user);
-			$user = Auth::user();
-			Session::flash('successMessage', 'Your user has been saved.');
-			return Redirect::action('UsersController@show', $user ->id);
-		} else {
-			Session::flash('errorMessage', 'user not saved');
-			return Redirect::back()->withInput();
-		}
+		Auth::login($user);
+		$user = Auth::user();
+		Session::flash('successMessage', 'Your user has been saved.');
+		return Redirect::action('UsersController@show', $user ->id);
 }
 
 	/**
@@ -93,16 +88,10 @@ class UsersController extends \BaseController {
 	{
 		$user = User::find($id);
 		Log::info(Input::all());
-		$result = $this->validateAndSave($user);
+		$this->validateAndSave($user);
 		
-		if($result) {
-			Session::flash('successMessage', 'Your user has been saved.');
-			return Redirect::action('UsersController@show', $user ->id);
-		} else {
-			Session::flash('errorMessage', 'user not saved');
-			return Redirect::back()->withInput();
-		}
-
+		Session::flash('successMessage', 'Your user has been saved.');
+		return Redirect::action('UsersController@show', $user ->id);
 	}
 
 	/**
@@ -135,7 +124,7 @@ class UsersController extends \BaseController {
 			$user->tut_modal = true;
 			$user->qa_modal = true;
 
-			return $user->save();	
+			return $user->save();
 		}
 	}
 
