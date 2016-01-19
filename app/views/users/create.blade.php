@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="text-center" style="padding:50px 0">
-	<div class="logo">register</div>
+	<p class="logo">register</p>
 	<div class="login-form-1">
 		{{ Form::open(array('action' => 'UsersController@store', 'class' => 'text-left', 'id'=>'register-form'))}}
 		
-			@include('users.create-edit');
+			@include('users.create-edit')
 
 		{{ Form::submit('submit') }}	
 		{{ Form::close() }}

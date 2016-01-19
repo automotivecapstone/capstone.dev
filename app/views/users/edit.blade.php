@@ -3,13 +3,14 @@
 @section('content')
 
 <div class="text-center" style="padding:50px 0">
-	<div class="logo">register</div>
-	<div class="login-form-1">
-		{{ Form::open(array('action' => array('UsersController@update', $user->id), 'class' => 'text-left', 'id'=>'register-form'))}}
-		
-			@include('users.create-edit');
+	<p class="logo">register</p>
 
-		{{ Form::submit('submit') }}	
+	<div class="login-form-1">
+		{{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PUT')) }}
+		
+			@include('users.create-edit')
+
+		{{ Form::submit('submit')}}	
 		{{ Form::close() }}
 
 	</div>
