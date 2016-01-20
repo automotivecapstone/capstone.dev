@@ -57,7 +57,7 @@
 							@foreach ($tutorial->comments as $comment)
 							<li class="list-group-item">
 								<div class="commenterImage">
-									<img src="http://lorempixel.com/50/50/people/6" />
+									<img src="{{{ $comment->user->image }}}">
 									{{{ $comment->user->username }}}
 								</div>
 								<div class="commentText">
