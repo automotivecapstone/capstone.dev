@@ -10,8 +10,48 @@
 @section('content')
 	<div>
 		<h2>{{{$user->username}}}'s Profile Page</h2>
-		<a href="/create_tutorial.php">Create a Tutorial</a>
-		<a href="/create_qa.php">Ask a Question</a>
+		<a data-toggle="modal" data-target="#tut_Modal">Create a Tutorial</a>
+		
+
+		<div class="modal fade" id = "tut_Modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Tutorial Modal</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>This is what you need to do to make a tutorial. All the things.</p>
+		        <p>Testing out different lines. Test. Test.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <a type="button" href = "{{{action('TutorialsController@index')}}}"class="btn btn-default">Continue and don't ask me again</a>
+		        <a type="button" href = "{{{action('TutorialsController@index')}}}"class="btn btn-primary">Continue</a>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		<a data-toggle="modal" data-target="#qa_Modal">Ask a Question</a>
+		<div class="modal fade" id = "qa_Modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">Qa Modal</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>This is what you need to do to make a Q/A. All the things.</p>
+		        <p>Testing out different lines.</p>
+		      </div>
+		      <div class="modal-footer">
+		        <a type="button" href = "{{{action('QasController@index')}}}"class="btn btn-default" >Continue and don't ask me again</a>
+		        <a type="button" href = "{{{action('QasController@index')}}}"class="btn btn-primary">Continue</a>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
 		<a href="{{{action('UsersController@edit', $user->id)}}}">Edit Profile</a>
 	</div>
 	
@@ -39,12 +79,17 @@
 	</div>
 	</div>
 
+	
+
 @stop
 
 @section('top-script')
 
 	{{-- CUSTOM JS BELOW --}}
 	<script src="/js/profile.js"></script>
+	<script type="text/javascript">
+
+	</script>
 
 @stop
 
