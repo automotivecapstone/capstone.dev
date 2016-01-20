@@ -26,7 +26,7 @@ class Tutorial extends \Eloquent {
 
 	public function comments()
 	{
-		return $this->belongsToMany('Comment');
+		return $this->hasMany('Comment');
 	}
 
 }
