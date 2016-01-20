@@ -145,6 +145,14 @@ class UsersController extends \BaseController {
 		return Redirect::action('HomeController@showWelcome');
 	}
 
+
+	public function changeTutModal($id)
+	{
+		$user = User::find($id);
+		$user->tut_modal = false;
+		$user->save();
+		return Redirect::action('TutorialsController@create');
+	}
 	
 
 

@@ -29,5 +29,7 @@ Route::resource('comments', 'CommentsController');
 
 Route::resource('users', 'UsersController');
 
+// Route::post('users/update', 'UsersController@changeTutModal');
+
 
 

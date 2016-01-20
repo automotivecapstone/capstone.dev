@@ -25,8 +25,8 @@
 		        <p>Testing out different lines. Test. Test.</p>
 		      </div>
 		      <div class="modal-footer">
-		        <a type="button" href = "{{{action('TutorialsController@index')}}}"class="btn btn-default">Continue and don't ask me again</a>
-		        <a type="button" href = "{{{action('TutorialsController@index')}}}"class="btn btn-primary">Continue</a>
+		        <a type="button" href = "{{{action('UsersController@changeTutModal', $user->id)}}}"class="btn btn-default">Continue and don't ask me again</a>
+		        <a type="button" href = "{{{action('TutorialsController@create')}}}"class="btn btn-primary">Continue</a>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -45,8 +45,8 @@
 		        <p>Testing out different lines.</p>
 		      </div>
 		      <div class="modal-footer">
-		        <a type="button" href = "{{{action('QasController@index')}}}"class="btn btn-default" >Continue and don't ask me again</a>
-		        <a type="button" href = "{{{action('QasController@index')}}}"class="btn btn-primary">Continue</a>
+		        <a type="button" href = "{{{action('QasController@create')}}}"class="btn btn-default" >Continue and don't ask me again</a>
+		        <a type="button" href = "{{{action('QasController@create')}}}"class="btn btn-primary">Continue</a>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
