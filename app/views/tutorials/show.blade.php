@@ -45,7 +45,7 @@
 				
 				{{ Form::close() }}
 
-				{{{ $comment->content }}}
+				
 				
 			</div>
 		</div>
