@@ -31,6 +31,21 @@
 					<p>{{{ $tutorial->content }}}</p>
 					<footer>Created by {{{ $tutorial->user->username }}}, {{{ $tutorial->updated_at->diffForHumans() }}}</footer>
 				</blockquote>
+
+				{{ Form::open(array('action' => 'CommentsController@store')) }}
+
+					<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
+						{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
+						{{ Form::label('content', 'Content') }}
+						{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter your content']) }}
+					</div>
+					<input type="hidden" name="tutorial_id" value="{{{$tutorial->id}}}">
+
+					<button type="submit" class="btn btn-default">Submit</button>
+				
+				{{ Form::close() }}
+
+				{{{ $comment->content }}}
 				
 			</div>
 		</div>

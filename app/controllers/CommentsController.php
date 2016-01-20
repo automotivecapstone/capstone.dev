@@ -31,16 +31,10 @@ class CommentsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Comment::$rules);
+		$comment = new Comment();
+		return $this->validateAndSave($comment);
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
 
-		Comment::create($data);
-
-		return Redirect::route('comments.index');
 	}
 
 	/**
@@ -104,27 +98,31 @@ class CommentsController extends \BaseController {
 		return Redirect::route('comments.index');
 	}
 
-	protected function validateAndSave($post)
+	protected function validateAndSave($comment)
 	{
-		$validator = Validator::make(Input::all(), Post::$rules);
+		$validator = Validator::make(Input::all(), Comment::$rules);
 
 		if ($validator->fails()) {
-	        // validation failed, redirect to the post create page with validation errors and old inputs
+	        // validation failed, redirect to the comment create page with validation errors and old inputs
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
-			$post->title = Input::get('title');
-			$post->body = Input::get('body');
-			$image = Input::file('image');
-			$image->move($destinationPath, $fileName);
-			$post->image = $destinationPath . $filename;
-			$post->user_id = Auth::id();
-
-			$result = $post->save();
+	    	$comment->content = Input::get('content');
+			$comment->user_id = Auth::id();
+			$comment->qa_id = Input::get('qa_id');
+			$comment->tutorial_id = Input::get('tutorial_id');
+			$result = $comment->save();
 
 			if($result) {
-				Session::flash('successMessage', 'Your post has been saved.');
-				return Redirect::action('PostController@show', $post->id);
-			} else {
+				if (Input::has('qa_id'))
+				{
+					Session::flash('successMessage', 'Your comment has been saved.');
+					return Redirect::action('QasController@show', Input::get('qa_id'));
+				}
+					else {
+					Session::flash('successMessage', 'Your comment has been saved.');
+					return Redirect::action('TutorialsController@show', Input::get('tutorial_id'));
+				}
+				} else {
 				return Redirect::back()->withInput();
 			}
 		}
