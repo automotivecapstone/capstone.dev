@@ -42,13 +42,31 @@ class UsersController extends \BaseController {
 	{
 		$user = new User();
         Log::info(Input::all());
-		
-		$this->validateAndSave($user);
 
-		Auth::login($user);
-		$user = Auth::user();
-		Session::flash('successMessage', 'Your user has been saved.');
-		return Redirect::action('UsersController@show', $user ->id);
+		$validator = Validator::make(Input::all(), User::$rules);
+
+		if ($validator->fails()) {
+	        // validation failed, redirect to the tutorial create page with validation errors and old inputs
+	        Session::flash('errorMessage', 'Validation failed');
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$user->username = Input::get('username');
+			$user->email = Input::get('email');
+			$user->password = Input::get('password');
+			$user->tut_modal = true;
+			$user->qa_modal = true;
+
+			$user->save();
+
+			Auth::login($user);
+			$user = Auth::user();
+
+			Session::flash('successMessage', 'Your user has been saved.');
+			return Redirect::action('UsersController@show', $user ->id);
+		}
+
+		
+		
 }
 
 	/**
@@ -88,10 +106,28 @@ class UsersController extends \BaseController {
 	{
 		$user = User::find($id);
 		Log::info(Input::all());
-		$this->validateAndSave($user);
+
+		$validator = Validator::make(Input::all(), User::$rules);
+
+		if ($validator->fails()) {
+	        // validation failed, redirect to the tutorial create page with validation errors and old inputs
+	        Session::flash('errorMessage', 'Validation failed');
+	        return Redirect::back()->withInput()->withErrors($validator);
+	    } else {
+			$user->username = Input::get('username');
+			$user->email = Input::get('email');
+			$user->password = Input::get('password');
+			$user->tut_modal = true;
+			$user->qa_modal = true;
+
+			$user->save();
+
+			Session::flash('successMessage', 'Your user has been saved.');
+			return Redirect::action('UsersController@show', $user ->id);
+		}
+	
 		
-		Session::flash('successMessage', 'Your user has been saved.');
-		return Redirect::action('UsersController@show', $user ->id);
+		
 	}
 
 	/**
@@ -109,24 +145,7 @@ class UsersController extends \BaseController {
 		return Redirect::action('HomeController@showWelcome');
 	}
 
-	protected function validateAndSave($user)
-	{
-		$validator = Validator::make(Input::all(), User::$rules);
-
-		if ($validator->fails()) {
-	        // validation failed, redirect to the tutorial create page with validation errors and old inputs
-	        Session::flash('errorMessage', 'Validation failed');
-	        return Redirect::back()->withInput()->withErrors($validator);
-	    } else {
-			$user->username = Input::get('username');
-			$user->email = Input::get('email');
-			$user->password = Input::get('password');
-			$user->tut_modal = true;
-			$user->qa_modal = true;
-
-			return $user->save();
-		}
-	}
+	
 
 
 }
