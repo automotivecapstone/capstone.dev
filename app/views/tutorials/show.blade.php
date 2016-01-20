@@ -32,25 +32,46 @@
 					<footer>Created by {{{ $tutorial->user->username }}}, {{{ $tutorial->updated_at->diffForHumans() }}}</footer>
 				</blockquote>
 
-				{{ Form::open(array('action' => 'CommentsController@store')) }}
 
-					<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
-						{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
-						{{ Form::label('content', 'Comment') }}
-						{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter your comment']) }}
+					{{ Form::open(array('action' => 'CommentsController@store')) }}
+							{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
+							{{ Form::label('content', 'Comment') }}
+						<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
+							{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
+						</div>
+						<div class="form-group">
+							<input type="hidden" name="tutorial_id" value="{{{$tutorial->id}}}">
+							<button class="btn btn-default">Add</button>
+						</div>
+					{{ Form::close() }}
+
+				<div class="detailBox">
+					<div class="titleBox">
+						<label>Comments</label>
 					</div>
-					<input type="hidden" name="tutorial_id" value="{{{$tutorial->id}}}">
+					<div class="commentBox">
+						<p class="taskDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+					</div>
+					<div class="">
+						<ul class="list-group">
+							@foreach ($tutorial->comments as $comment)
+							<li class="list-group-item">
+								<div class="commenterImage">
+									<img src="http://lorempixel.com/50/50/people/6" />
+									{{{ $comment->user->username }}}
+								</div>
+								<div class="commentText">
+									<blockquote>
+										<p>{{{ $comment->content }}}</p>
+										<footer>{{{ $comment->created_at->diffForHumans() }}}</footer>
+									</blockquote>
+								</div>
+							</li>
+							@endforeach
+						</ul>
 
-					<button type="submit" class="btn btn-default">Submit</button>
-				
-				{{ Form::close() }}
-
-
-
-				@foreach ($tutorial->comments as $comment)
-					<p>{{ $comment->content }}</p>
-				@endforeach
-				
+					</div>
+				</div>
 				
 			</div>
 		</div>
