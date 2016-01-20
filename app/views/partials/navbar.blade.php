@@ -37,6 +37,9 @@
 
 	                    {{-- CHECK IF LOGGED IN AND SHOW LOGOUT BUTTON --}}
 	                    @if (Auth::check())
+	                    	 <li class="">
+		                        <a class="page-scroll" href="{{action('UsersController@show', Auth::user()->id)}}">Profile</a>
+		                    </li>
 		                    <li class="">
 		                        <a class="page-scroll" href="{{ action('HomeController@getLogout') }}">Logout</a>
 		                    </li>
