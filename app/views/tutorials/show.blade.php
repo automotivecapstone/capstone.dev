@@ -36,8 +36,8 @@
 
 					<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
 						{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
-						{{ Form::label('content', 'Content') }}
-						{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter your content']) }}
+						{{ Form::label('content', 'Comment') }}
+						{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter your comment']) }}
 					</div>
 					<input type="hidden" name="tutorial_id" value="{{{$tutorial->id}}}">
 
@@ -45,7 +45,11 @@
 				
 				{{ Form::close() }}
 
-				{{{ $comment->content }}}
+
+				@foreach ($tutorial->comments as $comment)
+					<p>{{ $comment->content }}</p>
+				@endforeach
+				
 				
 			</div>
 		</div>
