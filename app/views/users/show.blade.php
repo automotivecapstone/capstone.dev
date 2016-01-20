@@ -10,7 +10,7 @@
 @section('content')
 	<div>
 		<h2>{{{$user->username}}}'s Profile Page</h2>
-		<a data-toggle="modal" data-target="#tut_Modal">Create a Tutorial</a>
+		<a id="tutajaxlistener">Create a Tutorial</a>
 		
 
 		<div class="modal fade" id = "tut_Modal" tabindex="-1" role="dialog">
@@ -25,14 +25,14 @@
 		        <p>Testing out different lines. Test. Test.</p>
 		      </div>
 		      <div class="modal-footer">
-		        <a type="button" href = "{{{action('UsersController@changeTutModal', $user->id)}}}"class="btn btn-default">Continue and don't ask me again</a>
+		        <a type="button" id = "tutskipbutton" class="btn btn-default">Continue and don't ask me again</a>
 		        <a type="button" href = "{{{action('TutorialsController@create')}}}"class="btn btn-primary">Continue</a>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 
-		<a data-toggle="modal" data-target="#qa_Modal">Ask a Question</a>
+		<a id="qaajaxlistener">Ask a Question</a>
 		<div class="modal fade" id = "qa_Modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -45,7 +45,7 @@
 		        <p>Testing out different lines.</p>
 		      </div>
 		      <div class="modal-footer">
-		        <a type="button" href = "{{{action('QasController@create')}}}"class="btn btn-default" >Continue and don't ask me again</a>
+		        <a type="button" id = "qaskipbutton" class="btn btn-default" >Continue and don't ask me again</a>
 		        <a type="button" href = "{{{action('QasController@create')}}}"class="btn btn-primary">Continue</a>
 		      </div>
 		    </div><!-- /.modal-content -->
@@ -83,12 +83,84 @@
 
 @stop
 
-@section('top-script')
+@section('bottom-script')
 
 	{{-- CUSTOM JS BELOW --}}
 	<script src="/js/profile.js"></script>
 	<script type="text/javascript">
+		console.log($("#tutajaxlistener").length);
+		$("#tutajaxlistener").click(function(e){
+			console.log('XXXX');
+			var request = $.ajax("/tutcheck/{{{Auth::id()}}}");
 
+			request.fail(function(data){
+				console.log("Good Try. Try again");
+			});
+
+			request.done(function(data){
+				console.log(data);
+				if(data.check == 1){
+					console.log("made it to if");
+					$('#tut_Modal').modal('show');
+				} else {
+					window.location.href = "/tutorials/create";
+				}
+			});
+		});
+
+		$("#tutskipbutton").click(function(e){
+			console.log('XXXX');
+			var request = $.ajax("/tutupdate/{{{Auth::id()}}}");
+
+			request.fail(function(data){
+				console.log("Good Try. Try again");
+			});
+
+			request.done(function(data){
+				console.log(data);
+				if(data.save == true){
+					console.log("made it through the if");
+					// window.location.href = "/tutorials/create";
+				}
+			});
+		});
+
+		$("#qaajaxlistener").click(function(e){
+			console.log('XXXX');
+			var request = $.ajax("/qacheck/{{{Auth::id()}}}");
+
+			request.fail(function(data){
+				console.log("Good Try. Try again");
+			})
+
+			request.done(function(data){
+				console.log(data);
+				if(data.check == 1){
+					console.log("made it to if");
+					$('#qa_Modal').modal('show');
+				} else {
+					window.location.href = "/qas/create";
+				}
+			})
+		});
+
+		$("#qaskipbutton").click(function(e){
+			console.log('XXXX');
+			var request = $.ajax("/qaupdate/{{{Auth::id()}}}");
+
+			request.fail(function(data){
+				console.log("Good Try. Try again");
+			});
+
+			request.done(function(data){
+				console.log(data);
+				if(data.save == true){
+					window.location.href = "/qas/create";
+				}
+			});
+		});
+
+		
 	</script>
 
 @stop

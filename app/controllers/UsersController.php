@@ -151,7 +151,31 @@ class UsersController extends \BaseController {
 		$user = User::find($id);
 		$user->tut_modal = false;
 		$user->save();
-		return Redirect::action('TutorialsController@create');
+		return Response::json(['save'=>true]);
+
+		// return Redirect::action('TutorialsController@create');
+	}
+
+	public function changeQaModal($id)
+	{
+		$user = User::find($id);
+		$user->qa_modal = false;
+		$user->save();
+		return Response::json(['save'=>true]);
+
+		// return Redirect::action('TutorialsController@create');
+	}
+
+	public function checkTutModal($id)
+	{
+		$user=User::find($id);
+		return Response::json(['check'=>$user->tut_modal]);
+	}
+
+	public function checkQaModal($id)
+	{
+		$user=User::find($id);
+		return Response::json(['check'=>$user->qa_modal]);
 	}
 	
 
