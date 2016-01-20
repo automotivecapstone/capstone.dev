@@ -17,7 +17,7 @@ class Comment extends \Eloquent {
 
     public function tutorial()
     {
-    	return $this->belongsTo('Tutorial');
+    	return $this->belongsTo('Tutorial')->orderBy('created_at', 'desc');
     }
 
     public function qa()

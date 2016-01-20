@@ -46,6 +46,7 @@
 				{{ Form::close() }}
 
 
+
 				@foreach ($tutorial->comments as $comment)
 					<p>{{ $comment->content }}</p>
 				@endforeach
