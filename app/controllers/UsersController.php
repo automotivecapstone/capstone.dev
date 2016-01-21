@@ -79,7 +79,9 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
-		return View::make('users.show')->with('user', $user);
+		$tags = Tag::with('tutorials')->get();
+		// return View::make('users.show')->with('user', $user);
+		return View::make('users.show', compact('user', 'tags'));
 	}
 
 	/**
