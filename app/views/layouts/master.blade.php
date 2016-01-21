@@ -43,5 +43,6 @@
 		<!-- CUSTOM JS BELOW -->
 		@include('partials.footer')
 		@yield('bottom-script')
+		<script id="dsq-count-scr" src="//autocapstone.disqus.com/count.js" async></script>	
 	</body>
 </html>
