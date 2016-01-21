@@ -1,0 +1,17 @@
+@font-face {
+    font-family: magnetoFont;
+    src: url(MAGNETOB.TTF);
+}
+
+.font-magneto {
+    font-family: magnetoFont;
+}
+
+@font-face {
+    font-family: monkeyFont;
+    src: url(robotic-attack-fonts_monkey-chunks/mnkchunk.ttf);
+}
+
+.font-monkey{
+    font-family: monkeyFont;
+}
