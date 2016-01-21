@@ -21,7 +21,7 @@ Route::get('logout', 'HomeController@getLogout');
 
 Route::get('/tutcheck/{id}', 'UsersController@checkTutModal');
 
-Route::post('/tutupdate/{id}', 'UsersController@changeTutModal');
+Route::get('/tutupdate/{id}', 'UsersController@changeTutModal');
 
 Route::get('/qacheck/{id}', 'UsersController@checkQaModal');
 

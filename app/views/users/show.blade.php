@@ -87,10 +87,9 @@
 
 	{{-- CUSTOM JS BELOW --}}
 	<script src="/js/profile.js"></script>
+
 	<script type="text/javascript">
-		console.log($("#tutajaxlistener").length);
 		$("#tutajaxlistener").click(function(e){
-			console.log('XXXX');
 			var request = $.ajax("/tutcheck/{{{Auth::id()}}}");
 
 			request.fail(function(data){
@@ -98,9 +97,7 @@
 			});
 
 			request.done(function(data){
-				console.log(data);
 				if(data.check == 1){
-					console.log("made it to if");
 					$('#tut_Modal').modal('show');
 				} else {
 					window.location.href = "/tutorials/create";
@@ -109,7 +106,6 @@
 		});
 
 		$("#tutskipbutton").click(function(e){
-			console.log('XXXX');
 			var request = $.ajax("/tutupdate/{{{Auth::id()}}}");
 
 			request.fail(function(data){
@@ -117,16 +113,13 @@
 			});
 
 			request.done(function(data){
-				console.log(data);
 				if(data.save == true){
-					console.log("made it through the if");
-					// window.location.href = "/tutorials/create";
+					window.location.href = "/tutorials/create";
 				}
 			});
 		});
 
 		$("#qaajaxlistener").click(function(e){
-			console.log('XXXX');
 			var request = $.ajax("/qacheck/{{{Auth::id()}}}");
 
 			request.fail(function(data){
@@ -134,9 +127,7 @@
 			})
 
 			request.done(function(data){
-				console.log(data);
 				if(data.check == 1){
-					console.log("made it to if");
 					$('#qa_Modal').modal('show');
 				} else {
 					window.location.href = "/qas/create";
@@ -145,7 +136,6 @@
 		});
 
 		$("#qaskipbutton").click(function(e){
-			console.log('XXXX');
 			var request = $.ajax("/qaupdate/{{{Auth::id()}}}");
 
 			request.fail(function(data){
@@ -153,14 +143,11 @@
 			});
 
 			request.done(function(data){
-				console.log(data);
 				if(data.save == true){
 					window.location.href = "/qas/create";
 				}
 			});
 		});
-
-		
 	</script>
 
 @stop
