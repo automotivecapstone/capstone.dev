@@ -17,6 +17,7 @@ class TutorialsTableSeeder extends Seeder {
             'content'=> $faker->paragraph,
             'description'=> $faker->sentence,
             'image'=>'/uploaded/stockimage.png',
+            'video' => '/uploaded/traffic.mov',
             'user_id'=>$user->id
 			]);
 		}

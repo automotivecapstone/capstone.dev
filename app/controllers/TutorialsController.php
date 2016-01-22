@@ -115,13 +115,20 @@ class TutorialsController extends \BaseController {
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 	    	
+			$tutorial->title = Input::get('title');
+			$tutorial->content = Input::get('content');
+
 	    	$image = Input::file('image');
 			$filename = $image->getClientOriginalName();
 
-			$tutorial->title = Input::get('title');
-			$tutorial->content = Input::get('content');
+			$video = Input::file('video');
+			$filenameVideo = $video->getClientOriginalName();
+			
 			$tutorial->image = '/uploaded/' . $filename;
 			$image->move('uploaded/', $filename);
+
+			$tutorial->video = '/uploaded/' . $filenameVideo;
+			$video->move('uploaded/', $filenameVideo);
 
 			$tutorial->user_id = Auth::id();
 

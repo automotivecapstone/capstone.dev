@@ -20,6 +20,7 @@
 						<th>Title</th>
 						<th>Content</th>
 						<th>Image</th>
+						<th>Video</th>
 						<th>Created</th>
 					</tr>
 				</thead>
@@ -29,6 +30,13 @@
 								<td><a href="{{{ action('TutorialsController@show', $tutorial->id) }}}" class="tutorials-title">{{{ $tutorial->title }}}</a></td>
 								<td>{{{ $tutorial->content }}}</td>
 								<td><img src="{{{ $tutorial->image }}}" class="tutorial-image"></td>
+								<td>
+									<div class="media">
+										<div class="media-body">
+											<iframe width="560" height="315" src="{{{ $tutorial->video }}}" frameborder="0" allowfullscreen></iframe>
+										</div>
+									</div>
+								</td>
 								<td>{{{ $tutorial->created_at->diffForHumans() }}}</td>
 							</tr>
 						@endforeach

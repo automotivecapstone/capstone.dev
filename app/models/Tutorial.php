@@ -8,11 +8,12 @@ class Tutorial extends \Eloquent {
 	public static $rules = array(
 	    'title'      => 'required|min:2|max:100',
 	    'content'    => 'required|min:2|max:10000',
-	    'image'		 => 'image'
+	    'image'		 => 'image',
+	    'video'		 => 'video'
 	);
 
 	// Don't forget to fill this array
-    protected $fillable = array('title', 'content', 'image');
+    protected $fillable = array('title', 'content', 'image', 'video');
 
 	public function user()
     {
