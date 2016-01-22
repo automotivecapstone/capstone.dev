@@ -36,7 +36,10 @@ class QasController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('qas.create');
+		$tags = Tag::with('tutorials','qas')->get();
+		// return View::make('qas.create');
+		return View::make('qas.create', compact('tags'));
+
 	}
 
 	/**
@@ -65,7 +68,9 @@ class QasController extends \BaseController {
 			App::abort(404);
 		}
 
-		return View::make('qas.show')->with('qa', $qa);
+		// return View::make('qas.show')->with('qa', $qa);
+		return View::make('qas.show', compact('qa', 'tags'));
+
 	}
 
 	/**
@@ -121,6 +126,10 @@ class QasController extends \BaseController {
 			$qa->user_id = Auth::id();
 
 			$result = $qa->save();
+
+			$qatags = Input::has('qatags') ? Input::get('qatags') : array();
+			$qa->tags()->sync($qatags);
+			$qa->save();
 
 			if($result) {
 				Session::flash('successMessage', 'Your post has been saved.');

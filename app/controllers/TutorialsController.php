@@ -36,7 +36,10 @@ class TutorialsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('tutorials.create');
+		$tags = Tag::with('tutorials','qas')->get();
+		// return View::make('tutorials.create');
+		return View::make('tutorials.create', compact('tags'));
+
 	}
 
 	/**
@@ -65,7 +68,9 @@ class TutorialsController extends \BaseController {
 			App::abort(404);
 		}
 
-		return View::make('tutorials.show')->with('tutorial', $tutorial);
+		// return View::make('tutorials.show')->with('tutorial', $tutorial);
+		return View::make('tutorials.show', compact('tutorial'));
+
 	}
 
 	/**
@@ -138,6 +143,10 @@ class TutorialsController extends \BaseController {
 			$tutorial->user_id = Auth::id();
 
 			$result = $tutorial->save();
+
+			$tutorialtags = Input::has('tuttags') ? Input::get('tuttags') : array();
+			$tutorial->tags()->sync($tutorialtags);
+			$tutorial->save();
 
 			if($result) {
 				Session::flash('successMessage', 'Your tutorial has been saved.');

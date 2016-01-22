@@ -33,6 +33,13 @@
                 {{ Form::file('image') }}
             </div>
 
+            <div>
+                @foreach($tags as $tag)
+                    {{ Form::label('qatags[]', $tag->name)}}
+                    {{ Form::checkbox('qatags[]', $tag->id)}}
+                @endforeach 
+            </div>
+
             <button type="submit" class="btn btn-default">Submit</button>
         {{ Form::close() }}
 	</div>

@@ -120,6 +120,10 @@ class TagsController extends \BaseController {
 
 			$result = $post->save();
 
+			$qatags = Input::has('addtags') ? Input::get('addtags') : array();
+			$qa->tags()->sync($qatags);
+			$qa->save();
+
 			if($result) {
 				Session::flash('successMessage', 'Your post has been saved.');
 				return Redirect::action('TagsController@show', $tag->id);

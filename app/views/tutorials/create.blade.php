@@ -39,6 +39,13 @@
 				{{ Form::file('video', null) }}
 			</div>
 
+			<div>
+				@foreach($tags as $tag)
+					{{ Form::label('tuttags[]', $tag->name)}}
+					{{ Form::checkbox('tuttags[]', $tag->id)}}
+				@endforeach 
+			</div>
+
 			<button type="submit" class="btn btn-default">Submit</button>
 		{{ Form::close() }}
 	</div>

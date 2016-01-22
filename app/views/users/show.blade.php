@@ -10,9 +10,8 @@
 @section('content')
 	<div>
 		<h2>{{{$user->username}}}'s Profile Page</h2>
-		<a id="tutajaxlistener">Create a Tutorial</a>
-		
 
+		<a id="tutajaxlistener">Create a Tutorial</a>
 		<div class="modal fade" id = "tut_Modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -53,6 +52,39 @@
 		</div><!-- /.modal -->
 
 		<a href="{{{action('UsersController@edit', $user->id)}}}">Edit Profile</a>
+
+		<a id="userajaxlistener" data-toggle="modal" data-target="#usertag_Modal">User Tags</a>
+		<div class="modal fade" id = "usertag_Modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">UserTag Modal</h4>
+		      </div>
+		      <div class="modal-body">
+
+		        {{ Form::model($user, array('action' => array('HomeController@addTagsToUser'), 'method' => 'POST')) }}
+				
+				
+				@foreach($tags as $tag)
+					{{ Form::label('usertags[]', $tag->name)}}
+					{{ Form::checkbox('usertags[]', $tag->id)}}
+				@endforeach 
+
+				{{ Form::label('addtag', "Don't see a tag? Add it here!")}}
+				{{ Form::text('addtag', null,array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
+
+				{{ Form::submit('Add tags')}}
+				{{ Form::close()}}
+		      </div>
+		      <div class="modal-footer">
+		        <a type="button" id = "" class="btn btn-default" data-dismiss="modal">Close</a>
+		        <a type="button" href = ""class="btn btn-primary">Save</a>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
 	</div>
 
 
@@ -60,6 +92,7 @@
 
 	<div class="container">
 	<div class="col-md-12">
+		<h1>Tutorials</h1>
 		<ul>
 		@foreach ($user->tags()->get() as $tag)
 			@foreach($tag->tutorials()->get() as $tutorial)
@@ -77,7 +110,7 @@
 	<span class="label label-danger">Danger</span></div>         
 	     </div>
 	    <hr>
-
+	    <h1>Q/As</h1>
 	    <ul>
 		@foreach ($user->tags()->get() as $tag)
 			@foreach($tag->qas()->get() as $qa)

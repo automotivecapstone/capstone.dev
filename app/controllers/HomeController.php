@@ -52,4 +52,22 @@ class HomeController extends BaseController {
 		return Redirect::action('HomeController@showWelcome');
 	}
 
+	public function addTagsToUser()
+	{
+		$user = User::find(Auth::id());
+		$usertags = Input::has('usertags') ? Input::get('usertags') : array();
+
+		if (Input::has('addtag'))
+		{
+			$newtag = new Tag();
+			$newtag->name =Input::get('addtag');
+			$newtag->save();
+			array_push($usertags, $newtag->id);
+		}
+		$user->tags()->sync($usertags);
+		$user->save();
+		
+		return Redirect::action('UsersController@show', $user->id);
+
+	}
 }
