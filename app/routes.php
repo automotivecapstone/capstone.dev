@@ -19,6 +19,14 @@ Route::post('login', 'HomeController@postLogin');
 
 Route::get('logout', 'HomeController@getLogout');
 
+Route::get('/tutcheck/{id}', 'UsersController@checkTutModal');
+
+Route::get('/tutupdate/{id}', 'UsersController@changeTutModal');
+
+Route::get('/qacheck/{id}', 'UsersController@checkQaModal');
+
+Route::get('/qaupdate/{id}', 'UsersController@updateQaModal');
+
 Route::resource('tutorials', 'TutorialsController');
 
 Route::resource('qas', 'QasController');
@@ -28,6 +36,8 @@ Route::resource('tags', 'TagsController');
 Route::resource('comments', 'CommentsController');
 
 Route::resource('users', 'UsersController');
+
+
 
 
 
