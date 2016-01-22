@@ -1,0 +1,29 @@
+@font-face {
+    font-family: magnetoFont;
+    src: url(MAGNETOB.TTF);
+}
+
+.font-magneto {
+    font-family: magnetoFont;
+    color: #5E3F23;
+    font-size: 72px;
+}
+
+@font-face {
+    font-family: monkeyFont;
+    src: url(robotic-attack-fonts_monkey-chunks/mnkchunk.ttf);
+}
+
+.font-monkey{
+    font-family: monkeyFont;
+    color: #5E3F23;
+    font-size: 72px;
+}
+
+.monkey-logo {
+	src: url(monkey.png);
+}
+
+.title {
+	text-align: center;
+}
