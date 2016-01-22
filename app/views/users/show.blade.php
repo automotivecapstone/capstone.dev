@@ -72,7 +72,7 @@
 				@endforeach 
 
 				{{ Form::label('addtag', "Don't see a tag? Add it here!")}}
-				{{ Form::text('addtag', null,array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
+				{{ Form::text('addtag', null, array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
 
 				{{ Form::submit('Add tags')}}
 				{{ Form::close()}}
@@ -133,6 +133,7 @@
 
 	{{-- CUSTOM JS BELOW --}}
 	<script src="/js/profile.js"></script>
+	<script src="/js/jquery-ui.js"></script>
 
 	<script type="text/javascript">
 		$("#tutajaxlistener").click(function(e){
@@ -193,6 +194,15 @@
 					window.location.href = "/qas/create";
 				}
 			});
+		});
+
+		$('#addtag').autocomplete({
+			source: jQuery.parseJSON("{{{action('TagsController@index')}}}"),
+			minLength: 2,
+			select: function(e, ui){
+				console.log(ui);
+				$('#addtag').val(ui.item.value);
+			}
 		});
 	</script>
 
