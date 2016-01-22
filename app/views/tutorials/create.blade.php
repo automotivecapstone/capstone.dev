@@ -13,7 +13,7 @@
 		<div class="subheader">Do it now!!!!</div>
 		<hr>
 
-		{{ Form::open(array('action' => 'TutorialsController@store', 'enctype' => 'multipart/form-data', 'files' => true)) }}
+		{{ Form::open(array('method' => 'post', 'action' => 'TutorialsController@store', 'files' => true)) }}
 
 			<div class="form-group {{ ($errors->has('title')) ? 'has-error' : '' }}">
 				{{ $errors->first('title', '<div class="alert alert-danger">:message</div>') }}

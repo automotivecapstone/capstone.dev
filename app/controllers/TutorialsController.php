@@ -111,6 +111,7 @@ class TutorialsController extends \BaseController {
 		$validator = Validator::make(Input::all(), Tutorial::$rules);
 
 		if ($validator->fails()) {
+			dd($validator->messages());
 	        // validation failed, redirect to the tutorial create page with validation errors and old inputs
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
@@ -119,16 +120,20 @@ class TutorialsController extends \BaseController {
 			$tutorial->content = Input::get('content');
 
 	    	$image = Input::file('image');
-			$filename = $image->getClientOriginalName();
+			if ($image) {
+				$filename = $image->getClientOriginalName();
+				$tutorial->image = '/uploaded/' . $filename;
+				$image->move('uploaded/', $filename);
+			}
 
 			$video = Input::file('video');
-			$filenameVideo = $video->getClientOriginalName();
+			if ($video) {
+				$filenameVideo = $video->getClientOriginalName();
+				$tutorial->video = '/uploaded/' . $filenameVideo;
+				$video->move('uploaded/', $filenameVideo);
+			}
 			
-			$tutorial->image = '/uploaded/' . $filename;
-			$image->move('uploaded/', $filename);
 
-			$tutorial->video = '/uploaded/' . $filenameVideo;
-			$video->move('uploaded/', $filenameVideo);
 
 			$tutorial->user_id = Auth::id();
 

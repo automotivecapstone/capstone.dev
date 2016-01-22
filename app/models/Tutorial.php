@@ -9,7 +9,7 @@ class Tutorial extends \Eloquent {
 	    'title'      => 'required|min:2|max:100',
 	    'content'    => 'required|min:2|max:10000',
 	    'image'		 => 'image',
-	    'video'		 => 'video'
+	    'video'  	 => 'max:50000'
 	);
 
 	// Don't forget to fill this array
