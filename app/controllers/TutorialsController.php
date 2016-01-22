@@ -36,7 +36,10 @@ class TutorialsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('tutorials.create');
+		$tags = Tag::with('tutorials','qas')->get();
+		// return View::make('tutorials.create');
+		return View::make('tutorials.create', compact('tags'));
+
 	}
 
 	/**
@@ -65,7 +68,9 @@ class TutorialsController extends \BaseController {
 			App::abort(404);
 		}
 
-		return View::make('tutorials.show')->with('tutorial', $tutorial);
+		// return View::make('tutorials.show')->with('tutorial', $tutorial);
+		return View::make('tutorials.show', compact('tutorial'));
+
 	}
 
 	/**
