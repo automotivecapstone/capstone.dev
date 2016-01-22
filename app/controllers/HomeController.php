@@ -70,4 +70,6 @@ class HomeController extends BaseController {
 		return Redirect::action('UsersController@show', $user->id);
 
 	}
+
+	public function
 }

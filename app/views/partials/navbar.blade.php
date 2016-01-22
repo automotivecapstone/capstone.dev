@@ -10,18 +10,14 @@
 				<div class="col-sm-3 col-md-3 pull-left">
 					
 					{{-- CHECK IF LOGGED IN AND SHOW SEARCH BAR --}}
-					@if (Auth::check() && Request::is('tags'))
-
-						{{ Form::open(array('action' => array('TagsController@index'), 'method' => 'GET')) }}
+						{{ Form::open(array('action' => array('HomeController@search'), 'method' => 'GET')) }}
 							<div class="input-group">
-							{{ Form::text('search', $search, ['class' => 'form-control', 'placeholder' => 'Search']) }}
+							{{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search']) }}
 								<div class="input-group-btn">
 									<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
 								</div>
 							</div>
 						{{ Form::close() }}
-
-					@endif
 				</div>
 	            
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
