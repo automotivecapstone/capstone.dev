@@ -139,6 +139,10 @@ class TutorialsController extends \BaseController {
 
 			$result = $tutorial->save();
 
+			$tutorialtags = Input::has('tuttags') ? Input::get('tuttags') : array();
+			$tutorial->tags()->sync($tutorialtags);
+			$tutorial->save();
+
 			if($result) {
 				Session::flash('successMessage', 'Your tutorial has been saved.');
 				return Redirect::action('TutorialsController@show', $tutorial->id);
