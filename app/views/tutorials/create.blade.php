@@ -41,8 +41,8 @@
 
 			<div>
 				@foreach($tags as $tag)
-					{{ Form::label('usertags[]', $tag->name)}}
-					{{ Form::checkbox('usertags[]', $tag->id)}}
+					{{ Form::label('tuttags[]', $tag->name)}}
+					{{ Form::checkbox('tuttags[]', $tag->id)}}
 				@endforeach 
 			</div>
 

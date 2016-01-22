@@ -127,6 +127,10 @@ class QasController extends \BaseController {
 
 			$result = $qa->save();
 
+			$qatags = Input::has('qatags') ? Input::get('qatags') : array();
+			$qa->tags()->sync($qatags);
+			$qa->save();
+
 			if($result) {
 				Session::flash('successMessage', 'Your post has been saved.');
 				return Redirect::action('QasController@show', $qa->id);
