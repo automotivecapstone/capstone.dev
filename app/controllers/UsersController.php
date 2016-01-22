@@ -79,7 +79,7 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
-		$tags = Tag::with('tutorials')->get();
+		$tags = Tag::with('tutorials','qas')->get();
 		// return View::make('users.show')->with('user', $user);
 		return View::make('users.show', compact('user', 'tags'));
 	}
@@ -179,6 +179,8 @@ class UsersController extends \BaseController {
 		$user=User::find($id);
 		return Response::json(['check'=>$user->qa_modal]);
 	}
+
+	
 	
 
 
