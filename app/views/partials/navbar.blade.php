@@ -27,6 +27,9 @@
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	            	<ul class="nav navbar-nav navbar-left">
 	            		<li>
+	            			<a href="{{action('HomeController@showWelcome')}}">GreaseMonkey</a>
+	            		</li>
+	            		<li>
 	            			<a href="{{ action('TutorialsController@index') }}">Tutorials</a>
 	            		</li>
 	            		<li>

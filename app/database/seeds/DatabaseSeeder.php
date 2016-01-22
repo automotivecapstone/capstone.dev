@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('Qa_TagTableSeeder');
 		$this->call('TagUserTableSeeder');
 
+
 	}
 
 }
