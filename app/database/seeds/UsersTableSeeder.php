@@ -11,8 +11,9 @@ class UsersTableSeeder extends Seeder {
 		$user->username = 'admin';
 		$user->email = 'info@codeup.com';
 		$user->password = $_ENV['DB_PASS'];
-		$user->tut_modal= true;
-        $user->qa_modal= true;
+		$user->image = '/uploaded/stockimage.png';
+		$user->tut_modal = true;
+        $user->qa_modal = true;
 		$user->save();
 
 		$faker = Faker::create();
@@ -23,6 +24,7 @@ class UsersTableSeeder extends Seeder {
             'username' => $faker->name,
             'email' => $faker->email,
             'password' => 'secret',
+            'image' => $faker->image,
             'tut_modal'=>true,
             'qa_modal'=>true
 			]);

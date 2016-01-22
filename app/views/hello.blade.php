@@ -10,8 +10,13 @@
 
 @section('content')
 
-	<h1 class="font-magneto">Grease Monkey</h1>
-	<h1 class="font-monkey">Grease Monkey</h1>
+	<div class="title">
+	<h1><span class="font-magneto">Grease   </span><span class="font-monkey">Monkey</span></h1>
+	<img src="/css/monkey2.png">
+	</div>
+
+
+
 @stop
 
 @section('top-script')

@@ -36,7 +36,10 @@ class QasController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('qas.create');
+		$tags = Tag::with('tutorials','qas')->get();
+		// return View::make('qas.create');
+		return View::make('qas.create', compact('tags'));
+
 	}
 
 	/**
@@ -65,7 +68,9 @@ class QasController extends \BaseController {
 			App::abort(404);
 		}
 
-		return View::make('qas.show')->with('qa', $qa);
+		// return View::make('qas.show')->with('qa', $qa);
+		return View::make('qas.show', compact('qa', 'tags'));
+
 	}
 
 	/**

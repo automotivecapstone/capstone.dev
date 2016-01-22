@@ -5,6 +5,8 @@
 
 .font-magneto {
     font-family: magnetoFont;
+    color: #5E3F23;
+    font-size: 72px;
 }
 
 @font-face {
@@ -14,4 +16,14 @@
 
 .font-monkey{
     font-family: monkeyFont;
+    color: #5E3F23;
+    font-size: 72px;
+}
+
+.monkey-logo {
+	src: url(monkey.png);
+}
+
+.title {
+	text-align: center;
 }

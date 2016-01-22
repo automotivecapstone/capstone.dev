@@ -3,7 +3,7 @@
 	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
-	   			<a class="navbar-brand page-scroll" href="{{ action('HomeController@showWelcome') }}">Captain Capstone</a>
+	   			<a class="navbar-brand page-scroll" href="{{ action('HomeController@showWelcome') }}"></a>
 	     	</div>
 	     	
 

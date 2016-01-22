@@ -79,7 +79,9 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
-		return View::make('users.show')->with('user', $user);
+		$tags = Tag::with('tutorials','qas')->get();
+		// return View::make('users.show')->with('user', $user);
+		return View::make('users.show', compact('user', 'tags'));
 	}
 
 	/**
@@ -145,6 +147,40 @@ class UsersController extends \BaseController {
 		return Redirect::action('HomeController@showWelcome');
 	}
 
+
+	public function changeTutModal($id)
+	{
+		$user = User::find($id);
+		$user->tut_modal = false;
+		$user->save();
+		return Response::json(['save'=>true]);
+
+		// return Redirect::action('TutorialsController@create');
+	}
+
+	public function changeQaModal($id)
+	{
+		$user = User::find($id);
+		$user->qa_modal = false;
+		$user->save();
+		return Response::json(['save'=>true]);
+
+		// return Redirect::action('TutorialsController@create');
+	}
+
+	public function checkTutModal($id)
+	{
+		$user=User::find($id);
+		return Response::json(['check'=>$user->tut_modal]);
+	}
+
+	public function checkQaModal($id)
+	{
+		$user=User::find($id);
+		return Response::json(['check'=>$user->qa_modal]);
+	}
+
+	
 	
 
 

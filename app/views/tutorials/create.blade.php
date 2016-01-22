@@ -13,7 +13,7 @@
 		<div class="subheader">Do it now!!!!</div>
 		<hr>
 
-		{{ Form::open(array('action' => 'TutorialsController@store', 'files' => true)) }}
+		{{ Form::open(array('action' => 'TutorialsController@store', 'enctype' => 'multipart/form-data', 'files' => true)) }}
 
 			<div class="form-group {{ ($errors->has('title')) ? 'has-error' : '' }}">
 				{{ $errors->first('title', '<div class="alert alert-danger">:message</div>') }}
@@ -31,6 +31,19 @@
 				{{ $errors->first('image', '<div class="alert alert-danger">:message</div>') }}
 				{{ Form::label('image', 'Image') }}
 				{{ Form::file('image') }}
+			</div>
+
+			<div class="form-group {{ ($errors->has('video')) ? 'has-error' : '' }}">
+				{{ $errors->first('video', '<div class="alert alert-danger">:message</div>') }}
+				{{ Form::label('video', 'Video') }}
+				{{ Form::file('video', null) }}
+			</div>
+
+			<div>
+				@foreach($tags as $tag)
+					{{ Form::label('usertags[]', $tag->name)}}
+					{{ Form::checkbox('usertags[]', $tag->id)}}
+				@endforeach 
 			</div>
 
 			<button type="submit" class="btn btn-default">Submit</button>
