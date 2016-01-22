@@ -4,12 +4,18 @@
 
 	{{-- CUSTOM CSS BELOW --}}
 	<link href="/css/hello.css" type="text/css" rel="stylesheet">
+	<link href="/css/general-site.css" type="text/css" rel="stylesheet">
 
 @stop
 
 @section('content')
 
-	<h1>Welcome to our site!</h1>
+	<div class="title">
+	<h1><span class="font-magneto">Grease   </span><span class="font-monkey">Monkey</span></h1>
+	<img src="/css/monkey2.png">
+	</div>
+
+
 
 @stop
 
