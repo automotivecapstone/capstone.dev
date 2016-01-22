@@ -1,9 +1,9 @@
-	<?php
+<?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateQaTagTable extends Migration {
+class CreateTagUsersTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,15 @@ class CreateQaTagTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('qa_tag', function(Blueprint $table)
+		Schema::create('tag_user', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('qa_id')->unsigned()->index();
-			$table->foreign('qa_id')->references('id')->on('qas')->onDelete('cascade');
 			$table->integer('tag_id')->unsigned()->index();
 			$table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+			$table->integer('user_id')->unsigned()->index();
+			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
-
 
 	/**
 	 * Reverse the migrations.
@@ -30,7 +29,7 @@ class CreateQaTagTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('qa_tag');
+		Schema::drop('tag_user');
 	}
 
 }
