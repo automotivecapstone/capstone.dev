@@ -26,13 +26,12 @@
 				<h1>{{{ $tutorial->title }}}</h1>
 
 				<img src="{{{ $tutorial->image }}}" class="col-md-offset-2 col-md-8 tutorial-image">
-				
-				<div class="media">
-					<div class="media-body">
-						<iframe width="560" height="315" src="{{{ $tutorial->video }}}" frameborder="0" allowfullscreen></iframe>
-					</div>
-				</div>
 
+				<video width="400" controls>
+					<source src="{{{ $tutorial->video }}}" type="video/mp4">
+					Your browser does not support HTML5 video.
+				</video>
+				
 				<blockquote>
 					<p>{{{ $tutorial->content }}}</p>
 					<footer>Created by {{{ $tutorial->user->username }}}, {{{ $tutorial->updated_at->diffForHumans() }}}</footer>
