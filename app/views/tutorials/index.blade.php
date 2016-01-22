@@ -19,8 +19,6 @@
 					<tr>
 						<th>Title</th>
 						<th>Content</th>
-						<th>Image</th>
-						<th>Video</th>
 						<th>Created</th>
 					</tr>
 				</thead>
@@ -29,13 +27,6 @@
 							<tr>
 								<td><a href="{{{ action('TutorialsController@show', $tutorial->id) }}}" class="tutorials-title">{{{ $tutorial->title }}}</a></td>
 								<td>{{{ $tutorial->content }}}</td>
-								<td><img src="{{{ $tutorial->image }}}" class="tutorial-image"></td>
-								<td>
-									<video width="400" controls>
-										<source src="{{{ $tutorial->video }}}" type="video/mp4">
-										Your browser does not support HTML5 video.
-									</video>
-								</td>
 								<td>{{{ $tutorial->created_at->diffForHumans() }}}</td>
 							</tr>
 						@endforeach
