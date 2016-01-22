@@ -31,7 +31,7 @@
 
 				@if (isset($tutorial->video))
 					<!-- HTML5 video tag -->
-					<video controls="controls" poster="img/demo.jpg" width="640" height="360">
+					<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-offset-2 col-md-8 tutorial-image">
 						<!-- .mp4 file for native playback in IE9+, Firefox, Chrome, Safari and most mobile browsers -->
 						<source src="{{{ $tutorial->video }}}" type="video/mp4" />
 						<source src="{{{ $tutorial->video }}}" type="video/ogg" />
