@@ -25,13 +25,23 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($results as $result)
+
+					@foreach($resultsTutorial as $result)
 						<tr>
 							<td><a href="{{{ action('HomeController@searchShow', $result->id) }}}">{{{ $result->title }}}</a></td>
 							<td>{{{ $result->content }}}</td>
 							<td>{{{ $result->created_at->diffForHumans() }}}</td>
 						</tr>
 					@endforeach
+
+					@foreach($resultsQa as $result)
+						<tr>
+							<td><a href="{{{ action('HomeController@searchShow', $result->id) }}}">{{{ $result->question }}}</a></td>
+							<td>{{{ $result->content }}}</td>
+							<td>{{{ $result->created_at->diffForHumans() }}}</td>
+						</tr>
+					@endforeach
+					
 				</tbody>
 			</table>
 		</div>
