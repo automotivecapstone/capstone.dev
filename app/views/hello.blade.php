@@ -12,7 +12,7 @@
 
 	<div class="title">
 	<h1><span class="font-magneto">Grease   </span><span class="font-monkey">Monkey</span></h1>
-	<img src="/css/monkey2.png">
+	<img src="/css/monkey.png">
 	</div>
 
 
