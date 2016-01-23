@@ -71,5 +71,38 @@ class HomeController extends BaseController {
 
 	}
 
-	public function
+	public function search()
+	{
+		$search = Input::get('search');
+
+	    $searchTerms = explode(' ', $search);
+
+	    $query = Tutorial::with('user');
+
+	    foreach($searchTerms as $term)
+	    {
+	        $query->where('title', 'LIKE', '%'. $term .'%')
+	        ->orWhere('content', 'LIKE', '%' . $term . '%')
+	        ->orWhere('description', 'LIKE', '%' . $term . '%');
+	    }
+
+	    $results = $query->orderBy('created_at', 'desc')->get();
+
+	    return View::make('search')->with('results', $results);
+	}
+
+	public function searchShow($id)
+	{
+		$tutorial = Tutorial::find($id);
+		$qa = Qa::find($id);
+
+		if($tutorial) {
+			return Redirect::action('TutorialsController@show', $tutorial->id);
+		}
+
+		if($qa) {
+			return Redirect::action('QasController@show', $qa->id);
+		}
+
+	}
 }
