@@ -9,7 +9,6 @@
 
 				<div class="col-sm-3 col-md-3 pull-left">
 					
-					{{-- CHECK IF LOGGED IN AND SHOW SEARCH BAR --}}
 						{{ Form::open(array('action' => array('HomeController@search'), 'method' => 'GET')) }}
 							<div class="input-group">
 							{{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search']) }}
