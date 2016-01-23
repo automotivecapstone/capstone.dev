@@ -22,7 +22,6 @@
 
 		<style type="text/css">
 			body{
-				margin-top: 60px;
 				font-family: 'Lato', sans-serif;
 			}
 		</style>
