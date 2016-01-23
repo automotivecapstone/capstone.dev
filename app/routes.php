@@ -31,7 +31,7 @@ Route::post('/addtagstouser', 'HomeController@addTagsToUser');
 
 Route::get('/search', 'HomeController@search');
 
-Route::get('search-show', 'HomeController@searchShow');
+Route::get('search-show/{id}', 'HomeController@searchShow');
 
 Route::resource('tutorials', 'TutorialsController');
 

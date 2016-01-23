@@ -96,12 +96,13 @@ class HomeController extends BaseController {
 		$tutorial = Tutorial::find($id);
 		$qa = Qa::find($id);
 
-		if(!$tutorial && !$qa) {
-			App::abort(404);
-		} 
+		if($tutorial) {
+			return Redirect::action('TutorialsController@show', $tutorial->id);
+		}
 
-		// return View::make('tutorials.show')->with('tutorial', $tutorial);
-		return View::make('search-show', compact('tutorial'));
+		if($qa) {
+			return Redirect::action('QasController@show', $qa->id);
+		}
 
 	}
 }
