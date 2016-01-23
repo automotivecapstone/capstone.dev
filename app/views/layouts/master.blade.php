@@ -10,7 +10,7 @@
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 
 		{{-- CUSTOM CSS BELOW --}}
-
+		<link href="/css/main.css" rel="stylesheet">
 		{{-- CUSTOM FONT BELOW --}}
 
 		{{-- FONT AWESOME BELOW --}}
