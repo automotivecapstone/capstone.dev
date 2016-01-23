@@ -12,11 +12,21 @@
 		{{-- CUSTOM CSS BELOW --}}
 		<link href="/css/main.css" rel="stylesheet">
 		{{-- CUSTOM FONT BELOW --}}
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
 		{{-- FONT AWESOME BELOW --}}
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		
 		@yield('top-script')
+
+
+		<style type="text/css">
+			body{
+				margin-top: 60px;
+				font-family: 'Lato', sans-serif;
+			}
+		</style>
+
 	</head>
 	<body>
 		@include('partials.navbar')

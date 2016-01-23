@@ -24,9 +24,16 @@ class TagsController extends \BaseController {
 			$query = Tag::with('user');
 		}
 
-		$tags = $query->orderBy('created_at', 'desc')->paginate(4);
+		$query = $query->orderBy('created_at', 'desc');
 
-		return View::make('tags.index')->with(['tags' => $tags, 'search' => $search]);
+		if (Request::wantsJson()){
+			$tags = $query->get();
+			return Response::json(['tags'=>$tags]);
+		} else{
+			$tags = $query->paginate(4);
+			return View::make('tags.index')->with(['tags' => $tags, 'search' => $search]);
+		}
+
 	}
 
 	/**
