@@ -2,7 +2,7 @@
 
 @section('top-script')
 
-	{{-- <link rel="stylesheet" type="text/css" href="/css/posts-create.css"> --}}
+	<link rel="stylesheet" type="text/css" href="/css/tutorials-create.css">
 
 @stop
 

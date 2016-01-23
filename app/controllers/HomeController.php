@@ -77,18 +77,23 @@ class HomeController extends BaseController {
 
 	    $searchTerms = explode(' ', $search);
 
-	    $query = Tutorial::with('user');
+	    $queryTutorial = Tutorial::with('user');
+	    $queryQa = Qa::with('user');
 
 	    foreach($searchTerms as $term)
 	    {
-	        $query->where('title', 'LIKE', '%'. $term .'%')
+	        $queryTutorial->where('title', 'LIKE', '%'. $term .'%')
 	        ->orWhere('content', 'LIKE', '%' . $term . '%')
 	        ->orWhere('description', 'LIKE', '%' . $term . '%');
+
+	       	$queryQa->where('question', 'LIKE', '%'. $term .'%')
+	        ->orWhere('content', 'LIKE', '%' . $term . '%');
 	    }
 
-	    $results = $query->orderBy('created_at', 'desc')->get();
+	    $resultsTutorial = $queryTutorial->orderBy('created_at', 'desc')->get();
+	    $resultsQa = $queryQa->orderBy('created_at', 'desc')->get();
 
-	    return View::make('search')->with('results', $results);
+	    return View::make('search')->with(['resultsTutorial' => $resultsTutorial, 'resultsQa' => $resultsQa]);
 	}
 
 	public function searchShow($id)
