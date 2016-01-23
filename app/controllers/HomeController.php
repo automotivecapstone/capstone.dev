@@ -71,6 +71,7 @@ class HomeController extends BaseController {
 
 	}
 
+
 	public function search()
 	{
 		$search = Input::get('search');
@@ -110,4 +111,5 @@ class HomeController extends BaseController {
 		}
 
 	}
+
 }
