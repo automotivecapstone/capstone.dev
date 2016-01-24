@@ -8,7 +8,7 @@
 @stop
 
 @section('content')
-
+<body>
 	<div class="container">
 		<div class="row">
 			<h1>
@@ -39,5 +39,6 @@
 			{{ $tutorials->links() }}
 		</div>
 	</div>
+</body>
 
 @stop

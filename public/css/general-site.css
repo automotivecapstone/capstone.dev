@@ -31,6 +31,7 @@ body {
 	background-repeat: space;
 	background-image: url("background.png");
 	background-size: 75px;
+	color: #5E5651;
 }
 
 .container {
@@ -41,7 +42,7 @@ body {
 	font-family: 'Lato', sans-serif;
 	padding-top: 50px;
 	text-align: center; 
-	font-size: 30px;
+	font-size: 36px;
 	color: #5E5651;
 }
 
@@ -49,9 +50,7 @@ body {
 	background-color: #5E5651;
 	font-family: 'Lato', sans-serif;
 }
-label {
-	color: #5E5651;
-}
+
 .home-search {
 	padding:5px;
 	padding-left: 50px;
@@ -59,6 +58,16 @@ label {
 	position: relative;
 }
 
+#image-video-block {
+	height: 600px;
+	width: 600px;
+}
+
+.qa-image, .tutorial-image {
+	margin: auto;
+	height: 50%;
+	width: 50%;
+}
 
 
 
