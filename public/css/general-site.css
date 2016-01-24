@@ -22,6 +22,7 @@
 
 
 .title {
+	padding-top: 30px;
 	text-align: center;
 }
 
@@ -51,6 +52,14 @@ body {
 label {
 	color: #5E5651;
 }
+.home-search {
+	padding:5px;
+	padding-left: 50px;
+	width: 500px;
+	position: relative;
+}
+
+
 
 
 
