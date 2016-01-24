@@ -1,31 +1,50 @@
-@section('content')
-
-	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-	   			<a class="navbar-brand page-scroll" href="{{ action('HomeController@showWelcome') }}"></a>
-	     	</div>
-	     	
-
-				<div class="col-sm-3 col-md-3 pull-left">
-					
-					{{-- CHECK IF LOGGED IN AND SHOW SEARCH BAR --}}
-					@if (Auth::check() && Request::is('tags'))
-
-						{{ Form::open(array('action' => array('TagsController@index'), 'method' => 'GET')) }}
-							<div class="input-group">
-							{{ Form::text('search', $search, ['class' => 'form-control', 'placeholder' => 'Search']) }}
-								<div class="input-group-btn">
-									<button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-								</div>
-							</div>
-						{{ Form::close() }}
-
-					@endif
+<nav class="navbar navbar-inverse navbar-embossed" role="navigation">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+			<span class="fa fa-bars"></span>
+		</button>
+		<a class="navbar-brand" href="{{ action('HomeController@showWelcome') }}">Grease Monkey</a>
+	</div>
+	<div class="collapse navbar-collapse" id="navbar-collapse-01">
+		<ul class="nav navbar-nav navbar-left">
+			@if(!Auth::check())
+				<li><a href="{{ action('HomeController@getLogin') }}">Log In</a></li>
+			@endif
+			@if(Auth::check())
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+					<span class="dropdown-arrow"></span>
+					<ul class="dropdown-menu">
+						<li><a href="{{action('UsersController@show', Auth::user()->id)}}">Profile</a></li>
+						<li><a href="{{ action('TutorialsController@index') }}">Tutorials</a></li>
+						<li><a href="{{ action('QasController@index') }}">Q & A</a></li>
+						<li class="divider"></li>
+						<li><a href="{{ action('HomeController@getLogout') }}">Log Out</a></li>
+					</ul>
+				</li>
+			@endif
+			@if(!Auth::check())
+				<li><a href="{{ action('UsersController@create') }}">Sign Up</a></li>
+			@endif
+		</ul>
+		{{ Form::open(array('action' => array('HomeController@search'), 'method' => 'GET', 'class' => 'navbar-form navbar-right')) }}
+			<div class="form-group">
+				<div class="input-group">
+					{{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search']) }}
+					<span class="input-group-btn">
+						<button type="submit" class="btn"><span class="fa fa-search"></span></button>
+					</span>
 				</div>
+
+			</div>
+		{{ Form::close() }}
+	</div><!-- /.navbar-collapse -->
 	            
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	            	<ul class="nav navbar-nav navbar-left">
+	            		<li>
+	            			<a href="{{action('HomeController@showWelcome')}}">GreaseMonkey</a>
+	            		</li>
 	            		<li>
 	            			<a href="{{ action('TutorialsController@index') }}">Tutorials</a>
 	            		</li>
@@ -55,3 +74,4 @@
 	            </div>
 	        </div>
 	    </nav>
+

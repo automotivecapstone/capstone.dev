@@ -29,6 +29,10 @@ Route::get('/qaupdate/{id}', 'UsersController@updateQaModal');
 
 Route::post('/addtagstouser', 'HomeController@addTagsToUser');
 
+Route::get('/search', 'HomeController@search');
+
+Route::get('search-show/{id}', 'HomeController@searchShow');
+
 Route::resource('tutorials', 'TutorialsController');
 
 Route::resource('qas', 'QasController');

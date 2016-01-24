@@ -12,12 +12,12 @@
 9. Misc
 -------------------------------------------------------------------*/
 /*=== 1. General Structure ===*/
-html,
+/*html,
 body {
   background: #efefef;
   padding: 10px;
   font-family: 'Varela Round';
-}
+}*/
 /*=== 2. Anchor Link ===*/
 a {
   color: #aaaaaa;
