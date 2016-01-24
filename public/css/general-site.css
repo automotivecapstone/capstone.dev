@@ -20,10 +20,15 @@
     font-size: 72px;
 }
 
-.monkey-logo {
-	src: url(monkey.png);
-}
 
 .title {
 	text-align: center;
+}
+
+body {
+	background-color: #BFA799;
+	background-repeat: space;
+	background-image: url("background.png");
+	background-size: 75px;
+
 }
