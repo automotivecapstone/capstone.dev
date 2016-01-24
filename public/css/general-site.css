@@ -5,7 +5,7 @@
 
 .font-magneto {
     font-family: magnetoFont;
-    color: #5E3F23;
+    color: #5E5651;
     font-size: 72px;
 }
 
@@ -16,7 +16,7 @@
 
 .font-monkey{
     font-family: monkeyFont;
-    color: #5E3F23;
+    color: #5E5651;
     font-size: 72px;
 }
 
@@ -30,5 +30,29 @@ body {
 	background-repeat: space;
 	background-image: url("background.png");
 	background-size: 75px;
-
 }
+
+.container {
+	background-color: #F2E4DC;
+}
+
+.logo {
+	font-family: 'Lato', sans-serif;
+	padding-top: 50px;
+	text-align: center; 
+	font-size: 30px;
+	color: #5E5651;
+}
+
+.nav-color {
+	background-color: #5E5651;
+	font-family: 'Lato', sans-serif;
+}
+label {
+	color: #5E5651;
+}
+
+
+
+
+
