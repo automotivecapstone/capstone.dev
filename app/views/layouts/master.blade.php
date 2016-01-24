@@ -11,6 +11,7 @@
 
 		{{-- CUSTOM CSS BELOW --}}
 		<link href="/css/main.css" rel="stylesheet">
+		<link href="/css/general-site.css" type="text/css" rel="stylesheet">
 		{{-- CUSTOM FONT BELOW --}}
 		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
