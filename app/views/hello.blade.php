@@ -15,6 +15,9 @@
 	<h1><span class="font-magneto">Grease   </span><span class="font-monkey">Monkey</span></h1>
 	<img src="/css/monkey-transparent.png">
 	</div>
+	
+	<button class="logo">Log In<a href="{{ action('HomeController@getLogin') }}"></a></button>
+	
 
 </body>
 
