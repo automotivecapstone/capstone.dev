@@ -4,7 +4,9 @@
 
 	<div class = 'content'>
 
-		<p class="logo">Join Grease Monkey</p>			
+
+		<p class="logo">register</p>
+
 
 		<div class="login-form-1">
 			

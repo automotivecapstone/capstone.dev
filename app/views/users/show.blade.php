@@ -3,9 +3,14 @@
 
 @section('content')
 	<div class='content'>
+
+		<div class = "header">
+			<div id = "imageholder">
+				<img src="{{{$user->image}}}">
+			</div>
 		<h2>{{{$user->username}}}'s Profile Page</h2>
 
-		<a id="tutajaxlistener">Create a Tutorial</a>
+		<p><a id="tutajaxlistener">Create a Tutorial</a></p>
 		<div class="modal fade" id = "tut_Modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -25,7 +30,7 @@
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 
-		<a id="qaajaxlistener">Ask a Question</a>
+		<p><a id="qaajaxlistener">Ask a Question</a></p>
 		<div class="modal fade" id = "qa_Modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -45,9 +50,9 @@
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 
-		<a href="{{{action('UsersController@edit', $user->id)}}}">Edit Profile</a>
+		<p><a href="{{{action('UsersController@edit', $user->id)}}}">Edit Profile</a></p>
 
-		<a id="userajaxlistener" data-toggle="modal" data-target="#usertag_Modal">User Tags</a>
+		<p><a id="userajaxlistener" data-toggle="modal" data-target="#usertag_Modal">User Tags</a></p>
 		<div class="modal fade" id = "usertag_Modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -67,9 +72,6 @@
 
 				{{ Form::label('addtag', "Don't see a tag? Add it here!")}}
 				{{ Form::text('addtag', null, array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
-
-				
-				
 		      </div>
 		      <div class="modal-footer">
 		        <a type="button" id = "" class="btn btn-default" data-dismiss="modal">Close</a>
@@ -80,11 +82,16 @@
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
-		<a href="{{{action('UsersController@index')}}}"></a>
 
+		<a href="{{{action('UsersController@index')}}}">My Contributions</a>
 
+		
+
+		</div>
+
+		<h2 id="profilebreak">New and Noteworthy</h2>
 		<div class="col-md-6">
-			<h1>Tutorials</h1>
+			<h3>Tutorials</h3>
 			<hr>
 			<ul>
 			@foreach ($user->tags()->get() as $tag)
@@ -96,8 +103,7 @@
 		</div>
 
 		<div class="col-md-6 offset-col-md-6">
-
-		    <h1>Q/As</h1>
+		    <h3>Q/As</h3>
 		    <hr>	
 		    <ul>
 			@foreach ($user->tags()->get() as $tag)
