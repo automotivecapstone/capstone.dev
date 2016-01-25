@@ -26,7 +26,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		    'username'  => 'required|max:100',
 		    'email'     => 'required|max:100',
 		    //look at https://github.com/esensi/model#validating-model-trait
-		    'password'	=> 'required|max:100|min:6'
+		    'password'	=> 'required|max:100|min:6',
+		    'image' 	=> 'image'
 		);
 
 
