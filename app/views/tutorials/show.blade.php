@@ -13,6 +13,8 @@
 
 @section('content')
 
+<div class = 'content'>
+
 	{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 		
 		<a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}" class="btn btn-info">Edit Tutorial</a>
@@ -92,6 +94,7 @@
 
 		</div>
 	</div>
+</div>
 
 @stop
 

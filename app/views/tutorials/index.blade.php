@@ -6,9 +6,11 @@
     border-collapse: collapse;
     width: 100%;
 	}
-
+	tr:hover {
+	background-color: #f5f5f5
+	}
 	th, td {
-    padding: 8px;
+    padding: 25px;
     text-align: left;
     border-bottom: 1px solid #BFA799;
 	}
@@ -16,6 +18,8 @@
 @stop
 
 @section('content')
+
+<div class = 'content'>
 
 	<p class="logo">Tutorials</p>
 		<table>
@@ -30,5 +34,7 @@
 			</tbody>
 		</table>
 {{ $tutorials->links() }}
+
+</div>
 
 @stop

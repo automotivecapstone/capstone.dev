@@ -12,7 +12,7 @@
 <body>
 
 	<div class="title">
-		<h1><span class="font-magneto">Grease   </span><span class="font-monkey">Monkey</span></h1>
+		<h1><span class="font-magneto">Grease Monkey</span></h1>
 		<img src="/css/monkey-transparent.png">
 	</div>
 

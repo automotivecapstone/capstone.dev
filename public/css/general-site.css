@@ -47,10 +47,10 @@ body {
 }
 
 .logo {
-	font-family: 'Lato', sans-serif;
+	font-family: 'magnetoFont', sans-serif;
 	padding-top: 50px;
 	text-align: center; 
-	font-size: 36px;
+	font-size: 42px;
 	color: #5E5651;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .navbar-brand{
-	color:white;
+	font-family:magnetoFont
 }
 
 a .navbar-brand:hover{
@@ -93,6 +93,19 @@ a{
 a:hover{
 	text-decoration: none;
 	color: #A66844;
+}
+
+.btn-primary{
+	background-color: #A66844;
+	border: #73341D;
+}
+
+.btn-primary:hover{
+	background-color: #73341D;
+}
+
+.content{
+	padding-top: 40px;
 }
 
 

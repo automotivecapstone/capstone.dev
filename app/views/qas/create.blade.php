@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class = 'content'>
+
 <p class="logo">Post a Question</p>
 
 {{ Form::open(array('action' => 'QasController@store', 'files' => true)) }}
@@ -39,5 +41,7 @@
 
 {{ Form::submit('submit') }}    
 {{ Form::close() }}
+
+</div>
 
 @stop
