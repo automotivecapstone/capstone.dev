@@ -4,9 +4,9 @@
 
 	<div class = 'content'>
 
-		<p class="logo">register</p>
+		<p class="logo">Edit Profile</p>
 		<div class="login-form-1">
-			{{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PUT')) }}
+			{{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PUT', 'files' => true)) }}
 
 				<div class="form-group {{ ($errors->has('username')) ? 'has-error' : '' }}">
 					{{ $errors->first('username', '<div class="alert alert-danger">:message</div>') }}

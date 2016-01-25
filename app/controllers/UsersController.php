@@ -51,8 +51,16 @@ class UsersController extends \BaseController {
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 			$user->username = Input::get('username');
-			$user->email = Input::get('email');
 			$user->password = Input::get('password');
+			$user->email = Input::get('email');
+
+			$image = Input::file('image');
+			if ($image) {
+				$filename = $image->getClientOriginalName();
+				$user->image = '/uploaded/' . $filename;
+				$image->move('uploaded/', $filename);
+			}
+
 			$user->tut_modal = true;
 			$user->qa_modal = true;
 
@@ -62,7 +70,7 @@ class UsersController extends \BaseController {
 			$user = Auth::user();
 
 			Session::flash('successMessage', 'Your user has been saved.');
-			return Redirect::action('UsersController@show', $user ->id);
+			return Redirect::action('UsersController@show', $user->id);
 		}
 
 		
@@ -117,15 +125,26 @@ class UsersController extends \BaseController {
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 			$user->username = Input::get('username');
-			$user->email = Input::get('email');
 			$user->password = Input::get('password');
+			$user->email = Input::get('email');
+
+			$image = Input::file('image');
+			if ($image) {
+				$filename = $image->getClientOriginalName();
+				$user->image = '/uploaded/' . $filename;
+				$image->move('uploaded/', $filename);
+			}
+
 			$user->tut_modal = true;
 			$user->qa_modal = true;
 
 			$user->save();
 
+			Auth::login($user);
+			$user = Auth::user();
+
 			Session::flash('successMessage', 'Your user has been saved.');
-			return Redirect::action('UsersController@show', $user ->id);
+			return Redirect::action('UsersController@show', $user->id);
 		}
 	
 		
