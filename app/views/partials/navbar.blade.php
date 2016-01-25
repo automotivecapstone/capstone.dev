@@ -25,8 +25,16 @@
 						<li><a href="{{ action('HomeController@getLogout') }}">Log Out</a></li>
 					</ul>
 				</li>
-				<li><a href="{{ action('TutorialsController@create') }}">Tutorials +</a></li>
-				<li><a href="{{ action('QasController@create') }}">Q & A +</a></li>
+				<li><a href="{{ action('TutorialsController@index') }}">Tutorials</a></li>
+				<li><a href="{{ action('QasController@index') }}">Q & A</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">+<b class="caret"></b></a>
+					<span class="dropdown-arrow"></span>
+					<ul class="dropdown-menu">
+						<li><a href="{{ action('TutorialsController@create') }}">New Tutorial</a></li>
+						<li><a href="{{ action('QasController@create') }}">New Q & A</a></li>
+					</ul>
+				</li>
 			@endif
 		</ul>
 		{{ Form::open(array('action' => array('HomeController@search'), 'method' => 'GET', 'class' => 'navbar-form navbar-right')) }}
