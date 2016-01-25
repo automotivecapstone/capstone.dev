@@ -21,21 +21,6 @@
 					{{ Form::close() }}
 				</div>
 			</div>
-	</div>
-		
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	    	<ul class="nav navbar-nav navbar-right">
-	        {{-- CHECK IF LOGGED IN AND SHOW LOGOUT BUTTON --}}
-		       	@if (Auth::check())
-		        	<li><a class="page-scroll" href="{{action('UsersController@show', Auth::user()->id)}}">Profile</a></li>
-			    	<li><a class="page-scroll" href="{{ action('HomeController@getLogout') }}">Logout</a></li>
-		        @else
-			        <li><a class="page-scroll" href="{{ action('HomeController@getLogin') }}">Login</a></li>
-			        <li><a class="page-scroll" href="{{ action('UsersController@create') }}">Sign Up</a></li>
-		        @endif
-	    	</ul>
-		</div><!-- /.navbar-collapse -->
-	          
+		{{ Form::close() }}
 	</div>
 </nav>
-
