@@ -58,16 +58,12 @@ body {
 	position: relative;
 }
 
-#image-video-block {
-	height: 600px;
-	width: 600px;
-}
 
-.qa-image, .tutorial-image {
+/*.qa-image, .tutorial-image {
 	margin: auto;
-	height: 50%;
-	width: 50%;
-}
+	height: 25%;
+	width: 25%;
+}*/
 
 
 
