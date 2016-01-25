@@ -17,7 +17,8 @@ class QasTableSeeder extends Seeder {
             'question' => $faker->sentence,
             'content' => $faker->paragraph,
             'image' =>'/uploaded/stockimage.png',
-            'user_id'=> $user->id
+            'user_id'=> $user->id,
+            'video' => '/uploaded/traffic.mov'
 			]);
 		}
 	}

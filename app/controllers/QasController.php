@@ -122,7 +122,22 @@ class QasController extends \BaseController {
 	        return Redirect::back()->withInput()->withErrors($validator);
 	    } else {
 			$qa->question = Input::get('question');
-			$qa->image = Input::get('image');
+			$qa->content = Input::get('content');
+
+			$image = Input::file('image');
+			if ($image) {
+				$filename = $image->getClientOriginalName();
+				$qa->image = '/uploaded/' . $filename;
+				$image->move('uploaded/', $filename);
+			}
+
+			$video = Input::file('video');
+			if ($video) {
+				$filenameVideo = $video->getClientOriginalName();
+				$qa->video = '/uploaded/' . $filenameVideo;
+				$video->move('uploaded/', $filenameVideo);
+			}
+
 			$qa->user_id = Auth::id();
 
 			$result = $qa->save();
