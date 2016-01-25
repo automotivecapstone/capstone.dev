@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class = 'content'>
+
 <p class="logo">Edit Tutorial</p>
 
 {{ Form::model($tutorial, array('action' => array('TutorialsController@update', $tutorial->id), 'method' => 'PUT', 'files' => true)) }}
@@ -37,5 +39,7 @@
 	<button type="submit" class="btn btn-default">Submit</button>
 	
 {{ Form::close() }}
+
+</div>
 		
 @stop

@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div class = 'content'>
+
 	<p class="logo">Tutorials</p>
 	<table class="table table-nonfluid center-table">
 		<thead>
@@ -22,5 +24,7 @@
 		</tbody>
 	</table>
 {{ $tutorials->links() }}
+
+</div>
 
 @stop
