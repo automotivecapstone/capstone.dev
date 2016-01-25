@@ -8,11 +8,11 @@
 @stop
 
 @section('content')
-	<div class="container">
-		<div class="header">Create a Tutorial</div>
-		<div class="subheader">Do it now!!!!</div>
-		<hr>
 
+<body>
+	<div class="container">
+		<p class="logo">Post a Tutorial</p>
+		
 		{{ Form::open(array('method' => 'post', 'action' => 'TutorialsController@store', 'files' => true)) }}
 
 			<div class="form-group {{ ($errors->has('title')) ? 'has-error' : '' }}">
@@ -46,7 +46,9 @@
 				@endforeach 
 			</div>
 
-			<button type="submit" class="btn btn-default">Submit</button>
+		{{ Form::submit('submit') }}
 		{{ Form::close() }}
+		<hr>
 	</div>
+</body>
 @stop

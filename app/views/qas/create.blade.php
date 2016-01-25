@@ -10,10 +10,11 @@
 
 @section('content')
 
-	<div class="container">
-		<h2>Post Your Question</h2>
+<body>
+    <div class="container">
+        <p class="logo">Post a Question</p>
 
-		{{ Form::open(array('action' => 'QasController@store', 'files' => true)) }}
+        {{ Form::open(array('action' => 'QasController@store', 'files' => true)) }}
 
             <div class="form-group {{ ($errors->has('question')) ? 'has-error' : '' }}">
                 {{ $errors->first('question', '<div class="alert alert-danger">:message</div>') }}
@@ -40,8 +41,10 @@
                 @endforeach 
             </div>
 
-            <button type="submit" class="btn btn-default">Submit</button>
+        {{ Form::submit('submit') }}    
         {{ Form::close() }}
-	</div>
+        <hr>
+    </div>
+</body>
 
 @stop
