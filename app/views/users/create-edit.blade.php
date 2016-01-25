@@ -1,19 +1,31 @@
-{{ Form::label('username', 'Username') }}
-<br>
-{{ Form::text('username', null, ['class'=>'form-control', 'placeholder'=>'Enter your Username']) }}
-<br>
-{{ Form::label('password', 'Password') }}
-<br>
+<div class="form-group {{ ($errors->has('username')) ? 'has-error' : '' }}">
+	{{ $errors->first('username', '<div class="alert alert-danger">:message</div>') }}
+	{{ Form::label('username', 'Username') }}
+	<input type="text" class="form-control" id="username" name="username" value="{{{ $user->username }}}">
+</div>
 
-{{ Form::password('password', ['class'=>'form-control', 'placeholder'=>'Enter your Password']) }}
-<br>
-{{ Form::label('passwordmatch', 'Matching Password') }}
-<br>
+<div class="form-group {{ ($errors->has('password')) ? 'has-error' : '' }}">
+	{{ $errors->first('password', '<div class="alert alert-danger">:message</div>') }}
+	{{ Form::label('password', 'Password') }}
+	{{ Form::password('password', ['class'=>'form-control', 'placeholder'=>'Enter your Password']) }}
+</div>
 
-{{ Form::password('passwordmatch', ['class'=>'form-control', 'placeholder'=>'Enter your Password Again']) }}
-<br>
-{{ Form::label('email', 'Email') }}
-<br>
+<div class="form-group {{ ($errors->has('passwordmatch')) ? 'has-error' : '' }}">
+	{{ $errors->first('passwordmatch', '<div class="alert alert-danger">:message</div>') }}
+	{{ Form::label('passwordmatch', 'Password Match') }}
+	{{ Form::password('passwordmatch', ['class'=>'form-control', 'placeholder'=>'Enter your Password Again']) }}
+</div>
 
-{{ Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'Enter your Email']) }}
-<br>
+<div class="form-group {{ ($errors->has('email')) ? 'has-error' : '' }}">
+	{{ $errors->first('email', '<div class="alert alert-danger">:message</div>') }}
+	{{ Form::label('email', 'Email') }}
+	{{ Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'Enter your Email', 'value'=>'{{{ $user->username }}}']) }}
+</div>
+
+<div class="form-group {{ ($errors->has('image')) ? 'has-error' : '' }}">
+	{{ $errors->first('image', '<div class="alert alert-danger">:message</div>') }}
+	{{ Form::label('image', 'Image') }}
+	<p>Current Image:</p>
+	{{{ $user->image }}}
+	{{ Form::file('image') }}
+</div>
