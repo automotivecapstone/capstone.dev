@@ -22,7 +22,7 @@ class Comment extends \Eloquent {
 
     public function qa()
     {
-    	return $this->belongsTo('Qa');
+    	return $this->belongsTo('Qa')->orderBy('created_at', 'desc');
     }
 
     

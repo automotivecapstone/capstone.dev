@@ -24,6 +24,12 @@
         {{ Form::file('image') }}
     </div>
 
+    <div class="form-group {{ ($errors->has('video')) ? 'has-error' : '' }}">
+        {{ $errors->first('video', '<div class="alert alert-danger">:message</div>') }}
+        {{ Form::label('video', 'Video') }}
+        {{ Form::file('video', null) }}
+    </div>
+
     <div>
         @foreach($tags as $tag)
             {{ Form::label('qatags[]', $tag->name)}}

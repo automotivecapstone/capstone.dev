@@ -4,7 +4,10 @@ class Qa extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		'question'   => 'required|min:2|max:100',
+	    'content'    => 'required|min:2|max:10000',
+	    'image'		 => 'image',
+	    'video'  	 => 'max:50000'
 	];
 
 	// Don't forget to fill this array
@@ -17,7 +20,7 @@ class Qa extends \Eloquent {
 
     public function comments()
 	{
-	    return $this->hasMany('Comment');
+	    return $this->hasMany('Comment')->orderBy('created_at', 'desc');
 	}
 
 	public function tags()
