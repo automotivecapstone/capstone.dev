@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class = 'content'>
 
 	<p class="logo">Edit Your Question</p>
@@ -17,7 +18,7 @@
 		<div class="form-group {{ ($errors->has('content')) ? 'has-error' : ''}}">
 			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
 			{{ Form::label('content', 'Content') }}
-			<input type="text" class="form-control" id="content" name="content" value="{{{ $qa->content }}}"></input>
+	        {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter your content', 'value' => '{{{ $qa->content }}}']) }}
 		</div>
 
 		<div class="form-group  {{ ($errors->has('image')) ? 'has-error' : ''}}">
@@ -41,5 +42,6 @@
 	{{ Form::close() }}
 
 </div>
+
 
 @stop
