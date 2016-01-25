@@ -123,6 +123,18 @@ th, td {
     border-bottom: 1px solid #BFA799;
 }
 
+header{
+	overflow: auto;
+}
+
+#imageholder{
+	float: right;
+}
+
+#profilebreak{
+	padding: 40px;
+	text-align: center;
+}
 
 
 
