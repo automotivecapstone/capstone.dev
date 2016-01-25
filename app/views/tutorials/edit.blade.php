@@ -15,7 +15,7 @@
 	<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
 		{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
 		{{ Form::label('content', 'Content') }}
-		<input type="text" class="form-control" id="content" name="content" value="{{{ $tutorial->content }}}"></input>
+        {{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Enter your content', 'value' => '{{{ $tutorial->content }}}']) }}
 	</div>
 
 	<div class="form-group {{ ($errors->has('image')) ? 'has-error' : '' }}">
