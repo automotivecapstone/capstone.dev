@@ -18,6 +18,8 @@
 		{{-- FONT AWESOME BELOW --}}
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+		@yield('top-script')
+
 	</head>
 	<body>
 
