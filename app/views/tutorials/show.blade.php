@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('top-script')
+
+@stop
+
 @section('content')
 
 	{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
@@ -39,8 +43,10 @@
 		</video>
 	@endif
 
-	<p>{{{ $tutorial->content }}}</p>
-	<p>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}</p>
+	<blockquote>
+		<p>{{{ $tutorial->content }}}</p>
+		<footer>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}</footer>
+	</blockquote>
 	
 	{{ Form::open(array('action' => 'CommentsController@store')) }}
 			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
@@ -66,15 +72,13 @@
 				@foreach ($tutorial->comments as $comment)
 					<li class="list-group-item">
 						<div class="commenterImage">
-							<img src="{{{ $comment->user->image }}}" class="img">
+							<img src="{{{ $comment->user->image }}}" class="commenter-image">
 							{{{ $comment->user->username }}}
 						</div>
-						<div class="commentText">
-							<blockquote>
-								<p>{{{ $comment->content }}}</p>
-								<footer>{{{ $comment->created_at->diffForHumans() }}}</footer>
-							</blockquote>
-						</div>
+						<blockquote>
+							<p>{{{ $comment->content }}}</p>
+							<footer>Created by {{{ $comment->user->username }}}, {{{ $comment->created_at->diffForHumans() }}}</footer>
+						</blockquote>
 					</li>
 				@endforeach
 			</ul>
