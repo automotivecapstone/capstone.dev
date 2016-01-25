@@ -95,6 +95,15 @@ a:hover{
 	color: #A66844;
 }
 
+.btn-primary{
+	background-color: #A66844;
+	border: #73341D;
+}
+
+.btn-primary:hover{
+	background-color: #73341D;
+}
+
 
 
 
