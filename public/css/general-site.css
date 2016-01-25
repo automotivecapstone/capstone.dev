@@ -60,7 +60,7 @@ body {
 }
 
 .navbar-brand{
-	color:white;
+	font-family:magnetoFont
 }
 
 a .navbar-brand:hover{
