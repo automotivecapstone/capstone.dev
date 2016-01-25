@@ -1,8 +1,19 @@
 @extends('layouts.master')
 
-@section('top-script')
+@section('content')
 
-@stop
+<p class="logo">Questions & Answers</p>
+<table class="table table-nonfluid center-table">
+	<thead>
+		<tr>
+			<th>Question</th>
+			<th>Content</th>
+			<th>Image</th>
+			<th>Created</th>
+		</tr>
+	</thead>
+	<tbody>
+
 
 @section('content')
 <body>
@@ -27,5 +38,6 @@
 		</div>
     </div>
 </body>
+
 
 @stop

@@ -1,11 +1,5 @@
 @extends('layouts.master')
 
-@section('top-script')
-
-	{{-- CUSTOM CSS BELOW --}}
-	<link href="/css/profile.css" type="text/css" rel="stylesheet">
-
-@stop
 
 @section('content')
 	<div>
@@ -74,55 +68,45 @@
 				{{ Form::label('addtag', "Don't see a tag? Add it here!")}}
 				{{ Form::text('addtag', null, array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
 
-				{{ Form::submit('Add tags')}}
-				{{ Form::close()}}
+				
+				
 		      </div>
 		      <div class="modal-footer">
 		        <a type="button" id = "" class="btn btn-default" data-dismiss="modal">Close</a>
-		        <a type="button" href = ""class="btn btn-primary">Save</a>
+		        {{ Form::submit('Add tags', array('class'=> 'btn btn-primary'))}}
+		        {{ Form::close()}}
+		        {{-- <a type="button" href = ""class="btn btn-primary">Save</a> --}}
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
-
-	</div>
-
+		<a href="{{{action('UsersController@index')}}}"></a>
 
 
-
-	<div class="container">
-	<div class="col-md-12">
-		<h1>Tutorials</h1>
-		<ul>
-		@foreach ($user->tags()->get() as $tag)
-			@foreach($tag->tutorials()->get() as $tutorial)
-				<li><a href="{{{action('TutorialsController@show', $tutorial->id)}}}">{{$tutorial->title}}</a></li>
+		<div class="col-md-6">
+			<h1>Tutorials</h1>
+			<hr>
+			<ul>
+			@foreach ($user->tags()->get() as $tag)
+				@foreach($tag->tutorials()->get() as $tutorial)
+					<li><a href="{{{action('TutorialsController@show', $tutorial->id)}}}">{{$tutorial->title}}</a></li>
+				@endforeach
 			@endforeach
-		@endforeach
-		</ul>
-	    {{-- <h1>Alice in Wonderland, part dos</h1> --}}
-	    {{-- <p>'You ought to be ashamed of yourself for asking such a simple question,' added the Gryphon; and then they both sat silent and looked at poor Alice, who felt ready to sink into the earth. At last the Gryphon said to the Mock Turtle, 'Drive on, old fellow! Don't be all day about it!' and he went on in these words:
-	    'Yes, we went to school in the sea, though you mayn't believe it—'
-	    'I never said I didn't!' interrupted Alice.
-	    'You did,' said the Mock Turtle.</p> --}}
-	    <div>
-	<span class="badge">Posted 2012-08-02 20:47:04</span><div class="pull-right"><span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
-	<span class="label label-danger">Danger</span></div>         
-	     </div>
-	    <hr>
-	    <h1>Q/As</h1>
-	    <ul>
-		@foreach ($user->tags()->get() as $tag)
-			@foreach($tag->qas()->get() as $qa)
-				<li><a href="{{{action('QasController@show', $qa->id)}}}">{{$qa->question}}</a></li>
+			</ul>
+		</div>
+
+		<div class="col-md-6 offset-col-md-6">
+
+		    <h1>Q/As</h1>
+		    <hr>	
+		    <ul>
+			@foreach ($user->tags()->get() as $tag)
+				@foreach($tag->qas()->get() as $qa)
+					<li><a href="{{{action('QasController@show', $qa->id)}}}">{{$qa->question}}</a></li>
+				@endforeach
 			@endforeach
-		@endforeach
-		</ul>
-	        <span class="badge">Posted 2012-08-02 20:47:04</span><div class="pull-right"><span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
-	<span class="label label-danger">Danger</span></div>
-	    </div>     
-	    <hr>
-	</div>
+			</ul>
+		</div>  
 	</div>
 
 	

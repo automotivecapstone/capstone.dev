@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="text-center" style="padding:50px 0">
+<div class="text-center">
 	<p class="logo">register</p>
 
 	<div class="login-form-1">
