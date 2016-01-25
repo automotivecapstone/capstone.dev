@@ -9,9 +9,11 @@
 	<button class="delete-button btn btn-danger">Delete</button>
 {{ Form::close() }}
 
-<h3 class="logo">{{$qa->question}}</h3>
-<img src="{{{ $qa->image }}}" class="qa-image">
-<p>{{$qa->content}}</p>
-<p>Created: {{{$qa->created_at->diffForHumans() }}}</p>
+<h3>{{$qa->question}}</h3>
+<img src="{{{ $qa->image }}}" class="col-xs-8 col-xs-offset-2 qa-image">
+<blockquote>
+	<p>{{$qa->content}}</p>
+	<footer>Created by {{{ $qa->user->username }}}, {{{$qa->created_at->diffForHumans() }}}</footer>
+</blockquote>
 
 @stop
