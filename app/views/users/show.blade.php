@@ -2,7 +2,7 @@
 
 
 @section('content')
-	<div>
+	<div class='content'>
 		<h2>{{{$user->username}}}'s Profile Page</h2>
 
 		<a id="tutajaxlistener">Create a Tutorial</a>

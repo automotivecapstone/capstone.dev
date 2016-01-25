@@ -17,6 +17,8 @@
 
 @section('content')
 
+<div class = 'content'>
+
 	<p class="logo">Tutorials</p>
 		<table>
 			<tbody>
@@ -30,5 +32,7 @@
 			</tbody>
 		</table>
 {{ $tutorials->links() }}
+
+</div>
 
 @stop
