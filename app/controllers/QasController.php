@@ -24,7 +24,7 @@ class QasController extends \BaseController {
 			$query = Qa::with('user');
 		}
 
-		$qas = $query->orderBy('created_at', 'desc')->paginate(4);
+		$qas = $query->orderBy('created_at', 'desc')->paginate(30);
 
 		return View::make('qas.index')->with(['qas' => $qas, 'search' => $search]);
 	}

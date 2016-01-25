@@ -24,7 +24,7 @@ class TutorialsController extends \BaseController {
 			$query = Tutorial::with('user');
 		}
 
-		$tutorials = $query->orderBy('created_at', 'desc')->paginate(4);
+		$tutorials = $query->orderBy('created_at', 'desc')->paginate(30);
 
 		return View::make('tutorials.index')->with(['tutorials' => $tutorials, 'search' => $search]);
 	}
