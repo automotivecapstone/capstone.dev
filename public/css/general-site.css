@@ -26,6 +26,12 @@
 	text-align: center;
 }
 
+hr {
+	border: 0;
+    height: 1px;
+	background: #5E5651;
+}
+
 body {
 	font-family: "Lato", Helvetica, Arial, sans-serif;
 	background-color: #BFA799;
@@ -37,6 +43,7 @@ body {
 
 .container {
 	background-color: #F2E4DC;
+	/*opacity: .5;*/
 }
 
 .logo {
