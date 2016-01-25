@@ -86,6 +86,7 @@
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
+		<a href="{{{action('UsersController@index')}}}"></a>
 
 
 
