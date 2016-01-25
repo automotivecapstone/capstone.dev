@@ -34,7 +34,7 @@
 			        <li><a class="page-scroll" href="{{ action('UsersController@create') }}">Sign Up</a></li>
 		        @endif
 	    	</ul>
-		{{-- </div>< --}}!-- /.navbar-collapse -->
+		{{-- </div>< --}}!{{-- -- /.navbar-collapse --> --}}
 	          
 	</div>
 </nav>
