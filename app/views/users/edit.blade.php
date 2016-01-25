@@ -2,18 +2,13 @@
 
 @section('content')
 
-<div class="text-center">
-	<p class="logo">register</p>
+<p class="logo">Edit Profile</p>
 
-	<div class="login-form-1">
-		{{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PUT')) }}
-		
-			@include('users.create-edit')
+{{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PUT', 'files' => true)) }}
 
-		{{ Form::submit('submit')}}	
-		{{ Form::close() }}
+	@include('users.create-edit')
 
-	</div>
-</div>
+{{ Form::submit('submit')}}	
+{{ Form::close() }}
 
 @stop
