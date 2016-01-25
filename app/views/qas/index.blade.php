@@ -5,10 +5,9 @@
 @stop
 
 @section('content')
-
+<body>
 	<div class="container">
-		<div class="row">
-			<div class="header">QA Index</div>
+        <p class="logo">Questions & Answers</p>
 			<hr>
 			<table class="table table-nonfluid center-table">
 				<thead>
@@ -35,5 +34,6 @@
 			{{ $qas->links() }}
 		</div>
     </div>
+</body>
 
 @stop

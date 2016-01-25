@@ -8,6 +8,7 @@
 @stop
 
 @section('content')
+<body>
 	<div class="container">
 		<div class="header">Edit Tutorial</div>
 		{{-- <div class="subheader">Blog Stuffz</div> --}}
@@ -38,4 +39,5 @@
 			
 		{{ Form::close() }}
 	</div>
+</body>
 @stop
