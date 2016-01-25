@@ -2,36 +2,31 @@
 
 @section('top-script')
 
-	{{-- CUSTOM CSS --}}
-	<link rel="stylesheet" type="text/css" href="/css/show_qa_tutorial.css">
-
 @stop
 
 @section('content')
-
+<body>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+		<hr>
 
-				{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
+		{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 				
-					<a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}" class="btn btn-info">Edit</a>
+				<a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}" class="btn btn-info">Edit Tutorial</a>
 
-					{{-- <a href="{{{ action('TutorialsController@editImage', $tutorial->id) }}}" class="btn btn-info">Edit Image</a> --}}
+				<button class="btn btn-danger">Delete</button>
+		{{ Form::close() }}
 
-					<button class="btn btn-danger">Delete</button>
+				<h3 class="logo">{{{ $tutorial->title }}}</h3>
 
-				{{ Form::close() }}
-
-				<h1>{{{ $tutorial->title }}}</h1>
-
-				@if (isset($tutorial->image))
-					<img src="{{{ $tutorial->image }}}" class="col-md-offset-2 col-md-8 tutorial-image">
-				@endif
-
-				@if (isset($tutorial->video))
-					<!-- HTML5 video tag -->
-					<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-offset-2 col-md-8 tutorial-image">
+			@if (isset($tutorial->image))
+				<div>
+				<img src="{{{ $tutorial->image }}}" class="tutorial-image">
+				</div>
+			@endif
+	
+			@if (isset($tutorial->video))
+					<!-- HTML5 video tag -->	
+				<video controls="controls" poster="img/demo.jpg" width="640" height="360" 
 						<!-- .mp4 file for native playback in IE9+, Firefox, Chrome, Safari and most mobile browsers -->
 						<source src="{{{ $tutorial->video }}}" type="video/mp4" />
 						<source src="{{{ $tutorial->video }}}" type="video/ogg" />
@@ -48,17 +43,17 @@
 							<!-- fallback image if flash fails -->
 							<img src="img/demo.jpg" width="640" height="360" title="No Flash found" />
 						</object>
-					</video>
-				@endif
-				
-				<blockquote>
-					<p>{{{ $tutorial->content }}}</p>
-					<footer>Created by {{{ $tutorial->user->username }}}, {{{ $tutorial->updated_at->diffForHumans() }}}</footer>
-				</blockquote>
+				</video>
+			@endif
+	
+			<p>{{{ $tutorial->content }}}</p>
+			<p>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}</p>
+			
+			
 
 				{{ Form::open(array('action' => 'CommentsController@store')) }}
 						{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
-						{{ Form::label('content', 'Comment') }}
+						{{ Form::label('content', 'Add a Comment') }}
 					<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
 						{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
 					</div>
@@ -70,7 +65,7 @@
 
 				<div class="detailBox">
 					<div class="titleBox">
-						<label>Comments</label>
+						<label>Other Comments</label>
 					</div>
 					<div class="commentBox">
 						<p class="taskDescription">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -161,6 +156,7 @@
 			</div>
 		</div>
 	</div>
+</body>
 
 @stop
 

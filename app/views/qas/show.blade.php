@@ -6,25 +6,22 @@
 
 @section('content')
 
-<div class="container">
-	<div class="header">QA Show</div>
+<body>
+	<div class="container">
+		<hr>
 
-	<hr>
+		{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
+			
+			<a href="{{{ action('QasController@edit', $qa->id) }}}" class="btn btn-info">Edit Question</a>
 
-	{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
-
-		<a href="{{{ action('QasController@edit', $qa->id) }}}" class="btn btn-info">Edit question</a>
-
-		<button class="delete-button btn btn-danger">Delete</button>
-	{{ Form::close() }}
-	
-	<h1>{{$qa->question}}</h1>
-	<p>{{$qa->content}}</p>
-	<img src="{{{ $qa->image }}}" class="qa-image">
-
-	<p>Created: {{{$qa->created_at->diffForHumans() }}}</p>
-
-	
-</div>
+			<button class="delete-button btn btn-danger">Delete</button>
+		{{ Form::close() }}
+		
+		<h3 class="logo">{{$qa->question}}</h3>
+		<img src="{{{ $qa->image }}}" class="qa-image">
+		<p>{{$qa->content}}</p>
+		<p>Created: {{{$qa->created_at->diffForHumans() }}}</p>
+	</div>
+</body>
 
 @stop

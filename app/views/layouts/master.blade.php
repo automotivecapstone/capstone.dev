@@ -20,7 +20,6 @@
 		
 		@yield('top-script')
 
-
 		<style type="text/css">
 			body{
 				font-family: 'Lato', sans-serif;
