@@ -1,11 +1,5 @@
 @extends('layouts.master')
 
-@section('top-script')
-
-	{{-- CUSTOM CSS BELOW --}}
-	<link href="/css/profile.css" type="text/css" rel="stylesheet">
-
-@stop
 
 @section('content')
 	<div>
@@ -89,36 +83,30 @@
 		<a href="{{{action('UsersController@index')}}}"></a>
 
 
-
-
-
-
-		<div class="container">
-			<div class="col-md-6">
-				<h1>Tutorials</h1>
-				<hr>
-				<ul>
-				@foreach ($user->tags()->get() as $tag)
-					@foreach($tag->tutorials()->get() as $tutorial)
-						<li><a href="{{{action('TutorialsController@show', $tutorial->id)}}}">{{$tutorial->title}}</a></li>
-					@endforeach
+		<div class="col-md-6">
+			<h1>Tutorials</h1>
+			<hr>
+			<ul>
+			@foreach ($user->tags()->get() as $tag)
+				@foreach($tag->tutorials()->get() as $tutorial)
+					<li><a href="{{{action('TutorialsController@show', $tutorial->id)}}}">{{$tutorial->title}}</a></li>
 				@endforeach
-				</ul>
-			</div>
-
-			<div class="col-md-6 offset-col-md-6">
-
-			    <h1>Q/As</h1>
-			    <hr>	
-			    <ul>
-				@foreach ($user->tags()->get() as $tag)
-					@foreach($tag->qas()->get() as $qa)
-						<li><a href="{{{action('QasController@show', $qa->id)}}}">{{$qa->question}}</a></li>
-					@endforeach
-				@endforeach
-				</ul>
-			</div>  
+			@endforeach
+			</ul>
 		</div>
+
+		<div class="col-md-6 offset-col-md-6">
+
+		    <h1>Q/As</h1>
+		    <hr>	
+		    <ul>
+			@foreach ($user->tags()->get() as $tag)
+				@foreach($tag->qas()->get() as $qa)
+					<li><a href="{{{action('QasController@show', $qa->id)}}}">{{$qa->question}}</a></li>
+				@endforeach
+			@endforeach
+			</ul>
+		</div>  
 	</div>
 
 	
