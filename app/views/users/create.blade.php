@@ -4,7 +4,7 @@
 
 	<div class = 'content'>
 
-		<p class="logo">Join Grease Monkey</p>
+		<p class="logo">register</p>
 
 		<div class="login-form-1">
 			{{ Form::open(array('action' => 'UsersController@store', 'class' => 'text-left', 'id'=>'register-form'))}}
