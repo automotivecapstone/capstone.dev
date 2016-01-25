@@ -54,9 +54,21 @@ body {
 	color: #5E5651;
 }
 
-.nav-color {
+.navbar {
 	background-color: #5E5651;
 	font-family: 'Lato', sans-serif;
+}
+
+.navbar-brand{
+	color:white;
+}
+
+a .navbar-brand:hover{
+	color:#9d9d9d
+}
+
+.navbar-inverse{
+	border-color:#5E5651;
 }
 
 .home-search {
@@ -72,6 +84,15 @@ body {
 
 .tutorial-image {
 	float: none;
+}
+
+a{
+	color: #5E5651;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #A66844;
 }
 
 
