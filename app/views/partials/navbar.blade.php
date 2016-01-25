@@ -9,22 +9,24 @@
 		<ul class="nav navbar-nav navbar-left">
 			@if(!Auth::check())
 				<li><a href="{{ action('HomeController@getLogin') }}">Log In</a></li>
+				<li><a href="{{ action('UsersController@create') }}">Sign Up</a></li>
+				<li><a href="{{ action('TutorialsController@index') }}">Tutorials</a></li>
+				<li><a href="{{ action('QasController@index') }}">Q & A</a></li>
 			@endif
 			@if(Auth::check())
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
 					<span class="dropdown-arrow"></span>
 					<ul class="dropdown-menu">
-						<li><a href="{{action('UsersController@show', Auth::user()->id)}}">Profile</a></li>
-						<li><a href="{{ action('TutorialsController@index') }}">Tutorials</a></li>
-						<li><a href="{{ action('QasController@index') }}">Q & A</a></li>
+						<li><a href="{{ action('UsersController@show', Auth::user()->id) }}">Profile</a></li>
+						<li><a href="{{ action('UsersController@index') }}">Your Stuff!</a></li>
+						<li><a href="">Account Settings</a></li>
 						<li class="divider"></li>
 						<li><a href="{{ action('HomeController@getLogout') }}">Log Out</a></li>
 					</ul>
 				</li>
-			@endif
-			@if(!Auth::check())
-				<li><a href="{{ action('UsersController@create') }}">Sign Up</a></li>
+				<li><a href="{{ action('TutorialsController@create') }}">Tutorials +</a></li>
+				<li><a href="{{ action('QasController@create') }}">Q & A +</a></li>
 			@endif
 		</ul>
 		{{ Form::open(array('action' => array('HomeController@search'), 'method' => 'GET', 'class' => 'navbar-form navbar-right')) }}
