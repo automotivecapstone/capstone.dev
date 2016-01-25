@@ -2,6 +2,13 @@
 
 @section('top-script')
 
+	<style type="text/css">
+		.commenter-image {
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+
 @stop
 
 @section('content')
