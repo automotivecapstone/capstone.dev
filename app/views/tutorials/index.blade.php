@@ -1,26 +1,34 @@
 @extends('layouts.master')
 
+@section('top-script')
+	<style type="text/css">
+	table {
+    border-collapse: collapse;
+    width: 100%;
+	}
+
+	th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #BFA799;
+	}
+	</style>
+@stop
+
 @section('content')
 
 	<p class="logo">Tutorials</p>
-	<table class="table table-nonfluid center-table">
-		<thead>
-			<tr>
-				<th><h4>Title</h4></th>
-				<th><h4>Content</h4></th>
-				<th><h4>Created</h4></th>
-			</tr>
-		</thead>
-		<tbody>
+		<table>
+			<tbody>
 				@foreach ($tutorials as $tutorial)
 					<tr>
 						<td><a href="{{{ action('TutorialsController@show', $tutorial->id) }}}">{{{ $tutorial->title }}}</a></td>
-						<td>{{{ $tutorial->content }}}</td>
 						<td>{{{ $tutorial->created_at->diffForHumans() }}}</td>
+						<td>{{{ $tutorial->user->username}}}</td>
 					</tr>
 				@endforeach
-		</tbody>
-	</table>
+			</tbody>
+		</table>
 {{ $tutorials->links() }}
 
 @stop
