@@ -10,36 +10,34 @@
 		
 	{{ Form::close() }}
 
-	<h3 class="logo">{{{ $tutorial->title }}}</h3>
+	<h3>{{{ $tutorial->title }}}</h3>
 
-	<div class="tutorial-image">
-		@if (isset($tutorial->image))
-			<img src="{{{ $tutorial->image }}}" >
-		@endif
+	@if (isset($tutorial->image))
+		<img src="{{{ $tutorial->image }}}" class="col-xs-8 col-xs-offset-2 tutorial-image">
+	@endif
 
-		@if (isset($tutorial->video))
-			<!-- HTML5 video tag -->
-			<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-offset-2 col-md-8 tutorial-image">
-		 		{{-- *******Do we need something like this to control/adjust the sizes of files users may upload? ******* --}}
-				{{-- .mp4 file for native playback in IE9+, Firefox, Chrome, Safari and most mobile browsers --}}
-				<source src="{{{ $tutorial->video }}}" type="video/mp4" />
-				<source src="{{{ $tutorial->video }}}" type="video/ogg" />
-				<source src="{{{ $tutorial->video }}}" type="video/webm" />
-				<source src="{{{ $tutorial->video }}}" type="video/m4v" />
-				<!-- flash fallback for IE6, IE7, IE8 and Opera -->
-				<object type="application/x-shockwave-flash" data="swf/flowplayer-3.2.18.swf" width="640" height="360">
-					<param name="movie" value="swf/flowplayer-3.2.18.swf" />
-					<param name="allowFullScreen" value="true" />
-					<param name="wmode" value="transparent" />
-					<!-- note the encoded path to the image and video files, relative to the .swf! -->
-					<!-- more on that here: http://en.wikipedia.org/wiki/Percent-encoding -->
-					<param name="flashVars" value="config={'playlist':['..%2Fimg%2Fdemo.jpg',{'url':'{{{ $tutorial->video }}}','autoPlay':false}]}" />
-					<!-- fallback image if flash fails -->
-					<img src="img/demo.jpg" width="640" height="360" title="No Flash found" />
-				</object>
-			</video>
-		@endif
-	</div>
+	@if (isset($tutorial->video))
+		<!-- HTML5 video tag -->
+		<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-offset-2 col-md-8 tutorial-image">
+	 		{{-- *******Do we need something like this to control/adjust the sizes of files users may upload? ******* --}}
+			{{-- .mp4 file for native playback in IE9+, Firefox, Chrome, Safari and most mobile browsers --}}
+			<source src="{{{ $tutorial->video }}}" type="video/mp4" />
+			<source src="{{{ $tutorial->video }}}" type="video/ogg" />
+			<source src="{{{ $tutorial->video }}}" type="video/webm" />
+			<source src="{{{ $tutorial->video }}}" type="video/m4v" />
+			<!-- flash fallback for IE6, IE7, IE8 and Opera -->
+			<object type="application/x-shockwave-flash" data="swf/flowplayer-3.2.18.swf" width="640" height="360">
+				<param name="movie" value="swf/flowplayer-3.2.18.swf" />
+				<param name="allowFullScreen" value="true" />
+				<param name="wmode" value="transparent" />
+				<!-- note the encoded path to the image and video files, relative to the .swf! -->
+				<!-- more on that here: http://en.wikipedia.org/wiki/Percent-encoding -->
+				<param name="flashVars" value="config={'playlist':['..%2Fimg%2Fdemo.jpg',{'url':'{{{ $tutorial->video }}}','autoPlay':false}]}" />
+				<!-- fallback image if flash fails -->
+				<img src="img/demo.jpg" width="640" height="360" title="No Flash found" />
+			</object>
+		</video>
+	@endif
 
 	<p>{{{ $tutorial->content }}}</p>
 	<p>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}</p>
