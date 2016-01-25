@@ -27,6 +27,7 @@
 }
 
 body {
+	font-family: "Lato", Helvetica, Arial, sans-serif;
 	background-color: #BFA799;
 	background-repeat: space;
 	background-image: url("background.png");
@@ -59,11 +60,6 @@ body {
 }
 
 
-/*.qa-image, .tutorial-image {
-	margin: auto;
-	height: 25%;
-	width: 25%;
-}*/
 
 
 
