@@ -11,6 +11,7 @@
                         <img class="img-responsive" src="{{{$item->image}}}" alt="GreaseMonkey">
                         <hr class="horizontalrule">
                         <span class="skills">${{{$item->price}}}</span>
+                        <p id = "backbutton"><a class ="btn btn-primary btn-lg" href="{{action('InventoriesController@index')}}">Continue Shopping</a></p>
                     </div>
                 </div>
             </div>

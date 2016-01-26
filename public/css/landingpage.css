@@ -521,3 +521,36 @@ footer .footer-below {
     color: #5E5651;
     font-size: 75px;
 }
+
+#backbutton{
+    margin-top: 50px;
+}
+
+.btn-primary{
+    background-color: #A66844;
+    border: #73341D;
+}
+
+.btn-primary:hover{
+    background-color: #73341D;
+}
+
+.btn.btn-primary.btn-lg:active{
+    background-color: #73341D;
+}
+
+.btn.btn-primary.btn-lg:visited{
+    background-color: #73341D;
+}
+
+a{
+    color: #5E5651;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #A66844;
+}
+
+
+

@@ -128,6 +128,11 @@ a:hover{
 	color: #A66844;
 }
 
+a:active{
+    text-decoration: none;
+    color: #A66844;
+}
+
 .btn-primary{
 	background-color: #A66844;
 	border: #73341D;
