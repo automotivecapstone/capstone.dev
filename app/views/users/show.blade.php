@@ -88,30 +88,32 @@
 
 		</div>
 
-		<h2 id="profilebreak">New and Noteworthy</h2>
-		<div class="col-md-6">
-			<h3>Tutorials</h3>
-			<hr>
-			<ul>
-			@foreach ($user->tags()->get() as $tag)
-				@foreach($tag->tutorials()->get() as $tutorial)
-					<li><a href="{{{action('TutorialsController@show', $tutorial->id)}}}">{{$tutorial->title}}</a></li>
-				@endforeach
-			@endforeach
-			</ul>
-		</div>
+		<h1>{{{$user->username}}}'s Content</h1>
 
-		<div class="col-md-6 offset-col-md-6">
-		    <h3>Q/As</h3>
-		    <hr>	
-		    <ul>
-			@foreach ($user->tags()->get() as $tag)
-				@foreach($tag->qas()->get() as $qa)
-					<li><a href="{{{action('QasController@show', $qa->id)}}}">{{$qa->question}}</a></li>
-				@endforeach
+		<table>
+			@foreach($user->tutorials()->get() as $tutorial)
+				<tr>
+					<td><a href="{{{action('TutorialsController@show', $tutorial->id)}}}">{{{$tutorial->title}}}</a></td>
+
+					@if(Auth::id()== $user->id)
+					<td><button class = "btn btn-warning btn-small">Edit</button></td>
+					<td><button class = "btn btn-danger btn-small">Delete</button></td>
+					@endif
+				</tr>
 			@endforeach
-			</ul>
-		</div>  
+		</table>
+
+		<table>
+			@foreach($user->qas()->get() as $qa)
+				<tr>
+					<td><a href="{{{action('QasController@show', $qa->id)}}}">{{{$qa->question}}}</a></td>
+					@if(Auth::id()==$user->id)
+					<td><button class = "btn btn-warning btn-small">Edit</button></td>
+					<td><button class = "btn btn-danger btn-small">Delete</button></td>
+					@endif
+				</tr>
+			@endforeach
+		</table>
 	</div>
 
 	

@@ -112,4 +112,11 @@ class HomeController extends BaseController {
 
 	}
 
+	public function usersHome()
+	{
+		$user = Auth::user();
+		return View::make('timeline')->with('user', $user);
+
+	}
+
 }
