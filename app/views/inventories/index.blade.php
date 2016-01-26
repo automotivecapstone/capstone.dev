@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-text">
-                        <span class="name">Grease Monkey Merch</span>
+                        <span class="font-magneto-item">Go On.</span>
                         <img class="img-responsive" src="/css/monkey-transparent.png" alt="GreaseMonkey">
                         <hr class="horizontalrule">
                         <span class="skills">Get your monkey on.</span>

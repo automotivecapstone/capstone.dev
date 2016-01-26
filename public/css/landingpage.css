@@ -196,7 +196,11 @@ section h2 {
 
 section.success {
     color: #fff;
-    background: #18bc9c;
+    background-image: url('/css/background.png');
+    background-color: #BFA799;
+    background-size: 75px;
+    background-repeat: space;
+
 }
 
 section.success a,
