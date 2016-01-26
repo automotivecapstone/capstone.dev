@@ -1,6 +1,10 @@
 body {
     overflow-x: hidden;
-    background-image:url('background.png'); 
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    background-color: #73341D;
+    background-repeat: space;
+    background-size: 75px;
+    color: #5E5651;
 }
 
 p {
@@ -79,7 +83,8 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #fff;
-    background: #5E5651;
+    background: #BFA799;
+    background-image: url("background.png");
 }
 
 header .container {
@@ -107,7 +112,7 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     header .container {
-        padding-top: 200px;
+        padding-top: 100px;
         padding-bottom: 100px;
     }
 
@@ -145,9 +150,9 @@ header .intro-text .skills {
 }
 
 .navbar {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    background-color: #5E5651;
+        font-family: 'Lato', sans-serif;
+
 }
 
 .navbar a:focus {
@@ -166,6 +171,19 @@ header .intro-text .skills {
 .navbar-inverse {
     border: 0;
 }
+
+.navbar-brand{
+    font-family:magnetoFont
+}
+
+a .navbar-brand:hover{
+    color:#9d9d9d
+}
+
+.navbar-inverse{
+    border-color:#5E5651;
+}
+
 
 section {
     padding: 100px 0;
@@ -198,6 +216,10 @@ section.success a.active {
     section.first {
         padding-top: 75px;
     }
+}
+
+#portfolio{
+    color:white;
 }
 
 #portfolio .portfolio-item {
@@ -462,6 +484,27 @@ footer .footer-below {
     padding-top: 5px;
 }
 
-.font-magneto {
+@font-face {
     font-family: magnetoFont;
+    src: url(MAGNETOB.TTF);
+}
+
+
+.font-magneto{
+    font-family: magnetoFont;
+    color: #5E5651;
+    font-size: 120px;
+}
+
+.horizontalrule{
+    width: 55%;
+    height: 8px;
+    background-color:#5E5651;
+    color:#FF0066;
+    border: 0 none;
+    margin: 10px auto;
+}
+
+.iconcolor{
+    color: #5E5651;
 }

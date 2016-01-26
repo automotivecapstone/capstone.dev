@@ -3,7 +3,7 @@
 		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
 			<span class="fa fa-bars"></span>
 		</button>
-		<span><img class="icon" src="css/monkey-icon-wht-on-blk.png"><a class="navbar-brand" href="{{ action('HomeController@showWelcome') }}">Grease Monkey</a></span>
+		<span><img class="icon" src="/css/monkey-icon-wht-on-blk.png"><a class="navbar-brand" href="{{ action('HomeController@showWelcome') }}">Grease Monkey</a></span>
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-collapse-01">
 		<ul class="nav navbar-nav navbar-left">
@@ -15,7 +15,7 @@
 			@endif
 			@if(Auth::check())
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <i class="fa fa-user"></i><b class="caret"></b></a>
 					<span class="dropdown-arrow"></span>
 					<ul class="dropdown-menu">
 						<li><a href="{{ action('UsersController@show', Auth::user()->id) }}">Profile</a></li>
