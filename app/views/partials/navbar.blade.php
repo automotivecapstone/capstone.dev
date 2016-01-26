@@ -40,6 +40,10 @@
 				</li>
 			@endif
 		</ul>
+		<ul class = "nav navbar-nav navbar-right">
+			<li>
+				<a href="{{action('InventoriesController@index')}}">Merch</a>
+			</li>
 		{{ Form::open(array('action' => array('HomeController@search'), 'method' => 'GET', 'class' => 'navbar-form navbar-right')) }}
 			<div class="form-group">
 				<div class="input-group">
@@ -51,5 +55,6 @@
 
 			</div>
 		{{ Form::close() }}
+		</ul>
 	</div>
 </nav>

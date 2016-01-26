@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>	
-		<title>Capstone</title>
+		<title>GreaseMonkey | An Online DIY Automotive Community</title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">

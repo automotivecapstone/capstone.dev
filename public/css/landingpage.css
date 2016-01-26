@@ -510,3 +510,10 @@ footer .footer-below {
 .iconcolor{
     color: #5E5651;
 }
+
+
+.font-magneto-item{
+    font-family: magnetoFont;
+    color: #5E5651;
+    font-size: 75px;
+}
