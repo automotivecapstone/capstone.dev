@@ -4,7 +4,7 @@
 			<span class="fa fa-bars"></span>
 		</button>
 
-		<a class="navbar-brand" href="{{ action('HomeController@showWelcome') }}"><img class="icon" src="css/monkey-icon-taupe-on-cream.png">Grease Monkey</a>
+		<a class="navbar-brand" href="{{ action('HomeController@showWelcome') }}"><img class="icon" src="/css/monkey-icon-taupe-on-cream.png">Grease Monkey</a>
 
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-collapse-01">
@@ -30,11 +30,12 @@
 				<li><a href="{{ action('TutorialsController@index') }}">Tutorials</a></li>
 				<li><a href="{{ action('QasController@index') }}">Q &amp; A</a></li>
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">+<b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-plus-circle"></i>
+<b class="caret"></b></a>
 					<span class="dropdown-arrow"></span>
 					<ul class="dropdown-menu">
 						<li><a href="{{ action('TutorialsController@create') }}">New Tutorial</a></li>
-						<li><a href="{{ action('QasController@create') }}">New Q & A</a></li>
+						<li><a href="{{ action('QasController@create') }}">New Q &amp; A</a></li>
 					</ul>
 				</li>
 			@endif
