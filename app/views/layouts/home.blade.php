@@ -25,20 +25,19 @@
 
 		
 		
-					@yield('content')
+		@yield('content')
 
-				<div class="col-xs-8 col-xs-offset-2">
-					<div class="message">
-					    @if (Session::has('successMessage'))
-						    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
-						@endif
-						@if (Session::has('errorMessage'))
-						    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
-						@endif
-					</div>
-				</div>	
+		<div class="col-xs-8 col-xs-offset-2">
+			<div class="message">
+			    @if (Session::has('successMessage'))
+				    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+				@endif
+				@if (Session::has('errorMessage'))
+				    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+				@endif
 			</div>
-		</div>
+		</div>	
+	
 
 		@include('partials.footer')
 
