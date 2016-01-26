@@ -35,6 +35,8 @@ Route::get('search-show/{id}', 'HomeController@searchShow');
 
 Route::get('/newsfeed', 'HomeController@usersHome');
 
+Route::get('/store', 'HomeController@showStore');
+
 Route::resource('tutorials', 'TutorialsController');
 
 Route::resource('qas', 'QasController');

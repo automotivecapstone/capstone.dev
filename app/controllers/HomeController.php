@@ -119,4 +119,9 @@ class HomeController extends BaseController {
 
 	}
 
+	public function showStore()
+	{
+		return View::make('store_index');
+	}
+
 }
