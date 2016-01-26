@@ -18,6 +18,10 @@ class UsersController extends \BaseController {
 	public function index()
 	{
 		$users = User::all();
+		@if(Auth::id()!==1)
+		{
+			return Redirect::action('UsersController@show', Auth::id())
+		}
 		return View::make('users.index')->with('users', $users);
 	}
 
