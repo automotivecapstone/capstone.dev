@@ -13,13 +13,13 @@
 		<p><a id="tutajaxlistener">Create a Tutorial</a></p>
 		<div class="modal fade" id = "tut_Modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
-		    <div class="modal-content">
+		    <div class="modal-content text-center">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">Tutorial Modal</h4>
+		        <h4 class="modal-title">How to Make a Tutorial</h4>
 		      </div>
 		      <div class="modal-body">
-		        <p>This is what you need to do to make a tutorial. All the things.</p>
+		        <p>Tutorials are meant to show others how to.</p>
 		        <p>Testing out different lines. Test. Test.</p>
 		      </div>
 		      <div class="modal-footer">
