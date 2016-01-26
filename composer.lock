@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "614609f3f05bd6e693ed19af0494d01e",
-    "content-hash": "d9750aa1e7e62dc9120afcd15ffdf441",
+    "hash": "10e2b97e9267ee184aff9b0f710aae44",
+    "content-hash": "41ca0e9af705727d80f94a24d32f02b6",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -289,6 +289,61 @@
                 "tokenizer"
             ],
             "time": "2015-01-10 01:09:28"
+        },
+        {
+            "name": "kandy-io/kandy-laravel",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kandy-IO/kandy-laravel.git",
+                "reference": "a903cacbeec8b9e4596bbceada72532231e6b370"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kandy-IO/kandy-laravel/zipball/a903cacbeec8b9e4596bbceada72532231e6b370",
+                "reference": "a903cacbeec8b9e4596bbceada72532231e6b370",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations",
+                    "src/Models",
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Kodeplusdev\\Kandylaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kodeplus",
+                    "email": "kodeplusdev@gmail.com",
+                    "homepage": "http://kandy.io"
+                }
+            ],
+            "description": "This Laravel package encapsulates all of Kandy’s JS SDK and Restful APIs. Kandy is a product by GENBAND (www.genband.com) that utilizes WebRTC to enable peer to peer audio and video calls and chat. SMS and PSTN calling support will be added to this package in the near future.",
+            "homepage": "https://github.com/Kandy-IO/kandy-laravel",
+            "keywords": [
+                "WebRTC",
+                "audio",
+                "chat",
+                "collaboration",
+                "kandy",
+                "laravel webrtc",
+                "peer-to-peer video",
+                "streaming",
+                "video",
+                "video streaming"
+            ],
+            "time": "2015-09-23 08:40:53"
         },
         {
             "name": "laravel/framework",
@@ -1529,12 +1584,12 @@
             "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Routing.git",
+                "url": "https://github.com/symfony/routing.git",
                 "reference": "46142c34ea830f47429df6e15faec3a33292d618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/46142c34ea830f47429df6e15faec3a33292d618",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/46142c34ea830f47429df6e15faec3a33292d618",
                 "reference": "46142c34ea830f47429df6e15faec3a33292d618",
                 "shasum": ""
             },
@@ -1824,16 +1879,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "49ff736bd5d41f45240cec77b44967d76e0c3d25"
+                "reference": "1289d16209491b584839022f29257ad859b8532d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/49ff736bd5d41f45240cec77b44967d76e0c3d25",
-                "reference": "49ff736bd5d41f45240cec77b44967d76e0c3d25",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/1289d16209491b584839022f29257ad859b8532d",
+                "reference": "1289d16209491b584839022f29257ad859b8532d",
                 "shasum": ""
             },
             "require": {
@@ -1845,7 +1900,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1-dev"
                 }
             },
             "autoload": {
@@ -1879,7 +1934,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-20 09:19:13"
+            "time": "2016-01-20 09:13:37"
         },
         {
             "name": "symfony/var-dumper",

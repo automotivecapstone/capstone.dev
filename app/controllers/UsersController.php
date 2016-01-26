@@ -53,6 +53,7 @@ class UsersController extends \BaseController {
 			$user->username = Input::get('username');
 			$user->password = Input::get('password');
 			$user->email = Input::get('email');
+			KandyLaravel::createUser($user->username, $user->email);
 
 			$image = Input::file('image');
 			if ($image) {
