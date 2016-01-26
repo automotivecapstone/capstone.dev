@@ -17,8 +17,8 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$user = Auth::user();
-		return View::make('users.index')->with('user', $user);
+		$users = User::all();
+		return View::make('users.index')->with('users', $users);
 	}
 
 	/**
