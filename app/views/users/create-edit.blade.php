@@ -3,7 +3,7 @@
 	{{ Form::label('username', 'Username') }}
 	<input type="text" class="form-control" id="username" name="username" value="{{{ $user->username }}}">
 </div>
-@endif
+
 
 <div class="form-group {{ ($errors->has('password')) ? 'has-error' : '' }}">
 	{{ $errors->first('password', '<div class="alert alert-danger">:message</div>') }}

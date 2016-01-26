@@ -425,7 +425,7 @@ footer .footer-below {
 }
 
 .portfolio-modal .modal-content h2 {
-    margin: 0;
+    margin: 50 0 0 0px;
     font-size: 3em;
 }
 
@@ -502,7 +502,7 @@ footer .footer-below {
     background-color:#5E5651;
     color:#FF0066;
     border: 0 none;
-    margin: 10px auto;
+    margin: 40px auto;
 }
 
 .iconcolor{

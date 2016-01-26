@@ -132,7 +132,7 @@ table{
 }
 
 tr:hover {
-	background-color: #f5f5f5
+	background-color: #f5f5f5;
 }
 
 th, td {
@@ -141,12 +141,20 @@ th, td {
     border-bottom: 1px solid #BFA799;
 }
 
-header{
+.header{
 	overflow: auto;
+	/*background-color: #73341D;*/
+
 }
 
 #imageholder{
 	float: right;
+}
+
+#imageholder img{
+	height:50%;
+	width: 50%;
+	border: 5px solid black;
 }
 
 #profilebreak{

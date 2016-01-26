@@ -33,6 +33,8 @@ Route::get('/search', 'HomeController@search');
 
 Route::get('search-show/{id}', 'HomeController@searchShow');
 
+Route::get('/newsfeed', 'HomeController@usersHome');
+
 Route::resource('tutorials', 'TutorialsController');
 
 Route::resource('qas', 'QasController');
