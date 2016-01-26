@@ -1,0 +1,170 @@
+@font-face {
+    font-family: magnetoFont;
+    src: url(MAGNETOB.TTF);
+}
+
+.font-magneto {
+    font-family: magnetoFont;
+    color: #5E5651;
+    font-size: 72px;
+}
+
+@font-face {
+    font-family: monkeyFont;
+    src: url(robotic-attack-fonts_monkey-chunks/mnkchunk.ttf);
+}
+
+.font-monkey{
+    font-family: monkeyFont;
+    color: #5E5651;
+    font-size: 72px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+	}
+	tr:hover {
+	background-color: #f5f5f5
+	}
+	th, td {
+    padding: 25px;
+    text-align: left;
+    border-bottom: 1px solid #BFA799;
+	}
+.icon {
+    border-radius: 50%;
+    height:	40px;
+    width: 40px;
+    float: left;
+    margin-top: -10px;
+    margin-right: 5px;
+}
+.title {
+	padding-top: 30px;
+	text-align: center;
+}
+
+hr {
+	border: 0;
+    height: 1px;
+	background: #5E5651;
+}
+
+body {
+	font-family: "Lato", Helvetica, Arial, sans-serif;
+	background-color: #BFA799;
+	background-repeat: space;
+	background-image: url("background.png");
+	background-size: 75px;
+	color: #5E5651;
+}
+
+.container {
+	background-color: #F2E4DC;
+	/*opacity: .5;*/
+}
+
+.logo {
+	font-family: 'magnetoFont', sans-serif;
+	padding-top: 50px;
+	text-align: center; 
+	font-size: 42px;
+	color: #5E5651;
+}
+
+.navbar {
+	background-color: #5E5651;
+	font-family: 'Lato', sans-serif;
+}
+
+.navbar-brand{
+	font-family:magnetoFont
+}
+
+a .navbar-brand:hover{
+	color:#9d9d9d
+}
+
+.navbar-inverse{
+	border-color:#5E5651;
+}
+
+.home-search {
+	padding:5px;
+	padding-left: 50px;
+	width: 500px;
+	position: relative;
+}
+
+.qa-image {
+	float: none;
+}
+
+.tutorial-image {
+	float: none;
+}
+
+a{
+	color: #5E5651;
+}
+
+a:hover{
+	text-decoration: none;
+	color: #A66844;
+}
+
+.btn-primary{
+	background-color: #A66844;
+	border: #73341D;
+}
+
+.btn-primary:hover{
+	background-color: #73341D;
+}
+
+.content{
+	padding-top: 40px;
+}
+
+table{
+	border-collapse: collapse;
+    width: 100%;
+}
+
+tr:hover {
+	background-color: #f5f5f5;
+}
+
+th, td {
+    padding: 25px;
+    text-align: left;
+    border-bottom: 1px solid #BFA799;
+}
+
+.header{
+	overflow: auto;
+	/*background-color: #73341D;*/
+
+}
+
+#imageholder{
+	float: right;
+}
+
+#imageholder img{
+	height:50%;
+	width: 50%;
+	border: 5px solid black;
+}
+
+#profilebreak{
+	padding: 40px;
+	text-align: center;
+}
+
+.help-container {
+	position: fixed;
+	z-index: 10;
+	bottom: 50px;
+}
+
