@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.home')
 
 @section('top-script')
 
@@ -9,7 +9,7 @@
 		<div class ="form-div">
 			{{ Form::open(array('action' => 'HomeController@postLogin'), ['class'=>'form', 'id'=>'form1']) }}
 
-			<p class = 'font-magneto text-center'>log in</p>
+			<p class = 'font-magneto-item text-center'>log in</p>
 
 			<div class="{{ ($errors->has('email')) ? 'has-error' : '' }}">
 				{{ $errors->first('email', '<div class="alert alert-danger">:message</div>') }}

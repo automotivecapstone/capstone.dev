@@ -296,8 +296,8 @@ input:focus, textarea:focus {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
-  margin-top:-4px;
-  font-weight:700;
+  	margin-top:-4px;
+  	font-weight:700;
 }
 
 #button-blue:hover{
