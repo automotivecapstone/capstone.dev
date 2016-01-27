@@ -17,8 +17,12 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$user = Auth::user();
-		return View::make('users.index')->with('user', $user);
+		$users = User::all();
+		if(Auth::id()!==1)
+		{
+			return Redirect::action('UsersController@show', Auth::id());
+		}
+		return View::make('users.index')->with('users', $users);
 	}
 
 	/**
@@ -107,7 +111,7 @@ class UsersController extends \BaseController {
 	public function edit($id)
 	{
 		$user = User::find($id);
-		return View::make('users.edit')->with('user', $user);
+		return View::make('users.edit')->with('user', $user);	
 	}
 
 	/**

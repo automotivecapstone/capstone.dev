@@ -37,7 +37,7 @@ class HomeController extends BaseController {
 
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
 			$user = Auth::user();
-		    return Redirect::action('UsersController@show', $user->id);
+		    return Redirect::action('HomeController@usersHome');
 		} else {
 		    // login failed, go back to the login screen
 		    Session::flash('errorMessage', 'Wrong email or password!');
@@ -110,6 +110,18 @@ class HomeController extends BaseController {
 			return Redirect::action('QasController@show', $qa->id);
 		}
 
+	}
+
+	public function usersHome()
+	{
+		$user = Auth::user();
+		return View::make('timeline')->with('user', $user);
+
+	}
+
+	public function showStore()
+	{
+		return View::make('store_index');
 	}
 
 }
