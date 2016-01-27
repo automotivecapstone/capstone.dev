@@ -7,13 +7,15 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"fzaninotto/faker": "^1.5",
-		"kandy-io/kandy-laravel": "2.3.0"
+		"kandy-io/kandy-laravel": "2.3.0",
+		"guzzlehttp/guzzle": "~5.3|~6.0",
+		"league/commonmark":"^0.13",
+		"mailgun/mailgun-php":"~1.7.2"
 	},
 	"require-dev": {
 		"way/generators": "~2.0",
-		"barryvdh/laravel-debugbar": "~1.8",
-		"league/commonmark":"^0.13",
-		"mailgun/mailgun-php":"~1.7.2"
+		"barryvdh/laravel-debugbar": "~1.8"
+		
 	},
 	"autoload": {
 		"classmap": [
