@@ -3,12 +3,12 @@
 
 @section('content')
 
-	<div class='content'>
-		<div >
+	<div class="profile-div">
+		<div>
 			<div class="row">
 				 <div class="col-lg-10 col-lg-offset-1 text-center">
 					<img class = "profile-image imageholder" src="{{{$user->image}}}">
-					<h2 class="title">let's twist this, {{{$user->username}}}</h2>
+					<h2 class="title">Let's twist this, {{{$user->username}}}!</h2>
 					<hr class = "horizontalrule">
                 </div>
 			</div>
@@ -87,8 +87,8 @@
 	</div>
 
 
-<section id="portfolio">
-		<h1>{{{$user->username}}}'s Content</h1>
+	<div class="content content-div">
+		<h1 class="title">{{{$user->username}}}'s Content</h1>
 
 		<table>
 			@foreach($user->tutorials()->get() as $tutorial)
@@ -113,7 +113,7 @@
 			@endforeach
 		</table>
 	</div>
- </section>
+
 
 	
 

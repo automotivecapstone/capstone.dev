@@ -6,9 +6,9 @@
 
 @section('content')
 
-<div class = 'content'>
 
 	<p class="logo">Questions &amp; Answers</p>
+	<div class="content content-div">
 		<table>
 			<tbody>
 				@foreach($qas as $qa)
@@ -23,6 +23,6 @@
 
 	{{ $qas->links() }}
 
-</div>
+	</div>
 
 @stop
