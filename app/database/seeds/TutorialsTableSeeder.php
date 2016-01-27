@@ -12,7 +12,7 @@ class TutorialsTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 
 			Tutorial::create([
             'title' => "Changing your oil in 12 simple steps.",
@@ -28,7 +28,7 @@ class TutorialsTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 
 			Tutorial::create([
             'title' => "Checking your tire pressure.",
@@ -44,7 +44,7 @@ class TutorialsTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 
 			Tutorial::create([
             'title' => "Popping the hood: a lesson for beginners.",
@@ -60,7 +60,7 @@ class TutorialsTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 
 			Tutorial::create([
             'title' => "How to put snow chains on your tires.",
@@ -76,7 +76,7 @@ class TutorialsTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 
 			Tutorial::create([
             'title' => "How to lose friends and alienate people.",
@@ -92,7 +92,7 @@ class TutorialsTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 
 			Tutorial::create([
             'title' => "The Art and Zen of light automobile maintenance.",
@@ -108,7 +108,7 @@ class TutorialsTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 
 			Tutorial::create([
             'title' => "How to replace your transmission in 7 easy steps!",

@@ -12,7 +12,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "Why Is The Blazer Not Shifting Into 4-wheel Drive?",
@@ -25,7 +25,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "Water Leak",
@@ -38,7 +38,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "What is that sound?",
@@ -51,7 +51,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "Why does my AC smell like gas when I'm going over 45mph?",
@@ -64,7 +64,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "Why do my tires smell like burned rubber coming out of a start?",
@@ -77,7 +77,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "How do I change my windshield wipers?",
@@ -90,7 +90,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "What is that weird thump I hear from the rear of the car?",
@@ -103,7 +103,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "What is the average air speed velocity of a laden swallow?",
@@ -116,7 +116,7 @@ class QasTableSeeder extends Seeder {
 
 		foreach(range(1, 5) as $index)
 		{
-			$user = $users[mt_rand(0,count($users))];
+			$user = $users->random();
 			
 			Qa::create([
             'question' => "What is wrong with my exhaust system?",
