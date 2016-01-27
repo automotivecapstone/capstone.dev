@@ -4,7 +4,7 @@
 @section('content')
 
 	<div class='content'>
-		<div >
+		<div>
 			<div class="row">
 				 <div class="col-lg-10 col-lg-offset-1 text-center">
 					<img class = "profile-image imageholder" src="{{{$user->image}}}">
@@ -87,7 +87,7 @@
 	</div>
 
 
-<section id="portfolio">
+	<div id="">
 		<h1>{{{$user->username}}}'s Content</h1>
 
 		<table>
@@ -113,7 +113,7 @@
 			@endforeach
 		</table>
 	</div>
- </section>
+
 
 	
 
