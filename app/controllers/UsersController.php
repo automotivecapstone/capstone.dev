@@ -53,7 +53,7 @@ class UsersController extends \BaseController {
 			$user->username = Input::get('username');
 			$user->password = Input::get('password');
 			$user->email = Input::get('email');
-			KandyLaravel::createUser($user->username, $user->email);
+
 
 			$image = Input::file('image');
 			if ($image) {
@@ -69,6 +69,10 @@ class UsersController extends \BaseController {
 
 			Auth::login($user);
 			$user = Auth::user();
+
+			KandyLaravel::createUser($user->username, $user->email, Auth::user()->id);
+			KandyLaravel::assignUser(Auth::user()->id, $user->username);
+			KandyLaravel::init(Auth::user()->id);
 
 			Session::flash('successMessage', 'Your user has been saved.');
 			return Redirect::action('UsersController@show', $user->id);
@@ -89,7 +93,7 @@ class UsersController extends \BaseController {
 	{
 		$user = User::find($id);
 		$tags = Tag::with('tutorials','qas')->get();
-		// return View::make('users.show')->with('user', $user);
+
 		return View::make('users.show', compact('user', 'tags'));
 	}
 
