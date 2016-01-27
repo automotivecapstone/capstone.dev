@@ -2,34 +2,66 @@
 	<a href=""><i class="fa fa-comment fa-3x"></i></a>
 </div>
 
+@if(Auth::check())
+	{{ KandyLaravel::init(Auth::user()->id); }}
+	
 {{
-    KandyButton::voiceCall(
-	    array(
-	        "id" => "kandyVideoAnswerButton",
-	        "class" => "myButtonStyle",
-	        "htmlOptions" => array("style" => "border: 1px solid #ccc;"),
-                "options" => array(
-                    "callOut"      => array(
-	                "id"       => "callOut",
-	                "label"    => "User to call",
-	                "btnLabel" => "Call"
-	            ),
-	            "calling"      => array(
-                    "id"       => "calling",
-	                "label"    => "Calling...",
-	                "btnLabel" => "End Call"
-	            ),
-	            "incomingCall" => array(
-	                "id"       => "incomingCall",
-	                "label"    => "Incoming Call",
-	                "btnLabel" => "Answer"
-	            ),
-	            "onCall"       => array(
-	                "id"       => "onCall",
-	                "label"    => "You're connected!",
-	                "btnLabel" => "End Call"
-	            ),
-	        )
-	    )
-	)
+    KandyButton::videoCall(array(
+        "id"      => "kandyVideoAnswerButton",
+        "class"   => "myButtonStyle",
+        "options" => array(
+            "callOut"      => array(
+                "id"       => "callOut",
+                "label"    => "User to call",
+                "btnLabel" => "Call"
+            ),
+            "calling"      => array(
+                "id"       => "calling",
+                "label"    => "Calling...",
+                "btnLabel" => "End Call"
+            ),
+            "incomingCall" => array(
+                "id"       => "incomingCall",
+                "label"    => "Incoming Call",
+                "btnLabel" => "Answer"
+            ),
+            "onCall"       => array(
+                "id"       => "onCall",
+                "label"    => "You're connected!",
+                "btnLabel" => "End Call"
+            ),
+        )
+    ))
 }}
+
+{{
+    KandyVideo::show(
+        array(
+            "title"       => "Them",
+            "id"          => "theirVideo",
+            "class"       => "myVideoStyle",
+            "htmlOptions" => array( // Example how to use inline stylesheet
+                "style" => "width: 340px;
+                height: 250px;
+                background-color: darkslategray"
+            )
+        )
+    )
+}}
+
+{{
+    KandyVideo::show(
+        array(
+            "title"       => "Me",
+            "id"          => "myVideo",
+            "class"       => "myStyle",
+            "htmlOptions" => array( // Example how to use inline stylesheet
+                "style" => "width: 340px;
+                height: 250px;
+                background-color: darkslategray"
+            )
+        )
+    )
+}}
+
+@endif
