@@ -2,15 +2,19 @@
 
 
 @section('content')
+
 	<div class='content'>
-		<div>
-			<div>
-			<img class = "profile-image imageholder" src="{{{$user->image}}}">
-			<h2 class="title">{{{$user->username}}}'s Profile Page</h2>
+		<div >
+			<div class="row">
+				 <div class="col-lg-10 col-lg-offset-1 text-center">
+					<img class = "profile-image imageholder" src="{{{$user->image}}}">
+					<h2 class="title">let's twist this, {{{$user->username}}}</h2>
+					<hr class = "horizontalrule">
+                </div>
 			</div>
 
 
-			<div class="row">
+			<div id="portfolio-profile" class="row">
 				<div class="col-md-4 col-sm-4 text-center">
 					<div class="service-item">
 		                <span class="fa-stack fa-4x">
@@ -18,6 +22,7 @@
 		                <i class="fa fa-wrench fa-stack-1x iconcolor"></i></span>
 
 						<p><a id="tutajaxlistener">Create a Tutorial</a></p>
+				</div>
 					
 						<div class="modal fade" id = "tut_Modal" tabindex="-1" role="dialog">
 					  		<div class="modal-dialog">
@@ -38,7 +43,6 @@
 					  		</div><!-- /.modal-dialog -->
 						</div><!-- /.modal -->
 					</div>
-				</div>
 			
 				<div class="col-md-4 col-sm-4 text-center">
 					<div class="service-item">
@@ -76,38 +80,6 @@
 				
 						<p><a href="{{{action('UsersController@edit', $user->id)}}}">Edit Profile</a></p>
 
-	{{-- 			<div class="col-md-3 col-sm-3 text-center">
-					<div class="service-item">
-	                	<span class="fa-stack fa-4x">
-	                	<i class="fa fa-circle fa-stack-2x"></i>
-	                	<i class="fa fa-wrench fa-stack-1x iconcolor"></i></span> --}}
-				
-	{{-- 					<p><a id="userajaxlistener" data-toggle="modal" data-target="#usertag_Modal">User Tags</a></p>
-						<div class="modal fade" id = "usertag_Modal" tabindex="-1" role="dialog">
-				  			<div class="modal-dialog">
-				    			<div class="modal-content">
-					      			<div class="modal-header">
-					        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        			<h4 class="modal-title">UserTag Modal</h4>
-					      			</div>
-							      	<div class="modal-body">
-
-							        {{ Form::model($user, array('action' => array('HomeController@addTagsToUser'), 'method' => 'POST')) }}
-									
-									
-									@foreach($tags as $tag)
-										{{ Form::label('usertags[]', $tag->name)}}
-										{{ Form::checkbox('usertags[]', $tag->id)}}
-									@endforeach 
-
-									{{ Form::label('addtag', "Don't see a tag? Add it here!")}}
-									{{ Form::text('addtag', null, array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
-							     	</div>
-				      				<div class="modal-footer">
-				        			<a type="button" id = "" class="btn btn-default" data-dismiss="modal">Close</a>
-				        			{{ Form::submit('Add tags', array('class'=> 'btn btn-primary'))}}
-				        			{{ Form::close()}} --}}
-			        {{-- <a type="button" href = ""class="btn btn-primary">Save</a> --}}
 			      				</div>
 			    			</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
@@ -115,9 +87,7 @@
 	</div>
 
 
-</div>
-		</div>
-
+<section id="portfolio">
 		<h1>{{{$user->username}}}'s Content</h1>
 
 		<table>
@@ -145,6 +115,7 @@
 			@endforeach
 		</table>
 	</div>
+ </section>
 
 	
 
