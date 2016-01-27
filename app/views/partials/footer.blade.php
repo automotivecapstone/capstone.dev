@@ -3,65 +3,59 @@
 </div>
 
 @if(Auth::check())
-	{{ KandyLaravel::init(Auth::user()->id); }}
+	{{ KandyLaravel::init(Auth::id()) }}
 	
-{{
-    KandyButton::videoCall(array(
-        "id"      => "kandyVideoAnswerButton",
-        "class"   => "myButtonStyle",
-        "options" => array(
-            "callOut"      => array(
-                "id"       => "callOut",
-                "label"    => "User to call",
-                "btnLabel" => "Call"
-            ),
-            "calling"      => array(
-                "id"       => "calling",
-                "label"    => "Calling...",
-                "btnLabel" => "End Call"
-            ),
-            "incomingCall" => array(
-                "id"       => "incomingCall",
-                "label"    => "Incoming Call",
-                "btnLabel" => "Answer"
-            ),
-            "onCall"       => array(
-                "id"       => "onCall",
-                "label"    => "You're connected!",
-                "btnLabel" => "End Call"
-            ),
-        )
-    ))
-}}
 
-{{
-    KandyVideo::show(
+{{--
+    KandyButton::voiceCall(
+	    array(
+	        "id" => "kandyVideoAnswerButton",
+	        "class" => "myButtonStyle",
+	        "htmlOptions" => array("style" => "border: 1px solid #ccc;"),
+                "options" => array(
+                    "callOut"      => array(
+	                "id"       => "callOut",
+	                "label"    => "User to call",
+	                "btnLabel" => "Call"
+	            ),
+	            "calling"      => array(
+                    "id"       => "calling",
+	                "label"    => "Calling...",
+	                "btnLabel" => "End Call"
+	            ),
+	            "incomingCall" => array(
+	                "id"       => "incomingCall",
+	                "label"    => "Incoming Call",
+	                "btnLabel" => "Answer"
+	            ),
+	            "onCall"       => array(
+	                "id"       => "onCall",
+	                "label"    => "You're connected!",
+	                "btnLabel" => "End Call"
+	            ),
+	        )
+	    )
+	)
+--}}
+
+{{--
+    KandyChat::show(
         array(
-            "title"       => "Them",
-            "id"          => "theirVideo",
-            "class"       => "myVideoStyle",
-            "htmlOptions" => array( // Example how to use inline stylesheet
-                "style" => "width: 340px;
-                height: 250px;
-                background-color: darkslategray"
+            "options" => array(
+                "contact" => array(
+                    "label" => "Contacts",
+                ),
+                "message" => array(
+                    "label" => "Messages",
+                ),
+                "user" => array(
+                    "name" => KandyLaravel::getUser(Auth::id())->user_id,
+                    "kandyUser" => KandyLaravel::getUser(Auth::id())
+                )
             )
+
         )
     )
-}}
-
-{{
-    KandyVideo::show(
-        array(
-            "title"       => "Me",
-            "id"          => "myVideo",
-            "class"       => "myStyle",
-            "htmlOptions" => array( // Example how to use inline stylesheet
-                "style" => "width: 340px;
-                height: 250px;
-                background-color: darkslategray"
-            )
-        )
-    )
-}}
+--}}
 
 @endif

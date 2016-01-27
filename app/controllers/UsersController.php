@@ -17,12 +17,8 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = User::all();
-		if(Auth::id()!==1)
-		{
-			return Redirect::action('UsersController@show', Auth::id());
-		}
-		return View::make('users.index')->with('users', $users);
+		$user = Auth::user();
+		return View::make('users.index')->with('user', $user);
 	}
 
 	/**
@@ -76,7 +72,6 @@ class UsersController extends \BaseController {
 
 			KandyLaravel::createUser($user->username, $user->email, Auth::user()->id);
 			KandyLaravel::assignUser(Auth::user()->id, $user->username);
-			KandyLaravel::init(Auth::user()->id);
 
 			Session::flash('successMessage', 'Your user has been saved.');
 			return Redirect::action('UsersController@show', $user->id);
@@ -111,7 +106,7 @@ class UsersController extends \BaseController {
 	public function edit($id)
 	{
 		$user = User::find($id);
-		return View::make('users.edit')->with('user', $user);	
+		return View::make('users.edit')->with('user', $user);
 	}
 
 	/**
