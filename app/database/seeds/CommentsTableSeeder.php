@@ -8,7 +8,7 @@ class CommentsTableSeeder extends Seeder {
 	public function run()
 	{
 		$faker = Faker::create();
-		$user = User::firstOrFail();
+		$users = User::all();
 		$qa = Qa::firstOrFail();
 		$tutorial = Tutorial::firstOrFail();
 
@@ -16,6 +16,8 @@ class CommentsTableSeeder extends Seeder {
 
 		foreach(range(1, 50) as $index)
 		{
+			$user= $users->random();
+
 			Comment::create([
             'content' => $faker->sentence,
             'user_id'=> $user->id,
@@ -25,6 +27,8 @@ class CommentsTableSeeder extends Seeder {
 
 		foreach(range(1, 50) as $index)
 		{
+			$user= $users->random();
+			
 			Comment::create([
             'content' => $faker->sentence,
             'user_id'=> $user->id,
