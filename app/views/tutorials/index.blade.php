@@ -6,9 +6,9 @@
 
 @section('content')
 
-<div class = 'content'>
 
 	<p class="logo">Tutorials</p>
+	<div class="content content-div">
 		<table>
 			<tbody>
 				@foreach ($tutorials as $tutorial)
@@ -23,6 +23,6 @@
 		</table>
 	{{ $tutorials->links() }}
 
-</div>
+	</div>
 
 @stop
