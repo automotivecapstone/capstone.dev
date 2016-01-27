@@ -48,7 +48,7 @@
                     </span>
                         <h4>
                             <strong>Tutorials</strong>
-                        </h4>
+                        </h4>`
                         <p>Share your knowledge.</p>
                         <p> Post a tutorial.</p>
                         <a href="#" class="btn ">Learn More</a>
@@ -83,7 +83,7 @@
                         <a href="#" class="btn ">Learn More</a>
                     </div>
                 </div>
-            <div>
+            </div>
         </div>
     </section>
 
