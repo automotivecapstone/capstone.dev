@@ -4,7 +4,7 @@
 
 	<div class = 'content'>
 
-		<p class="logo">Post a Tutorial</p>
+		<p class="logo">post a tutorial</p>
 
 		{{ Form::open(array('method' => 'post', 'action' => 'TutorialsController@store', 'files' => true)) }}
 

@@ -1,5 +1,7 @@
 <?php
 
+use League\CommonMark\CommonMarkConverter;
+
 class QasController extends \BaseController {
 
 	public function __construct()
@@ -36,9 +38,10 @@ class QasController extends \BaseController {
 	 */
 	public function create()
 	{
+		$converter = new CommonMarkConverter();
 		$tags = Tag::with('tutorials','qas')->get();
 		// return View::make('qas.create');
-		return View::make('qas.create', compact('tags'));
+		return View::make('qas.create', compact('tags', 'converter'));
 
 	}
 
