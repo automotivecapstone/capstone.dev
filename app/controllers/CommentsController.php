@@ -115,7 +115,7 @@ class CommentsController extends \BaseController {
 			$result = $comment->save();
 
 			if($result){
-				$this->sendNotificationEmail();
+				$this->sendNotificationEmail($comment);
 			}
 
 			if($result) {
@@ -134,19 +134,25 @@ class CommentsController extends \BaseController {
 		}
 	}
 
-	protected function sendNotificationEmail()
+	protected function sendNotificationEmail($comment)
 	{
 
-		$mgClient = new Mailgun('key-015bbf6d2b1534796dfc05274249ae35');
-		$domain = "sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org";
+		$user = $comment->tutorial->user;
 
-		$results = $mgClient->sendMessage("$domain",
-                  array('from'    => 'Mailgun Sandbox <postmaster@sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org>',
-                        'to'      => 'Mary Warren <mkwarren21@gmail.com>',
-                        'subject' => 'Hello Mary Warren',
-                        'text'    => 'Congratulations Mary Warren, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.'));
+		$text = "Someone responded to your post!";
+
+		return Mail::send('emails.notification', ['user' => $user], function ($m) use ($user) {
+            $m->from('postmaster@sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org', 'Your Application');
+
+            $m->to('mkwarren21@gmail.com');
+        });
+		// $results = $mgClient->sendMessage("$domain",
+  //                 array('from'    => 'Mailgun Sandbox <postmaster@sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org>',
+  //                       'to'      => 'mkwarren21@gmail.com',
+  //                       'subject' => 'Notification from GreaseMonkey',
+  //                       'text'    => 'Hello'. $tutorial->user->username . ', you just sent got a response from ' . $comment->user->username));
     
-    	return $results;
+  //   	return $results;
 	}
 	
 }

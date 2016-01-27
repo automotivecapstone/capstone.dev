@@ -56,8 +56,10 @@
 		<p>{{$converter->convertToHtml($tutorial->content)}}</p>
 		<footer>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}</footer>
 	</blockquote>
+
+
 	
-	{{ Form::open(array('action' => 'CommentsController@store')) }}
+	{{ Form::open(array('action' => array('CommentsController@store'))) }}
 			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
 			{{ Form::label('content', 'Add a Comment') }}
 		<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
