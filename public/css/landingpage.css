@@ -84,7 +84,7 @@ header {
     text-align: center;
     color: #fff;
     background: #BFA799;
-    background-image: url("background.png");
+    background-image: url('/css/background.png');
 }
 
 header .container {
@@ -198,9 +198,6 @@ section.success {
     color: #fff;
     background-image: url('/css/background.png');
     background-color: #BFA799;
-    background-size: 75px;
-    background-repeat: space;
-
 }
 
 section.success a,
@@ -634,6 +631,20 @@ a:hover{
     background-repeat: no-repeat;
 }
 
+.username{
+    background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+    background-size: 30px 30px;
+    background-position: 4px -1px;
+    background-repeat: no-repeat;
+}
+
+.username:focus{
+    background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
+    background-size: 30px 30px;
+    background-position: 4px -1px;
+    background-repeat: no-repeat;
+}
+
 textarea {
     width: 100%;
     height: 150px;
@@ -646,7 +657,7 @@ input:focus, textarea:focus {
     background-color:white;
 }
 
-#button-blue{
+.button-blue{
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     float:left;
     width: 100%;
@@ -664,7 +675,7 @@ input:focus, textarea:focus {
     font-weight:700;
 }
 
-#button-blue:hover{
+.button-blue:hover{
     background-color: rgba(0,0,0,0);
     color: #73341D;
 }
