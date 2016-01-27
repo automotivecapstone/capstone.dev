@@ -1,5 +1,7 @@
 <?php
 
+use League\CommonMark\CommonMarkConverter;
+
 class TutorialsController extends \BaseController {
 
 	public function __construct()
@@ -36,9 +38,10 @@ class TutorialsController extends \BaseController {
 	 */
 	public function create()
 	{
+		$converter = new CommonMarkConverter();
 		$tags = Tag::with('tutorials','qas')->get();
 		// return View::make('tutorials.create');
-		return View::make('tutorials.create', compact('tags'));
+		return View::make('tutorials.create', compact('tags', 'converter'));
 
 	}
 
@@ -63,13 +66,14 @@ class TutorialsController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		$converter = new CommonMarkConverter();
 		$tutorial = Tutorial::find($id);
 		if(!$tutorial) {
 			App::abort(404);
 		}
 
 		// return View::make('tutorials.show')->with('tutorial', $tutorial);
-		return View::make('tutorials.show', compact('tutorial'));
+		return View::make('tutorials.show', compact('tutorial', 'converter'));
 
 	}
 

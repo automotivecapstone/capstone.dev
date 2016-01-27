@@ -1,4 +1,5 @@
 <?php
+use Mailgun\Mailgun;
 
 class CommentsController extends \BaseController {
 
@@ -31,6 +32,7 @@ class CommentsController extends \BaseController {
 	 */
 	public function store()
 	{
+
 		$comment = new Comment();
 		return $this->validateAndSave($comment);
 
@@ -112,6 +114,10 @@ class CommentsController extends \BaseController {
 			$comment->tutorial_id = Input::get('tutorial_id');
 			$result = $comment->save();
 
+			if($result){
+				$this->sendNotificationEmail();
+			}
+
 			if($result) {
 				if (Input::has('qa_id'))
 				{
@@ -126,6 +132,21 @@ class CommentsController extends \BaseController {
 				return Redirect::back()->withInput();
 			}
 		}
+	}
+
+	protected function sendNotificationEmail()
+	{
+
+		$mgClient = new Mailgun('key-015bbf6d2b1534796dfc05274249ae35');
+		$domain = "sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org";
+
+		$results = $mgClient->sendMessage("$domain",
+                  array('from'    => 'Mailgun Sandbox <postmaster@sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org>',
+                        'to'      => 'Mary Warren <mkwarren21@gmail.com>',
+                        'subject' => 'Hello Mary Warren',
+                        'text'    => 'Congratulations Mary Warren, you just sent an email with Mailgun!  You are truly awesome!  You can see a record of this email in your logs: https://mailgun.com/cp/log .  You can send up to 300 emails/day from this sandbox server.  Next, you should add your own domain so you can send 10,000 emails/month for free.'));
+    
+    	return $results;
 	}
 	
 }

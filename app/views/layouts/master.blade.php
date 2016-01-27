@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>	
-		<title>Capstone</title>
+		<title>GreaseMonkey | An Online DIY Automotive Community</title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 		{{-- BOOTSTRAP CSS --}}
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap-markdown.min.css">
 
 		{{-- CUSTOM CSS BELOW --}}
 		<link href="/css/general-site.css" type="text/css" rel="stylesheet">
@@ -28,7 +30,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-8 col-xs-offset-2">
-		
 					@yield('content')
 				</div>
 
@@ -48,10 +49,12 @@
 		@include('partials.footer')
 
 		<!-- JQUERY -->
+
 		<script src="/js/jquery-2.1.4.min.js"></script>
 		<!-- BOOTSTRAP JS -->
 		<script src="/js/bootstrap.min.js"></script>
 		<!-- CUSTOM JS BELOW -->
+		<script src="/js/bootstrap-markdown.js"></script>
 		@yield('bottom-script')
 	</body>
 </html>

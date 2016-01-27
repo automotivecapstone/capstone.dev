@@ -101,9 +101,7 @@
 					@endif
 				</tr>
 			@endforeach
-		</table>
-
-		<table>
+	
 			@foreach($user->qas()->get() as $qa)
 				<tr>
 					<td><a href="{{{action('QasController@show', $qa->id)}}}">{{{$qa->question}}}</a></td>

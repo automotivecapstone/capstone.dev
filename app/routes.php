@@ -47,6 +47,8 @@ Route::resource('comments', 'CommentsController');
 
 Route::resource('users', 'UsersController');
 
+Route::resource('inventories', 'InventoriesController');
+
 
 
 

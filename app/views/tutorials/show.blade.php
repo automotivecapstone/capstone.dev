@@ -53,7 +53,7 @@
 	@endif
 
 	<blockquote>
-		<p>{{{ $tutorial->content }}}</p>
+		<p>{{$converter->convertToHtml($tutorial->content)}}</p>
 		<footer>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}</footer>
 	</blockquote>
 	
