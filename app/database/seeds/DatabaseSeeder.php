@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder {
 		DB::table('comments')->delete();
 		DB::table('tag_tutorial')->delete();
 		DB::table('qa_tag')->delete();
-		DB::table('inventory')->delete();
+		DB::table('inventories')->delete();
 
 
 		$this->call('UsersTableSeeder');
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('Tag_TutorialsTableSeeder');
 		$this->call('Qa_TagTableSeeder');
 		$this->call('TagUserTableSeeder');
-		$this->call('InventorysTableSeeder');
+		$this->call('InventoriesTableSeeder');
 
 
 	}
