@@ -23,7 +23,7 @@
 
 	{{ Form::close() }}
 
-	<h3>{{$qa->question}}</h3>
+	<h3>{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
 		<img src="{{{ $qa->image }}}" class="col-xs-8 col-xs-offset-2 qa-image">
 	@endif

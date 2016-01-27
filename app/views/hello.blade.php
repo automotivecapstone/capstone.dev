@@ -77,11 +77,30 @@
                         <i class="fa fa-wrench fa-stack-1x iconcolor"></i>
                     </span>
                         <h4>
-                            <strong>Tutorials</strong>
+                            <strong>Need a pro?</strong>
                         </h4>
-                        <p>Share your knowledge. Post a tutorial.</p>
+                        <p>Chat with one of our mechanics</p>
                         <a href="#" class="btn ">Learn More</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About Us</h2>
+                    <hr class="horizontalrule">
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>GreaseMonkey started as a group of people wanting to find a comminunity of fellow DIY mechanics, and experts who knew what they were doing under the hood.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>Whether you're a professional looking to show off your skills or a n00b who has never picked up a wrench, this site is for you.</p>
                 </div>
             </div>
         </div>

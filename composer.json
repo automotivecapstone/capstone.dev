@@ -10,7 +10,8 @@
 	},
 	"require-dev": {
 		"way/generators": "~2.0",
-		"barryvdh/laravel-debugbar": "~1.8"
+		"barryvdh/laravel-debugbar": "~1.8",
+		"league/commonmark":"^0.13"
 	},
 	"autoload": {
 		"classmap": [
