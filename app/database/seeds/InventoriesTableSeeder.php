@@ -1,6 +1,6 @@
 <?php
 
-class InventorysTableSeeder extends Seeder {
+class InventoriesTableSeeder extends Seeder {
 
 	public function run()
 	{
