@@ -21,8 +21,8 @@
 					<span class="dropdown-arrow"></span>
 					<ul class="dropdown-menu">
 						<li><a href="{{ action('UsersController@show', Auth::user()->id) }}">Profile</a></li>
-						<li><a href="{{ action('UsersController@index') }}">Your Stuff!</a></li>
-						<li><a href="">Account Settings</a></li>
+						<li><a href="{{ action('HomeController@usersHome') }}">Newsfeed</a></li>
+						<li><a href="{{action('UsersController@edit', Auth::id())}}">Account Settings</a></li>
 						<li class="divider"></li>
 						<li><a href="{{ action('HomeController@getLogout') }}">Log Out</a></li>
 					</ul>

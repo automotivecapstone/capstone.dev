@@ -9,6 +9,8 @@
 		{{-- BOOTSTRAP CSS --}}
 		<link href="/css/bootstrap.min.css" rel="stylesheet">
 
+		<link rel="stylesheet" type="text/css" href="/css/bootstrap-markdown.min.css">
+
 		{{-- CUSTOM CSS BELOW --}}
 		<link href="/css/general-site.css" type="text/css" rel="stylesheet">
 
@@ -48,10 +50,12 @@
 		@include('partials.footer')
 
 		<!-- JQUERY -->
+
 		<script src="/js/jquery-2.1.4.min.js"></script>
 		<!-- BOOTSTRAP JS -->
 		<script src="/js/bootstrap.min.js"></script>
 		<!-- CUSTOM JS BELOW -->
+		<script src="/js/bootstrap-markdown.js"></script>
 		@yield('bottom-script')
 	</body>
 </html>
