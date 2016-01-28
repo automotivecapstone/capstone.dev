@@ -1,3 +1,7 @@
+ul{
+	list-style: none;
+}
+
 @font-face {
     font-family: magnetoFont;
     src: url(MAGNETOB.TTF);
@@ -378,7 +382,9 @@ th, td {
 	bottom: 50px;
 }
 
-
+.brownheader{
+	background-color: #A66844;
+}
 .form-input {
 	color:#3c3c3c;
 	font-family: Helvetica, Arial, sans-serif;
@@ -526,4 +532,19 @@ input:focus, textarea:focus {
 		padding-left: 3%;
 		padding-right: 3%;
 	}
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color: #73341D;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #73341D;
+    border-color: #73341D;
 }

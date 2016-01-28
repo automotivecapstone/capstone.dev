@@ -1,5 +1,15 @@
 @extends('layouts.home')
 
+@section('top-script')
+    <style type="text/css">
+
+        a {
+            color: #fff;
+        }
+
+    </style>
+@stop
+
 
 
 @section('content')
@@ -42,40 +52,46 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 text-center">
                     <div class="service-item">
-                        <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-wrench fa-stack-1x iconcolor"></i>
-                    </span>
+                        <a href="{{ action('TutorialsController@index') }}">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wrench fa-stack-1x iconcolor"></i>
+                            </span>
+                        </a>
                         <h4>
                             <strong>Tutorials</strong>
-                        </h4>`
+                        </h4>
                         <p>Share your knowledge.</p>
                         <p> Post a tutorial.</p>
-                        <a href="#" class="btn ">Learn More</a>
+                        <a href="{{ action('TutorialsController@index') }}" class="btn ">Learn More</a>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-4 text-center">
                     <div class="service-item">
-                        <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-users fa-stack-1x iconcolor"></i>
-                    </span>
+                        <a href="{{ action('QasController@create') }}">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-users fa-stack-1x iconcolor"></i>
+                            </span>
+                        </a>
                         <h4>
                             <strong>Ask a Question</strong>
                         </h4>
                         <p>Stuck in a rut?</p>
                         <p> Someone here can help.</p>
-                        <a href="#" class="btn ">Learn More</a>
+                        <a href="{{ action('QasController@create') }}" class="btn ">Learn More</a>
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-4 text-center">
                     <div class="service-item">
-                        <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-wrench fa-stack-1x iconcolor"></i>
-                    </span>
+                        <a href="#">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-wrench fa-stack-1x iconcolor"></i>
+                            </span>
+                        </a>
                         <h4>
                             <strong>Need a pro?</strong>
                         </h4>

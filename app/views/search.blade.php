@@ -1,51 +1,33 @@
-@extends('layouts.master');
+@extends('layouts.master')
 
-@section('top-script')
 
-	{{-- CUSTOM CSS --}}
-	<link rel="stylesheet" type="text/css" href="/css/tutorials-index.css">
+@section('content')
 
-@stop
+<p class="logo">search results</p>
+<div class="content content-div">
+	<table>
+		<tbody>
+			
+			@foreach($resultsTutorial as $result)
+				<tr>
+					<td><img class="commenter-image" src="{{{ $result->user->image }}}"></td>	
+					<td><a href="{{{ action('HomeController@searchShow', $result->id) }}}">{{{ $result->title }}}</a></td>
+					<td>{{{ $result->created_at->diffForHumans() }}}</td>
+					<td>{{{ $result->user->username }}}</td>
+				</tr>
+			@endforeach
 
-@section('content');
+			@foreach($resultsQa as $result)
+				<tr>
+					<td><img class="commenter-image" src="{{{ $result->user->image }}}"></td>
+					<td><a href="{{{ action('HomeController@searchShow', $result->id) }}}">{{{ $result->question }}}</a></td>
+					<td>{{{ $result->created_at->diffForHumans() }}}</td>
+					<td>{{{ $result->user->username }}}</td>
+				</tr>
+			@endforeach
 
-<div class="container">
-	<div class="row">
-		<h1>
-			<span class="demo-haeding-note">Search Results</span>
-		</h1>
-		<hr>
-		<div class="col-md-8 col-md-offset-2">
-			<table class="table table-nonfluid center-table">
-				<thead>
-					<tr>
-						<th><h4>Title</h4></th>
-						<th><h4>Content</h4></th>
-						<th><h4>Created</h4></th>
-					</tr>
-				</thead>
-				<tbody>
-
-					@foreach($resultsTutorial as $result)
-						<tr>
-							<td><a href="{{{ action('HomeController@searchShow', $result->id) }}}">{{{ $result->title }}}</a></td>
-							<td>{{{ $result->content }}}</td>
-							<td>{{{ $result->created_at->diffForHumans() }}}</td>
-						</tr>
-					@endforeach
-
-					@foreach($resultsQa as $result)
-						<tr>
-							<td><a href="{{{ action('HomeController@searchShow', $result->id) }}}">{{{ $result->question }}}</a></td>
-							<td>{{{ $result->content }}}</td>
-							<td>{{{ $result->created_at->diffForHumans() }}}</td>
-						</tr>
-					@endforeach
-					
-				</tbody>
-			</table>
-		</div>
-	</div>
+		</tbody>
+	</table>
 </div>
 
 @stop

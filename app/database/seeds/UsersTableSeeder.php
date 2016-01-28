@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder {
 		$user->username = 'admin';
 		$user->email = 'info@codeup.com';
 		$user->password = $_ENV['DB_PASS'];
-		$user->image = '/uploaded/stockimage.png';
+		$user->image = '/css/monkey-icon-taupe-on-cream.png';
 		$user->tut_modal = true;
         $user->qa_modal = true;
 		$user->save();
