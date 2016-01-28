@@ -2,18 +2,11 @@
 
 @section('top-script')
 
-	<style type="text/css">
-		.commenter-image {
-			width: 50px;
-			height: 50px;
-		}
-	</style>
-
 @stop
 
 @section('content')
 
-<div class = 'content'>
+<div class = 'content content-div'>
 
 	{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 		
@@ -26,12 +19,12 @@
 	<h3>{{{ $tutorial->title }}}</h3>
 
 	@if (isset($tutorial->image))
-		<img src="{{{ $tutorial->image }}}" class="col-xs-8 col-xs-offset-2 tutorial-image">
+		<img src="{{{ $tutorial->image }}}" class="col-xs-8 tutorial-image">
 	@endif
 
 	@if (isset($tutorial->video))
 		<!-- HTML5 video tag -->
-		<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-offset-2 col-md-8 tutorial-image">
+		<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-8 tutorial-image">
 	 		{{-- *******Do we need something like this to control/adjust the sizes of files users may upload? ******* --}}
 			{{-- .mp4 file for native playback in IE9+, Firefox, Chrome, Safari and most mobile browsers --}}
 			<source src="{{{ $tutorial->video }}}" type="video/mp4" />
@@ -51,8 +44,9 @@
 			</object>
 		</video>
 	@endif
+</div>
 
-	<blockquote>
+	<blockquote >
 		<p>{{$converter->convertToHtml($tutorial->content)}}</p>
 		<footer>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}</footer>
 	</blockquote>
@@ -96,7 +90,6 @@
 
 		</div>
 	</div>
-</div>
 
 @stop
 

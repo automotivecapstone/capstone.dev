@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="content content-div">
 	<h2 id="profilebreak">New and Noteworthy</h2>
 	<div class="col-md-6">
 		<h3>Tutorials</h3>
@@ -25,4 +26,5 @@
 		@endforeach
 		</ul>
 	</div> 
+</div>
 @stop

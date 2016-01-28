@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class = 'content'>
 
 <p class="logo">Edit Tutorial</p>
 
+<div class = 'content form-div'>
 {{ Form::model($tutorial, array('action' => array('TutorialsController@update', $tutorial->id), 'method' => 'PUT', 'files' => true)) }}
 
 	<div class="form-group {{ ($errors->has('title')) ? 'has-error' : '' }}">

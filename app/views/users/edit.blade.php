@@ -3,8 +3,8 @@
 @section('content')
 
 
-	<div class = 'content'>
-		<p class="logo">edit your profile</p>
+	v<p class="logo">edit your profile</p>
+	<div class = 'content form-div'>
 		<div class="login-form-1">
 			{{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PUT', 'files' => true)) }}
 
