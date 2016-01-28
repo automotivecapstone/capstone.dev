@@ -63,7 +63,9 @@ class CommentsController extends \BaseController {
 	public function edit($id)
 	{
 		$comment = Comment::find($id);
-		if(Auth::id()!=$comment->user_id){
+
+		if(Auth::id()!= $comment->user_id){
+
 			return Redirect::action('comments.index');
 		}
 		return View::make('comments.edit', compact('comment'));
@@ -141,7 +143,11 @@ class CommentsController extends \BaseController {
 	protected function sendNotificationEmail($comment)
 	{
 
-		$user = $comment->tutorial->user;
+		if (isset($comment->qa_id)){
+			$user = $comment->qa->user;
+		} else {
+			$user = $comment->tutorial->user;
+		}
 
 		$text = "Someone responded to your post!";
 
