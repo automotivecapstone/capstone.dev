@@ -469,7 +469,7 @@ input:focus, textarea:focus {
 	border:#73341D solid 4px;
 	cursor:pointer;
 	background-color: #A66844;
-	color:white;
+	color:#F2E4DC;
 	font-size:24px;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
