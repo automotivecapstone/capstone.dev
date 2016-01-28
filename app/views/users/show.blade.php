@@ -7,7 +7,14 @@
 
 
 @section('content')
-
+	@if(Auth::user()!= $user)
+	<h2 class = "title">{{{$user->username}}}</h2>
+		<div class="row">
+			 <div class="col-lg-10 col-lg-offset-1 text-center">
+				<img class = "profile-image imageholder" src="{{{$user->image}}}">
+	        </div>
+		</div>
+	@else
 	<h2 class="title">Let's twist this, {{{$user->username}}}!</h2>
 	<div class="profile-div">
 		<div>
@@ -108,6 +115,7 @@
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	</div>
+	@endif
 
 
 	<div class="content content-div">
