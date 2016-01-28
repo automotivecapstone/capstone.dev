@@ -93,9 +93,9 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
-		$tags = Tag::with('tutorials','qas')->get();
+		
 
-		return View::make('users.show', compact('user', 'tags'));
+		return View::make('users.show', compact('user'));
 	}
 
 	/**
@@ -111,8 +111,9 @@ class UsersController extends \BaseController {
 		{
 			return Redirect::action('UsersController@show', Auth::id());
 		}
+		$tags = Tag::with('tutorials','qas')->get();
 		$user = User::find($id);
-		return View::make('users.edit')->with('user', $user);
+		return View::make('users.edit', compact('user', 'tags'));
 	}
 
 	/**
