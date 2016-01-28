@@ -16,7 +16,7 @@
 
 	{{ Form::close() }}
 
-	<h3>{{$converter->convertToHtml($qa->question)}}</h3>
+	<h3 class="title-qas-tuts">{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
 		<img src="{{{ $qa->image }}}" class="col-xs-8qa-image">
 	@endif
@@ -48,19 +48,19 @@
 	<blockquote>
 		<p>{{$qa->content}}</p>
 		<footer>Created by {{{ $qa->user->username }}}, {{{$qa->created_at->diffForHumans() }}}</footer>
-	</blockquote>
 
-	{{ Form::open(array('action' => 'CommentsController@store')) }}
-		{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
-		{{ Form::label('content', 'Add a Comment') }}
-		<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
-			{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
-		</div>
-		<div class="form-group">
-			<input type="hidden" name="qa_id" value="{{{ $qa->id }}}">
-			<button class="btn btn-default" id="submit">Add</button>
-		</div>
-	{{ Form::close() }}
+		{{ Form::open(array('action' => 'CommentsController@store')) }}
+			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
+			{{ Form::label('content', 'Add a Comment') }}
+			<div class="edit-delete form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
+				{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
+			</div>
+			<div class="edit-delete form-group">
+				<input type="hidden" name="qa_id" value="{{{ $qa->id }}}">
+				<button class="btn btn-default" id="submit">Add</button>
+			</div>
+		{{ Form::close() }}
+	</blockquote>
 
 	<div class="detailBox">
 		<div class="titleBox">
