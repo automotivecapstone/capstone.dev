@@ -145,6 +145,9 @@ th, td {
 .title {
 	padding-top: 30px;
 	text-align: center;
+	font-size: 60px;
+	font-family: magnetoFont;
+
 }
 
 hr {
@@ -271,8 +274,9 @@ a:active{
 /*	float: left;*/
 /*	left: 50%;*/
 	text-align: center;
-	position: absolute;
+	position: relative;
   	margin-top:30px;
+  	margin-bottom: 50px;
 	/*margin-left: -260px;*/
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
@@ -310,6 +314,15 @@ a:active{
   /*-webkit-border-radius: 7px;*/
 }
 
+.modal-body {
+	background-color: #A66844;
+}
+.modal-header {
+	background-color: #73341D;
+}
+.modal-footer {
+	background-color: #73341D;
+}
 
 table{
 	border-collapse: collapse;
@@ -379,6 +392,10 @@ th, td {
 	color: #73341D;
 	outline: none;
   	padding: 13px 13px 13px 54px;
+}
+
+.btn-primary {
+	background-color: #5E5651;
 }
 
 .focused{

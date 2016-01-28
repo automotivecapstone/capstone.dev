@@ -3,9 +3,10 @@
 @section('content')
 
 
-		<p class="logo">post a tutorial</p>
+		
+	<p class="logo">post a tutorial</p>
 
-	<div class = 'content form-div'>
+		<div class = 'content form-div'>
 		{{ Form::open(array('method' => 'post', 'action' => 'TutorialsController@store', 'files' => true)) }}
 
 		<div class="form-group {{ ($errors->has('title')) ? 'has-error' : '' }}">
