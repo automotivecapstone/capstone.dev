@@ -63,7 +63,9 @@ class CommentsController extends \BaseController {
 	public function edit($id)
 	{
 		$comment = Comment::find($id);
-
+		if(Auth::check()!== $comment->user){
+			return Redirect::action('comments.index');
+		}
 		return View::make('comments.edit', compact('comment'));
 	}
 

@@ -48,6 +48,8 @@ Route::filter('auth', function()
 	}
 });
 
+//create a filter for is owned
+
 
 Route::filter('auth.basic', function()
 {

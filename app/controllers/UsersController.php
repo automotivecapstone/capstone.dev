@@ -107,6 +107,10 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		if(Auth::id()!== $id)
+		{
+			return Redirect::action('UsersController@show', Auth::id());
+		}
 		$user = User::find($id);
 		return View::make('users.edit')->with('user', $user);
 	}
