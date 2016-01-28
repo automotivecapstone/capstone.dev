@@ -4,7 +4,7 @@
 			<span class="fa fa-bars"></span>
 		</button>
 
-		<a class="navbar-brand" href="{{ action('HomeController@showWelcome') }}"><img class="icon" src="/css/monkey-icon-taupe-on-cream.png">Grease Monkey</a>
+		<a class="nav-text navbar-brand" href="{{ action('HomeController@showWelcome') }}"><img class="icon" src="/css/monkey-icon-taupe-on-cream.png">Grease Monkey</a>
 
 	</div>
 	<div class="collapse navbar-collapse" id="navbar-collapse-01">
