@@ -164,4 +164,24 @@ class TutorialsController extends \BaseController {
 		}
 	}
 
+	public function vote($id)
+	{
+		$tutorial = Tutorial::findOrFail($id);
+
+		// +1 or -1
+		$voteValue = Input::get('vote');
+
+		$vote = Vote::firstOrNew([
+			'user_id' => Auth::id(),
+			'voteable_id' => $id,
+			'voteable_type' => 'Tutorial'
+		]);
+
+		$vote->vote = $voteValue;
+
+		$vote->save();
+
+		return Redirect::back();
+	}
+
 }

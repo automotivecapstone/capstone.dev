@@ -28,5 +28,9 @@ class Qa extends \Eloquent {
 	    return $this->belongsToMany('Tag');
 	}
 
-
+	public function votes()
+	{
+		return $this->morphMany('Vote', 'voteable');
+	}
+	
 }

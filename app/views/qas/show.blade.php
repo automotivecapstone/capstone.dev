@@ -18,6 +18,13 @@
 	{{ Form::close() }}
 	@endif
 
+	@if(Auth::user())
+
+		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+	
+	@endif
+
 	<h3>{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
 		<img src="{{{ $qa->image }}}" class="col-xs-8 col-xs-offset-2 qa-image">

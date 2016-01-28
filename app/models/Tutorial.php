@@ -30,4 +30,8 @@ class Tutorial extends \Eloquent {
 		return $this->hasMany('Comment')->orderBy('created_at', 'desc');
 	}
 
+	public function votes()
+	{
+		return $this->morphMany('Vote', 'voteable');
+	}
 }

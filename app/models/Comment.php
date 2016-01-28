@@ -25,6 +25,10 @@ class Comment extends \Eloquent {
     	return $this->belongsTo('Qa')->orderBy('created_at', 'desc');
     }
 
+    public function votes()
+    {
+        return $this->morphMany('Vote', 'voteable');
+    }
     
 
 }
