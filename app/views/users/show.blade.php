@@ -85,19 +85,6 @@
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	</div>
-@else
-<div class="profile-div">
-		<div>
-			<div class="row">
-				 <div class="col-lg-10 col-lg-offset-1 text-center">
-					<img class = "profile-image imageholder" src="{{{$user->image}}}">
-					<h2 class="title">{{{$user->username}}}</h2>
-					<hr class = "horizontalrule">
-                </div>
-			</div>
-		</div>
-</div>
-@endif
 
 
 	<div class="content content-div">
