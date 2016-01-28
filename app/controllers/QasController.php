@@ -66,13 +66,14 @@ class QasController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		$converter = new CommonMarkConverter();
 		$qa = Qa::find($id);
 		if(!$qa) {
 			App::abort(404);
 		}
 
 		// return View::make('qas.show')->with('qa', $qa);
-		return View::make('qas.show', compact('qa', 'tags'));
+		return View::make('qas.show', compact('qa', 'tags', 'converter'));
 
 	}
 

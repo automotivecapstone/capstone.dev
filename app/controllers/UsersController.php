@@ -63,6 +63,8 @@ class UsersController extends \BaseController {
 				$filename = $image->getClientOriginalName();
 				$user->image = '/uploaded/' . $filename;
 				$image->move('uploaded/', $filename);
+			} else{
+				$user->image="/css/monkey-icon-taupe-on-cream.png";
 			}
 
 			$user->tut_modal = true;
