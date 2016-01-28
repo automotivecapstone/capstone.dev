@@ -7,7 +7,7 @@
 <div class="content content-div">
 	<table>
 		<tbody>
-
+			
 			@foreach($resultsTutorial as $result)
 				<tr>
 					<td><img class="commenter-image" src="{{{ $result->user->image }}}"></td>	
@@ -25,7 +25,7 @@
 					<td>{{{ $result->user->username }}}</td>
 				</tr>
 			@endforeach
-			
+
 		</tbody>
 	</table>
 </div>

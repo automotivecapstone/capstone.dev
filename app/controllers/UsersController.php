@@ -70,8 +70,8 @@ class UsersController extends \BaseController {
 			Auth::login($user);
 			$user = Auth::user();
 
-			KandyLaravel::createUser($user->username, $user->email, Auth::user()->id);
-			KandyLaravel::assignUser(Auth::user()->id, $user->username);
+			// KandyLaravel::createUser($user->username, $user->email, Auth::user()->id);
+			// KandyLaravel::assignUser(Auth::user()->id, $user->username);
 
 			Session::flash('successMessage', 'Your user has been saved.');
 			return Redirect::action('UsersController@show', $user->id);
