@@ -7,7 +7,6 @@
 @section('content')
 
 
-
 	<p class="logo">questions &amp; answers</p>
 
 	<div class="content content-div">
