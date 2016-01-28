@@ -17,12 +17,8 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = User::all();
-		if(Auth::id()!==1)
-		{
-			return Redirect::action('UsersController@show', Auth::id());
-		}
-		return View::make('users.index')->with('users', $users);
+		$user = Auth::user();
+		return View::make('users.index')->with('user', $user);
 	}
 
 	/**
@@ -58,6 +54,7 @@ class UsersController extends \BaseController {
 			$user->password = Input::get('password');
 			$user->email = Input::get('email');
 
+
 			$image = Input::file('image');
 			if ($image) {
 				$filename = $image->getClientOriginalName();
@@ -74,6 +71,9 @@ class UsersController extends \BaseController {
 
 			Auth::login($user);
 			$user = Auth::user();
+
+			KandyLaravel::createUser($user->username, $user->email, Auth::user()->id);
+			KandyLaravel::assignUser(Auth::user()->id, $user->username);
 
 			Session::flash('successMessage', 'Your user has been saved.');
 			return Redirect::action('UsersController@show', $user->id);
@@ -94,7 +94,7 @@ class UsersController extends \BaseController {
 	{
 		$user = User::find($id);
 		$tags = Tag::with('tutorials','qas')->get();
-		// return View::make('users.show')->with('user', $user);
+
 		return View::make('users.show', compact('user', 'tags'));
 	}
 
@@ -112,7 +112,7 @@ class UsersController extends \BaseController {
 			return Redirect::action('UsersController@show', Auth::id());
 		}
 		$user = User::find($id);
-		return View::make('users.edit')->with('user', $user);	
+		return View::make('users.edit')->with('user', $user);
 	}
 
 	/**
@@ -208,9 +208,5 @@ class UsersController extends \BaseController {
 		$user=User::find($id);
 		return Response::json(['check'=>$user->qa_modal]);
 	}
-
 	
-	
-
-
 }
