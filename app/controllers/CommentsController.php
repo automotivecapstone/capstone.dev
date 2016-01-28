@@ -63,7 +63,9 @@ class CommentsController extends \BaseController {
 	public function edit($id)
 	{
 		$comment = Comment::find($id);
-		if(Auth::check()!== $comment->user){
+
+		if(Auth::id()!= $comment->user_id){
+
 			return Redirect::action('comments.index');
 		}
 		return View::make('comments.edit', compact('comment'));
@@ -141,14 +143,18 @@ class CommentsController extends \BaseController {
 	protected function sendNotificationEmail($comment)
 	{
 
-		$user = $comment->tutorial->user;
+		if (isset($comment->qa_id)){
+			$user = $comment->qa->user;
+		} else {
+			$user = $comment->tutorial->user;
+		}
 
 		$text = "Someone responded to your post!";
 
 		return Mail::send('emails.notification', ['user' => $user], function ($m) use ($user) {
             $m->from('postmaster@sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org', 'Your Application');
 
-            $m->to($user->email)->subject('Notification from GreaseMonkey!');;
+            $m->to($user->email)->subject('Notification from GreaseMonkey!');
         });
 	
 	}

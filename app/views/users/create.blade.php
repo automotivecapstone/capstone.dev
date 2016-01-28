@@ -39,7 +39,7 @@
 			{{ Form::close() }}
 			<br>
 			<div class="etc-login-form">
-				<p>Already have an account? <a href="{{ action('HomeController@getLogin') }}">login here</a></p>
+				<p class="text-beige">Already have an account? <a class="text-crm" href="{{ action('HomeController@getLogin') }}">login here</a></p>
 			</div>
 		</div>
 

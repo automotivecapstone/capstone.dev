@@ -86,7 +86,7 @@ class QasController extends \BaseController {
 	public function edit($id)
 	{
 		$qa = Qa::find($id);
-		if(Auth::check()!== $qa->user){
+		if(Auth::id()!= $qa->user_id){
 			return Redirect::action('qas.index');
 		}
 		return View::make('qas.edit')->with('qa', $qa);

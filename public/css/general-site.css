@@ -6,6 +6,9 @@ ul{
     font-family: magnetoFont;
     src: url(MAGNETOB.TTF);
 }
+.text-beige {
+	color: #F2E4DC;
+}
 
 .font-magneto {
     font-family: magnetoFont;
@@ -153,6 +156,11 @@ th, td {
 	font-family: magnetoFont;
 
 }
+.title-qas-tuts {
+	padding-top: 30px;
+	text-align: center;
+	font-size: 36px;
+}
 
 hr {
 	border: 0;
@@ -252,6 +260,10 @@ a:active{
 
 .btn-primary:hover{
 	background-color: #73341D;
+}
+
+.btn-info {
+
 }
 
 .content{
@@ -371,7 +383,7 @@ th, td {
 }
 
 .brownheader{
-	background-color: #A66844;
+	background-color: #F2E4DC;
 }
 .form-input {
 	color:#3c3c3c;
@@ -449,8 +461,27 @@ input:focus, textarea:focus {
 	background-color:white;
 }
 
+.edit-delete {
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
+	width: 40%;
+	text-align: center;
+	font-size: 28px;
+	border:#73341D solid 4px;
+	cursor:pointer;
+	background-color: #A66844;
+	color:#F2E4DC;
+	font-size:24px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+  	margin-top:20px;
+  	margin-left: 35px;
+  	margin-right: 35px;
+  	font-weight:700;
+}
+
 .button-blue{
-	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-family: 'Lato', Arial, Helvetica, sans-serif;
 	float:left;
 	width: 100%;
 	border: #fbfbfb solid 4px;

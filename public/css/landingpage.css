@@ -554,7 +554,7 @@ a{
 
 a:hover{
     text-decoration: none;
-    color: #A66844;
+    color: #fff;
 }
 
 .form-main{
@@ -604,6 +604,10 @@ a:hover{
     color: #73341D;
     outline: none;
     padding: 13px 13px 13px 54px;
+}
+
+.text-beige {
+    color: #BFA799;
 }
 
 .focused{

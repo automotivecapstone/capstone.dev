@@ -93,9 +93,9 @@ class UsersController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::find($id);
-		$tags = Tag::with('tutorials','qas')->get();
+		
 
-		return View::make('users.show', compact('user', 'tags'));
+		return View::make('users.show', compact('user'));
 	}
 
 	/**
@@ -107,12 +107,14 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		if(Auth::id()!== $id)
+		if(Auth::id()!= $id)
 		{
+			Log::info('This user id is not equal');
 			return Redirect::action('UsersController@show', Auth::id());
 		}
+		$tags = Tag::with('tutorials','qas')->get();
 		$user = User::find($id);
-		return View::make('users.edit')->with('user', $user);
+		return View::make('users.edit', compact('user', 'tags'));
 	}
 
 	/**

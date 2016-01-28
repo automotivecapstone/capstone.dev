@@ -4,6 +4,40 @@
 
 
 	<p class="logo">edit your profile</p>
+
+	<button class = "btn btn-default" id="userajaxlistener" data-toggle="modal" data-target="#usertag_Modal">User Tags</button>
+ 		<div class="modal fade" id = "usertag_Modal" tabindex="-1" role="dialog">
+ 		  <div class="modal-dialog">
+ 		    <div class="modal-content">
+ 		      <div class="modal-header">
+ 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 		        <h4 class="modal-title">UserTag Modal</h4>
+ 		      </div>
+ 		      <div class="modal-body">
+ 
+ 		        {{ Form::model($user, array('action' => array('HomeController@addTagsToUser'), 'method' => 'POST')) }}
+ 				
+ 				
+ 				@foreach($tags as $tag)
+ 					{{ Form::label('usertags[]', $tag->name)}}
+ 					{{ Form::checkbox('usertags[]', $tag->id)}}
+ 				@endforeach 
+
+ 				{{ Form::label('addtag', "Don't see a tag? Add it here!")}}
+ 				{{ Form::text('addtag', null,array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
+ 
+ 				
+ 		      </div>
+ 		      <div class="modal-footer">
+ 		        <a type="button" id = "" class="btn btn-default" data-dismiss="modal">Close</a>
+
+ 		        {{ Form::submit('Add tags', array('class'=> 'btn btn-primary'))}}
+ 		        {{ Form::close()}}
+ 		      </div>
+ 		    </div><!-- /.modal-content -->
+ 		  </div><!-- /.modal-dialog -->
+ 		</div><!-- /.modal -->
+ 
 	<div class = 'content form-div'>
 		<div class="login-form-1">
 			{{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PUT', 'files' => true)) }}
@@ -46,4 +80,17 @@
 		</div>
 	</div>
 
+@stop
+
+@section('bottom-script')
+	<script type="text/javascript">
+		$('#addtag').autocomplete({
+			source: jQuery.parseJSON("{{{action('TagsController@index')}}}"),
+			minLength: 2,
+			select: function(e, ui){
+				console.log(ui);
+				$('#addtag').val(ui.item.value);
+			}
+		});
+	</script>
 @stop

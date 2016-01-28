@@ -7,7 +7,14 @@
 
 
 @section('content')
-
+	@if(Auth::user()!= $user)
+	<h2 class = "title">{{{$user->username}}}</h2>
+		<div class="row">
+			 <div class="col-lg-10 col-lg-offset-1 text-center">
+				<img class = "profile-image imageholder" src="{{{$user->image}}}">
+	        </div>
+		</div>
+	@else
 	<h2 class="title">Let's twist this, {{{$user->username}}}!</h2>
 	<div class="profile-div">
 		<div>
@@ -100,7 +107,7 @@
 	                	<i class="fa fa-circle fa-stack-2x"></i>
 	                	<i class="fa fa-wrench fa-stack-1x iconcolor"></i></span>
 				
-						<p><a href="{{{ action('UsersController@edit', $user->id) }}}">Edit Profile</a></p>
+						<p><a href="">Edit Profile</a></p>
 
 
 			      	</div>
@@ -108,6 +115,7 @@
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	</div>
+	@endif
 
 
 	<div class="content content-div">
@@ -119,7 +127,7 @@
 					<td><a href="{{{action('TutorialsController@show', $tutorial->id)}}}">{{{$tutorial->title}}}</a></td>
 
 					@if(Auth::id()== $user->id)
-					<td><button class = "btn btn-warning btn-small">Edit</button></td>
+					<td><button class = "btn btn-warning btn-small">Edit</button></a></td>
 					<td><button class = "btn btn-danger btn-small">Delete</button></td>
 					@endif
 				</tr>
@@ -209,14 +217,7 @@
 			});
 		});
 
-		$('#addtag').autocomplete({
-			source: jQuery.parseJSON("{{{action('TagsController@index')}}}"),
-			minLength: 2,
-			select: function(e, ui){
-				console.log(ui);
-				$('#addtag').val(ui.item.value);
-			}
-		});
+		
 	</script>
 
 @stop

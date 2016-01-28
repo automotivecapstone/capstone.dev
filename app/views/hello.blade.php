@@ -113,7 +113,7 @@
             </div>
             <div class="row text-center">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>GreaseMonkey started as a group of people wanting to find a comminunity of fellow DIY mechanics, and experts who knew what they were doing under the hood.</p>
+                    <p>GreaseMonkey started as a group of people wanting to find a community of fellow DIY mechanics, and experts who knew what they were doing under the hood.</p>
                 </div>
                 <div class="col-lg-4">
                     <p>Whether you're a professional looking to show off your skills or a n00b who has never picked up a wrench, this site is for you.</p>

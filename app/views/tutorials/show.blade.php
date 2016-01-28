@@ -27,7 +27,8 @@
 	@endif
 
 
-	<h3>{{{ $tutorial->title }}}</h3>
+
+	<h3 class="title-qas-tuts">{{{ $tutorial->title }}}</h3>
 
 	@if (isset($tutorial->image))
 		<img src="{{{ $tutorial->image }}}" class="col-xs-8 tutorial-image">
@@ -59,7 +60,15 @@
 
 	<blockquote >
 		<p>{{$converter->convertToHtml($tutorial->content)}}</p>
-		<footer>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}</footer>
+		<footer>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}
+		@if(Auth::user()== $tutorial->user)
+		{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
+			
+			<button class="edit-delete"><a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}">Edit Tutorial</a></button><button class="edit-delete">Delete</button>
+			
+		{{ Form::close() }}
+		@endif
+		</footer>
 	</blockquote>
 
 
