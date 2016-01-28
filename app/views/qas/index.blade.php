@@ -7,7 +7,7 @@
 @section('content')
 
 
-	<p class="logo">questions~answers</p>
+	<p class="logo">questions & answers</p>
 	<div class="content content-div">
 		<table>
 			<tbody>
