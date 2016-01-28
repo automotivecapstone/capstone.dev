@@ -1,5 +1,10 @@
 @extends('layouts.master')
 
+@section('top-script')
+
+
+@stop
+
 
 @section('content')
 
@@ -29,11 +34,20 @@
 					    		<div class="modal-content text-center">
 					      			<div class="modal-header">
 					        			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					        			<h4 class="modal-title">How to Make a Tutorial</h4>
+					        			<h4 class="modal-title">Make Your First Tutorial!</h4>
 					      			</div>
 					      			<div class="modal-body">
-					        			<p>Tutorials are meant to show others how to.</p>
-					        			<p>Testing out different lines. Test. Test.</p>
+					        			<p>Users will navigate to the tutorials section of Grease Monkey in order to find descriptive solutions to problems they may be having with their automobile.</p>
+					        			<p>Tutorials may or may not have a detailed picture and/or how-to video.</p>
+					        			<p>As a user you have the option to:</p>
+				        				<li>Upload images</li>
+				        				<li>Upload videos</li>
+				        				<li>Post a title</li>
+				        				<li>Post content</li>
+				        				<li>Post a description</li>
+					        			<p>Other users among Grease Monkey will also have access to view and comment on your tutorial.</p>
+				        				<p><strong>Remember:</strong> Grease Monkey is a friendly environment intended for automotive solutions, so please keep all posts relevant to automotive and automotive accessories.</p>
+					        			<p>Happy posting!</p>
 					      			</div>
 					      			<div class="modal-footer">
 					        			<a type="button" id = "tutskipbutton" class="btn btn-default">Continue and don't ask me again</a>
@@ -56,11 +70,19 @@
 				    			<div class="modal-content">
 				      				<div class="modal-header">
 				        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        				<h4 class="modal-title">Qa Modal</h4>
+				        				<h4 class="modal-title">Ask and You Shall Receive!</h4>
 				      				</div>
 					      			<div class="modal-body">
-					        			<p>This is what you need to do to make a Q/A. All the things.</p>
-					        			<p>Testing out different lines.</p>
+					        			<p>Users will navigate to the Q & A section of Grease Monkey in order to ask and answer questions related to automobiles.</p>
+					        			<p>Questions may or may not have a detailed picture and/or how-to video.</p>
+					        			<p>As a user you have the option to:</p>
+				        				<li>Upload images</li>
+				        				<li>Upload videos</li>
+				        				<li>Post a question</li>
+				        				<li>Post content</li>
+					        			<p>Other users among Grease Monkey will also have access to view and answer your question.</p>
+					        			<p><strong>Remember:</strong> Grease Monkey is a friendly environment intended for automotive solutions, so please keep all posts relevant to automotive and automotive accessories.</p>
+					        			<p>Happy posting!</p>
 					      			</div>
 					      			<div class="modal-footer">
 					        			<a type="button" id = "qaskipbutton" class="btn btn-default" >Continue and don't ask me again</a>
@@ -78,7 +100,7 @@
 	                	<i class="fa fa-circle fa-stack-2x"></i>
 	                	<i class="fa fa-wrench fa-stack-1x iconcolor"></i></span>
 				
-						<p><a href="{{{action('UsersController@edit', $user->id)}}}">Edit Profile</a></p>
+						<p><a href="{{{ action('UsersController@edit', $user->id) }}}">Edit Profile</a></p>
 
 			      				</div>
 			    			</div><!-- /.modal-content -->
