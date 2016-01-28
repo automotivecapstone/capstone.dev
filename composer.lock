@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d4e28a462c57e58f6ed2d2d03d8cbd01",
-    "content-hash": "eff65a8137ddaf63ed0cdbc8c9939411",
+    "hash": "91a66d537fc3bc36505418cf1deb11a1",
+    "content-hash": "eca8c01e74f2e9352700277c0cecb10f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -502,6 +502,61 @@
                 "tokenizer"
             ],
             "time": "2015-01-10 01:09:28"
+        },
+        {
+            "name": "kandy-io/kandy-laravel",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kandy-IO/kandy-laravel.git",
+                "reference": "a903cacbeec8b9e4596bbceada72532231e6b370"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kandy-IO/kandy-laravel/zipball/a903cacbeec8b9e4596bbceada72532231e6b370",
+                "reference": "a903cacbeec8b9e4596bbceada72532231e6b370",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/migrations",
+                    "src/Models",
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Kodeplusdev\\Kandylaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kodeplus",
+                    "email": "kodeplusdev@gmail.com",
+                    "homepage": "http://kandy.io"
+                }
+            ],
+            "description": "This Laravel package encapsulates all of Kandy’s JS SDK and Restful APIs. Kandy is a product by GENBAND (www.genband.com) that utilizes WebRTC to enable peer to peer audio and video calls and chat. SMS and PSTN calling support will be added to this package in the near future.",
+            "homepage": "https://github.com/Kandy-IO/kandy-laravel",
+            "keywords": [
+                "WebRTC",
+                "audio",
+                "chat",
+                "collaboration",
+                "kandy",
+                "laravel webrtc",
+                "peer-to-peer video",
+                "streaming",
+                "video",
+                "video streaming"
+            ],
+            "time": "2015-09-23 08:40:53"
         },
         {
             "name": "laravel/framework",

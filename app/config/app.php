@@ -121,6 +121,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		'Kodeplusdev\Kandylaravel\KandylaravelServiceProvider',
 
 	),
 
@@ -189,6 +190,12 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Debugbar' 			=> 'Barryvdh\Debugbar\Facade',
+		'KandyVideo'        => 'Kodeplusdev\Kandylaravel\Facades\Video',
+    	'KandyButton'       => 'Kodeplusdev\Kandylaravel\Facades\Button',
+    	'KandyStatus'       => 'Kodeplusdev\Kandylaravel\Facades\Status',
+    	'KandyAddressBook'  => 'Kodeplusdev\Kandylaravel\Facades\AddressBook',
+    	'KandyChat'         => 'Kodeplusdev\Kandylaravel\Facades\Chat',
+    	'KandyLaravel'      => 'Kodeplusdev\Kandylaravel\Facades\KandyLaravel',
 	),
 
 );
