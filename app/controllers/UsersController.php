@@ -202,9 +202,5 @@ class UsersController extends \BaseController {
 		$user=User::find($id);
 		return Response::json(['check'=>$user->qa_modal]);
 	}
-
 	
-	
-
-
 }
