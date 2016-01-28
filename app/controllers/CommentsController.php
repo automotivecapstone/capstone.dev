@@ -1,6 +1,8 @@
 <?php
 use Mailgun\Mailgun;
 
+
+
 class CommentsController extends \BaseController {
 
 	/**
@@ -144,15 +146,9 @@ class CommentsController extends \BaseController {
 		return Mail::send('emails.notification', ['user' => $user], function ($m) use ($user) {
             $m->from('postmaster@sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org', 'Your Application');
 
-            $m->to('mkwarren21@gmail.com');
+            $m->to($user->email)->subject('Notification from GreaseMonkey!');;
         });
-		// $results = $mgClient->sendMessage("$domain",
-  //                 array('from'    => 'Mailgun Sandbox <postmaster@sandbox8db08a1a17a44e4b83110e3242bbf4ca.mailgun.org>',
-  //                       'to'      => 'mkwarren21@gmail.com',
-  //                       'subject' => 'Notification from GreaseMonkey',
-  //                       'text'    => 'Hello'. $tutorial->user->username . ', you just sent got a response from ' . $comment->user->username));
-    
-  //   	return $results;
+	
 	}
 	
 }

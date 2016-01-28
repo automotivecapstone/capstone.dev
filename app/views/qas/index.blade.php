@@ -7,13 +7,15 @@
 @section('content')
 
 
-	<p class="logo">questions~answers</p>
+
+	<p class="logo">questions &amp; answers</p>
+
 	<div class="content content-div">
 		<table>
 			<tbody>
 				@foreach($qas as $qa)
 				<tr>
-					<td>{{{ $qa->user->image}}}</td>
+					<td><img src="{{{ $qa->user->image}}}"></td>
 					<td><a href="{{{ action('QasController@show', $qa->id) }}}">{{{ $qa->question }}} </a></td>
 					<td>{{{ $qa->created_at->diffForHumans() }}}</td>
 					<td>{{{ $qa->user->username }}}</td>
