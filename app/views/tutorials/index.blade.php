@@ -7,7 +7,7 @@
 @section('content')
 
 
-	<p class="logo">Tutorials</p>
+	<p class="logo">tutorials</p>
 	<div class="content content-div">
 		<table>
 			<tbody>

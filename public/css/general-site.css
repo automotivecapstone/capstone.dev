@@ -6,7 +6,19 @@
 .font-magneto {
     font-family: magnetoFont;
     color: #5E5651;
-    font-size: 72px;
+    font-size: 75px;
+}
+.font-magneto-item{
+    font-family: magnetoFont;
+    color: #5E5651;
+    font-size: 75px;
+}
+.logo {
+	font-family: 'magnetoFont', sans-serif;
+	padding-top: 50px;
+	text-align: center; 
+	font-size: 72px;
+	color: #5E5651;
 }
 
 @font-face {
@@ -133,6 +145,9 @@ th, td {
 .title {
 	padding-top: 30px;
 	text-align: center;
+	font-size: 60px;
+	font-family: magnetoFont;
+
 }
 
 hr {
@@ -140,8 +155,11 @@ hr {
     height: 1px;
 	background: #5E5651;
 }
+video {
+	text-align: center;
+}
 
-body {
+body{
 	font-family: "Lato", Helvetica, Arial, sans-serif;
 	background-color: #BFA799;
 	background-repeat: space;
@@ -157,30 +175,42 @@ body {
 	background-color: #F2E4DC;
 }
 
-.logo {
-	font-family: 'magnetoFont', sans-serif;
-	padding-top: 50px;
-	text-align: center; 
-	font-size: 42px;
-	color: #5E5651;
-}
 
 .navbar {
 	background-color: #5E5651;
 	font-family: 'Lato', sans-serif;
 }
+.navbar-inverse .navbar-nav>li>a {
+    color: #BFA799;
+    font-size: 16px;
+}
+.navbar-inverse .navbar-brand {
+    color: #BFA799;
+    font-size: 20px;
+}
+.navbar .navbar-nav {
+    letter-spacing: 1px;
+}
+
+.navbar .navbar-nav li a:focus {
+    outline: 0;
+}
 
 .navbar-brand{
-	font-family:magnetoFont
+	font-family:magnetoFont;
 }
 
 a .navbar-brand:hover{
-	color:#9d9d9d
+	color:#9d9d9d;
 }
 
 .navbar-inverse{
 	border-color:#5E5651;
 }
+.navbar-inverse {
+    border: 0;
+}
+
 
 .home-search {
 	padding:5px;
@@ -221,7 +251,6 @@ a:active{
 }
 
 .content{
-
 	color: #F2E4DC;
 }
 
@@ -229,6 +258,29 @@ a:active{
 	margin-right: 20px;
 }
 
+.form-main{
+	width:100%;
+	float:left;
+	padding-top:0px;
+}
+
+.form-div {
+	background-color: #73341D;
+	padding-left:35px;
+	padding-right:35px;
+	padding-top:35px;
+	padding-bottom:50px;
+	width: 100%;
+/*	float: left;*/
+/*	left: 50%;*/
+	text-align: center;
+	position: relative;
+  	margin-top:30px;
+  	margin-bottom: 50px;
+	/*margin-left: -260px;*/
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+}
 .profile-div {
 	background-color:#A66844;
 	/*padding-left:35px;*/
@@ -262,6 +314,15 @@ a:active{
   /*-webkit-border-radius: 7px;*/
 }
 
+.modal-body {
+	background-color: #A66844;
+}
+.modal-header {
+	background-color: #73341D;
+}
+.modal-footer {
+	background-color: #73341D;
+}
 
 table{
 	border-collapse: collapse;
@@ -305,27 +366,6 @@ th, td {
 	bottom: 50px;
 }
 
-.form-main{
-	width:100%;
-	float:left;
-	padding-top:0px;
-}
-
-.form-div {
-	background-color:rgba(72,72,72,0.4);
-	padding-left:35px;
-	padding-right:35px;
-	padding-top:35px;
-	padding-bottom:50px;
-	width: 450px;
-	float: left;
-	left: 50%;
-	position: absolute;
-  	margin-top:30px;
-	margin-left: -260px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-}
 
 .form-input {
 	color:#3c3c3c;
@@ -352,6 +392,10 @@ th, td {
 	color: #73341D;
 	outline: none;
   	padding: 13px 13px 13px 54px;
+}
+
+.btn-primary {
+	background-color: #5E5651;
 }
 
 .focused{

@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div class = 'content'>
 
 <p class="logo">post a question</p>
 
+<div class = 'content form-div'>
 {{ Form::open(array('action' => 'QasController@store', 'files' => true)) }}
 
     <div class="form-group {{ ($errors->has('question')) ? 'has-error' : '' }}">
