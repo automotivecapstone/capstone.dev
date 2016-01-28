@@ -18,14 +18,14 @@
 	{{ Form::close() }}
 	@endif
 
-	<h3>{{$converter->convertToHtml($qa->question)}}</h3>
+	<h3 class="title-qas-tuts">{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
-		<img src="{{{ $qa->image }}}" class="col-xs-8 col-xs-offset-2 qa-image">
+		<img src="{{{ $qa->image }}}" class="col-xs-8qa-image">
 	@endif
 
 	@if (isset($qa->video))
 		<!-- HTML5 video tag -->
-		<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-offset-2 col-md-8 qa-image">
+		<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-8 qa-image">
 	 		{{-- *******Do we need something like this to control/adjust the sizes of files users may upload? ******* --}}
 			{{-- .mp4 file for native playback in IE9+, Firefox, Chrome, Safari and most mobile browsers --}}
 			<source src="{{{ $qa->video }}}" type="video/mp4" />
@@ -45,23 +45,24 @@
 			</object>
 		</video>
 	@endif
+</div>
 
 	<blockquote>
 		<p>{{$qa->content}}</p>
 		<footer>Created by {{{ $qa->user->username }}}, {{{$qa->created_at->diffForHumans() }}}</footer>
-	</blockquote>
 
-	{{ Form::open(array('action' => 'CommentsController@store')) }}
-		{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
-		{{ Form::label('content', 'Add a Comment') }}
-		<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
-			{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
-		</div>
-		<div class="form-group">
-			<input type="hidden" name="qa_id" value="{{{ $qa->id }}}">
-			<button class="btn btn-default" id="submit">Add</button>
-		</div>
-	{{ Form::close() }}
+		{{ Form::open(array('action' => 'CommentsController@store')) }}
+			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
+			{{ Form::label('content', 'Add a Comment') }}
+			<div class="edit-delete form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
+				{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
+			</div>
+			<div class="edit-delete form-group">
+				<input type="hidden" name="qa_id" value="{{{ $qa->id }}}">
+				<button class="btn btn-default" id="submit">Add</button>
+			</div>
+		{{ Form::close() }}
+	</blockquote>
 
 	<div class="detailBox">
 		<div class="titleBox">
@@ -89,6 +90,5 @@
 		</div>
 	</div>
 
-</div>
 
 @stop
