@@ -107,8 +107,9 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		if(Auth::id()!== $id)
+		if(Auth::id()!= $id)
 		{
+			Log::info('This user id is not equal');
 			return Redirect::action('UsersController@show', Auth::id());
 		}
 		$tags = Tag::with('tutorials','qas')->get();
