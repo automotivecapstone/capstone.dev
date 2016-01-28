@@ -25,7 +25,7 @@ Route::get('/tutupdate/{id}', 'UsersController@changeTutModal');
 
 Route::get('/qacheck/{id}', 'UsersController@checkQaModal');
 
-Route::get('/qaupdate/{id}', 'UsersController@updateQaModal');
+Route::get('/qaupdate/{id}', 'UsersController@changeQaModal');
 
 Route::post('/addtagstouser', 'HomeController@addTagsToUser');
 

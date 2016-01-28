@@ -60,6 +60,8 @@ class UsersController extends \BaseController {
 				$filename = $image->getClientOriginalName();
 				$user->image = '/uploaded/' . $filename;
 				$image->move('uploaded/', $filename);
+			} else{
+				$user->image="/css/monkey-icon-taupe-on-cream.png";
 			}
 
 			$user->tut_modal = true;
@@ -105,6 +107,10 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		if(Auth::id()!== $id)
+		{
+			return Redirect::action('UsersController@show', Auth::id());
+		}
 		$user = User::find($id);
 		return View::make('users.edit')->with('user', $user);
 	}

@@ -66,13 +66,14 @@ class QasController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		$converter = new CommonMarkConverter();
 		$qa = Qa::find($id);
 		if(!$qa) {
 			App::abort(404);
 		}
 
 		// return View::make('qas.show')->with('qa', $qa);
-		return View::make('qas.show', compact('qa', 'tags'));
+		return View::make('qas.show', compact('qa', 'tags', 'converter'));
 
 	}
 
@@ -85,7 +86,9 @@ class QasController extends \BaseController {
 	public function edit($id)
 	{
 		$qa = Qa::find($id);
-
+		if(Auth::check()!== $qa->user){
+			return Redirect::action('qas.index');
+		}
 		return View::make('qas.edit')->with('qa', $qa);
 	}
 

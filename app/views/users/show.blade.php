@@ -102,8 +102,9 @@
 				
 						<p><a href="{{{ action('UsersController@edit', $user->id) }}}">Edit Profile</a></p>
 
-			      				</div>
-			    			</div><!-- /.modal-content -->
+
+			      	</div>
+			    </div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	</div>

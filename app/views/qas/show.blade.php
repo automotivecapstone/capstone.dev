@@ -8,6 +8,7 @@
 
 <div class = 'content content-div'>
 
+	@if(Auth::user()== $qa->user)
 	{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
 		
 		<a href="{{{ action('QasController@edit', $qa->id) }}}" class="btn btn-info">Edit Question</a>
@@ -15,6 +16,7 @@
 		<button class="delete-button btn btn-danger">Delete</button>
 
 	{{ Form::close() }}
+	@endif
 
 	<h3>{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
