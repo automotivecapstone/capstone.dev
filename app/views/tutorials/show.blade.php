@@ -8,6 +8,7 @@
 
 <div class = 'content content-div'>
 
+	@if(Auth::user()== $tutorial->user)
 	{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 		
 		<a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}" class="btn btn-info">Edit Tutorial</a>
@@ -15,6 +16,7 @@
 		<button class="btn btn-danger">Delete</button>
 		
 	{{ Form::close() }}
+	@endif
 
 	<h3>{{{ $tutorial->title }}}</h3>
 
