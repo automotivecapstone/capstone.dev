@@ -17,7 +17,7 @@
 					<td><img class="commenter-image" src="{{{ $qa->user->image}}}"></td>
 					<td><a href="{{{ action('QasController@show', $qa->id) }}}">{{{ $qa->question }}} </a></td>
 					<td>{{{ $qa->created_at->diffForHumans() }}}</td>
-					<td>{{{ $qa->user->username }}}</td>
+					<td><a href="{{{ action('UsersController@show', $qa->user->id)}}}">{{{ $qa->user->username }}}</a></td>
 				@endforeach
 			</tbody>
 		</table>

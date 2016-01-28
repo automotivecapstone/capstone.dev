@@ -78,10 +78,10 @@
 	                	<i class="fa fa-circle fa-stack-2x"></i>
 	                	<i class="fa fa-wrench fa-stack-1x iconcolor"></i></span>
 				
-						<p><a href="{{{action('UsersController@edit', $user->id)}}}">Edit Profile</a></p>
+						<p><a href="{{{action('UsersController@edit', Auth::id())}}}">Edit Profile</a></p>
 
-			      				</div>
-			    			</div><!-- /.modal-content -->
+			      	</div>
+			    </div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 	</div>
