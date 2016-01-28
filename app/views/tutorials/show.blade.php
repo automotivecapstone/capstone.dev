@@ -45,7 +45,7 @@
 		@if(Auth::user()== $tutorial->user)
 		{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 			
-			<button class="edit-delete"><a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}" >Edit Tutorial</a></button><button class="edit-delete">Delete</button>
+			<button class="edit-delete"><a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}">Edit Tutorial</a></button><button class="edit-delete">Delete</button>
 			
 		{{ Form::close() }}
 		@endif

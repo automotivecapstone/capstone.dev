@@ -100,7 +100,7 @@
 	                	<i class="fa fa-circle fa-stack-2x"></i>
 	                	<i class="fa fa-wrench fa-stack-1x iconcolor"></i></span>
 				
-						<p><a href="{{{ action('UsersController@edit', $user->id) }}}">Edit Profile</a></p>
+						<p><a href="">Edit Profile</a></p>
 
 
 			      	</div>
@@ -119,7 +119,7 @@
 					<td><a href="{{{action('TutorialsController@show', $tutorial->id)}}}">{{{$tutorial->title}}}</a></td>
 
 					@if(Auth::id()== $user->id)
-					<td><button class = "btn btn-warning btn-small">Edit</button></td>
+					<td><button class = "btn btn-warning btn-small">Edit</button></a></td>
 					<td><button class = "btn btn-danger btn-small">Delete</button></td>
 					@endif
 				</tr>
