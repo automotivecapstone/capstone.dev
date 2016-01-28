@@ -209,14 +209,7 @@
 			});
 		});
 
-		$('#addtag').autocomplete({
-			source: jQuery.parseJSON("{{{action('TagsController@index')}}}"),
-			minLength: 2,
-			select: function(e, ui){
-				console.log(ui);
-				$('#addtag').val(ui.item.value);
-			}
-		});
+		
 	</script>
 
 @stop
