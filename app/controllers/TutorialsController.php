@@ -86,6 +86,9 @@ class TutorialsController extends \BaseController {
 	public function edit($id)
 	{
 		$tutorial = Tutorial::find($id);
+		if(Auth::check()!== $tutorial->user){
+			Redirect::action('tutorials.index');
+		}
 		return View::make('tutorials.edit')->with('tutorial', $tutorial);
 	}
 
