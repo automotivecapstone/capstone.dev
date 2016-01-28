@@ -2,18 +2,11 @@
 
 @section('top-script')
 
-	<style type="text/css">
-		.commenter-image {
-			width: 50px;
-			height: 50px;
-		}
-	</style>
-
 @stop
 
 @section('content')
 
-<div class = 'content'>
+<div class = 'content content-div'>
 
 	{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
 		

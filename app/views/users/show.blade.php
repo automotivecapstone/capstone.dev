@@ -3,13 +3,12 @@
 
 @section('content')
 
-@if(Auth::user()  == $user)
+	<h2 class="title">Let's twist this, {{{$user->username}}}!</h2>
 	<div class="profile-div">
 		<div>
 			<div class="row">
 				 <div class="col-lg-10 col-lg-offset-1 text-center">
 					<img class = "profile-image imageholder" src="{{{$user->image}}}">
-					<h2 class="title">Let's twist this, {{{$user->username}}}!</h2>
 					<hr class = "horizontalrule">
                 </div>
 			</div>

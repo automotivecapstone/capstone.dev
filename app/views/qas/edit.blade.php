@@ -3,10 +3,10 @@
 @section('content')
 
 
-<div class = 'content'>
 
 	<p class="logo">Edit Your Question</p>
 
+	<div class = 'content form-div'>
 	{{ Form::model($qa, array('action' => array('QasController@update', $qa->id), 'method' => 'PUT')) }}
 
 		<div class="form-group {{ ($errors->has('question')) ? 'has-error' : ''}}">
