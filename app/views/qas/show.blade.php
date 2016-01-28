@@ -8,7 +8,7 @@
 
 <div class = 'content content-div'>
 
-	@if(Auth::user()== $tutorial->user)
+	@if(Auth::user()== $qa->user)
 	{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
 		
 		<a href="{{{ action('QasController@edit', $qa->id) }}}" class="btn btn-info">Edit Question</a>

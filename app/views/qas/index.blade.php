@@ -15,7 +15,7 @@
 			<tbody>
 				@foreach($qas as $qa)
 				<tr>
-					<td><img src="{{{ $qa->user->image}}}"></td>
+					<td><img class="commenter-image" src="{{{ $qa->user->image}}}"></td>
 					<td><a href="{{{ action('QasController@show', $qa->id) }}}">{{{ $qa->question }}} </a></td>
 					<td>{{{ $qa->created_at->diffForHumans() }}}</td>
 					<td>{{{ $qa->user->username }}}</td>
