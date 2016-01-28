@@ -2,6 +2,9 @@
     font-family: magnetoFont;
     src: url(MAGNETOB.TTF);
 }
+.text-beige {
+	color: #F2E4DC;
+}
 
 .font-magneto {
     font-family: magnetoFont;
