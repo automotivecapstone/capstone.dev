@@ -18,12 +18,12 @@
 
 	<h3>{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
-		<img src="{{{ $qa->image }}}" class="col-xs-8 col-xs-offset-2 qa-image">
+		<img src="{{{ $qa->image }}}" class="col-xs-8qa-image">
 	@endif
 
 	@if (isset($qa->video))
 		<!-- HTML5 video tag -->
-		<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-offset-2 col-md-8 qa-image">
+		<video controls="controls" poster="img/demo.jpg" width="640" height="360" class="col-md-8 qa-image">
 	 		{{-- *******Do we need something like this to control/adjust the sizes of files users may upload? ******* --}}
 			{{-- .mp4 file for native playback in IE9+, Firefox, Chrome, Safari and most mobile browsers --}}
 			<source src="{{{ $qa->video }}}" type="video/mp4" />
@@ -43,6 +43,7 @@
 			</object>
 		</video>
 	@endif
+</div>
 
 	<blockquote>
 		<p>{{$qa->content}}</p>
@@ -87,6 +88,5 @@
 		</div>
 	</div>
 
-</div>
 
 @stop
