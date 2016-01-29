@@ -3,8 +3,12 @@
 @section('top-script')
     <style type="text/css">
 
-        a {
-            color: #fff;
+        .iconcolor {
+            color: #F2E4DC;
+        }
+
+        a:hover {
+            color: #73341D;
         }
 
     </style>
