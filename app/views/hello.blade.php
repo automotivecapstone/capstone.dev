@@ -76,12 +76,12 @@
 
                 <div class="col-md-4 col-sm-4 text-center">
                     <div class="service-item">
-                        <a id = "begintour" href="#">
+                        <button id = "begintour">
                             <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-wrench fa-stack-1x iconcolor"></i>
                             </span>
-                        </a>
+                        </button>
                         <h4>
                             <strong>Take a tour</strong>
                         </h4>
@@ -116,13 +116,13 @@
 
 @section('bottom-script')
     <script type="text/javascript">
-        (function(){
+        $(document).ready(function(){
             "use strict";
 
             $("#begintour").click(function(e){
                 introJs().start();
             });
 
-        })();
+        });
     </script>
 @stop
