@@ -10,6 +10,7 @@
 
 		.vote-container {
 			padding-top: 15px;
+			text-align: center;
 		}
 
 		.fa-thumbs-up {
@@ -29,6 +30,10 @@
 		.text-danger {
 			font-size: 20px;
 			font-weight: bolder;
+		}
+
+		.list-group {
+			text-align: left;
 		}
 
 	</style>
