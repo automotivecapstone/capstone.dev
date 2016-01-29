@@ -101,22 +101,22 @@
 
 	<blockquote>
 		<p>{{$converter->convertToHtml($qa->content)}}</p>
-		<footer>Created by {{{ $qa->user->username }}}, {{{$qa->created_at->diffForHumans() }}}</footer>
+		<footer>Created by {{{ $qa->user->username }}}, {{{$qa->created_at->diffForHumans() }}}
 
 		@if(Auth::user()== $qa->user)
 		{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
 			
-			<a href="{{{ action('QasController@edit', $qa->id) }}}" class="gm-button">Edit Question</a>
-
-			<button class="gm-button">Delete</button>
+			<button class="gm-button"><a href="{{{ action('QasController@edit', $qa->id) }}}">Edit Question</a></button><button class="gm-button">Delete</button>
 
 		{{ Form::close() }}
 		@endif
+		</footer>
+	</blockquote>
 
-		{{ Form::open(array('action' => 'CommentsController@store')) }}
+		{{ Form::open(array('action' => array('CommentsController@store'))) }}
 			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
 			{{ Form::label('content', 'Add a Comment') }}
-			<div class="gm-button form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
+			<div class="form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
 				{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
 			</div>
 			<div class="form-group">
@@ -124,7 +124,6 @@
 				<button class="gm-button" id="submit">Add</button>
 			</div>
 		{{ Form::close() }}
-	</blockquote>
 
 	<div class="detailBox">
 		<div class="titleBox">

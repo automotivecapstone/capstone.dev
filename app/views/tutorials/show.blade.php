@@ -104,6 +104,7 @@
 	<blockquote >
 		<p>{{$converter->convertToHtml($tutorial->content)}}</p>
 		<footer>Created by {{{ $tutorial->user->username }}}, {{{$tutorial->created_at->diffForHumans() }}}
+		
 		@if(Auth::user()== $tutorial->user)
 		{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 			
@@ -114,8 +115,6 @@
 		</footer>
 	</blockquote>
 
-
-	
 	{{ Form::open(array('action' => array('CommentsController@store'))) }}
 			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
 			{{ Form::label('content', 'Add a Comment') }}
@@ -124,7 +123,7 @@
 		</div>
 		<div class="form-group">
 			<input type="hidden" name="tutorial_id" value="{{{$tutorial->id}}}">
-			<button class="gm-button	" id="submit">Add</button>
+			<button class="gm-button" id="submit">Add</button>
 		</div>
 	{{ Form::close() }}
 
