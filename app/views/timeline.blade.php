@@ -7,7 +7,7 @@
 	</div>
 	<div class="row">
 	<div class="col-md-6">
-		<h3>Tutorials</h3>
+		<h3 class="title-qas-tuts">Tutorials</h3>
 		<hr>
 		<ul>
 		@foreach ($user->tags()->get() as $tag)
@@ -19,7 +19,7 @@
 	</div>
 	
 		<div class="col-md-6 offset-col-md-6">
-		    <h3>Q/As</h3>
+		    <h3 class="title-qas-tuts">Q/As</h3>
 		    <hr>	
 		    <ul>
 			@foreach ($user->tags()->get() as $tag)

@@ -320,7 +320,7 @@ a:active{
 	/*padding-top:35px;*/
 	padding-bottom:50px;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	/*float: left;*/
 	/*left: 10%;*/
 	position: relative;
@@ -328,6 +328,11 @@ a:active{
 	/*margin-left: -260px;*/
   /*-moz-border-radius: 7px;*/
   /*-webkit-border-radius: 7px;*/
+}
+
+li {
+	padding: 25px;
+
 }
 
 .modal-body {
@@ -461,11 +466,10 @@ input:focus, textarea:focus {
 	background-color:white;
 }
 
-.edit-delete {
+.gm-button {
 	font-family: 'Lato', Arial, Helvetica, sans-serif;
 	width: 40%;
 	text-align: center;
-	font-size: 28px;
 	border:#73341D solid 4px;
 	cursor:pointer;
 	background-color: #A66844;
