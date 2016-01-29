@@ -20,6 +20,8 @@
 		{{-- FONT AWESOME BELOW --}}
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
+		<link rel="stylesheet" type="text/css" href="/css/introjs.css">
+
 		@yield('top-script')
 
 	</head>
@@ -55,6 +57,9 @@
 		<script src="/js/bootstrap.min.js"></script>
 		<!-- CUSTOM JS BELOW -->
 		<script src="/js/bootstrap-markdown.js"></script>
+
+		<script src="/js/intro.js"></script>
+
 		@yield('bottom-script')
 	</body>
 </html>
