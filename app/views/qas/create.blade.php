@@ -39,7 +39,7 @@
         @endforeach 
     </div>
 
-{{ Form::submit('submit') }}    
+{{ Form::submit('submit', ['class'=>'gm-button']) }}  
 {{ Form::close() }}
 
 </div>

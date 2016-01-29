@@ -73,7 +73,7 @@
 
 	<h3 class="title-qas-tuts">{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
-		<img src="{{{ $qa->image }}}" class="col-xs-8qa-image">
+		<img src="{{{ $qa->image }}}" class="col-xs-8 qa-image">
 	@endif
 
 	@if (isset($qa->video))
@@ -101,18 +101,28 @@
 </div>
 
 	<blockquote>
-		<p>{{$qa->content}}</p>
+		<p>{{$converter->convertToHtml($qa->content)}}</p>
 		<footer>Created by {{{ $qa->user->username }}}, {{{$qa->created_at->diffForHumans() }}}</footer>
+
+		@if(Auth::user()== $qa->user)
+		{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
+			
+			<a href="{{{ action('QasController@edit', $qa->id) }}}" class="gm-button">Edit Question</a>
+
+			<button class="gm-button">Delete</button>
+
+		{{ Form::close() }}
+		@endif
 
 		{{ Form::open(array('action' => 'CommentsController@store')) }}
 			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
 			{{ Form::label('content', 'Add a Comment') }}
-			<div class="edit-delete form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
+			<div class="gm-button form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
 				{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
 			</div>
-			<div class="edit-delete form-group">
+			<div class="form-group">
 				<input type="hidden" name="qa_id" value="{{{ $qa->id }}}">
-				<button class="btn btn-default" id="submit">Add</button>
+				<button class="gm-button" id="submit">Add</button>
 			</div>
 		{{ Form::close() }}
 	</blockquote>

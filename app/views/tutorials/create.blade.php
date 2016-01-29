@@ -39,9 +39,9 @@
 				{{ Form::checkbox('tuttags[]', $tag->id)}}
 			@endforeach 
 		</div>
-	</div>
 
-	{{ Form::submit('submit') }}
+	{{ Form::submit('submit', ['class'=>'gm-button']) }}
 	{{ Form::close() }}
+	</div>
 
 @stop

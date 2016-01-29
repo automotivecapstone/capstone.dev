@@ -42,10 +42,6 @@
 	@if(Auth::user() == $tutorial->user)
 	{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 		
-		<a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}" class="btn btn-info">Edit Tutorial</a>
-
-		<button class="btn btn-danger">Delete</button>
-		
 	{{ Form::close() }}
 	@endif
 
@@ -107,7 +103,7 @@
 		@if(Auth::user()== $tutorial->user)
 		{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 			
-			<button class="edit-delete"><a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}">Edit Tutorial</a></button><button class="edit-delete">Delete</button>
+			<button class="gm-button"><a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}">Edit Tutorial</a></button><button class="gm-button">Delete</button>
 			
 		{{ Form::close() }}
 		@endif

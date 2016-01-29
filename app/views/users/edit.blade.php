@@ -5,7 +5,7 @@
 
 	<p class="logo">edit your profile</p>
 
-	<button class = "btn btn-default" id="userajaxlistener" data-toggle="modal" data-target="#usertag_Modal">User Tags</button>
+	<button class = "gm-button" id="userajaxlistener" data-toggle="modal" data-target="#usertag_Modal">User Tags</button>
  		<div class="modal fade" id = "usertag_Modal" tabindex="-1" role="dialog">
  		  <div class="modal-dialog">
  		    <div class="modal-content">
@@ -75,7 +75,7 @@
 					{{ Form::file('image') }}
 				</div>
 
-				{{ Form::submit('submit')}}	
+				{{ Form::submit('submit', ['class'=>'gm-button'])}}	
 				{{ Form::close() }}
 		</div>
 	</div>
