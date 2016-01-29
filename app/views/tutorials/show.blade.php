@@ -8,6 +8,26 @@
 
 <div class = 'content content-div'>
 
+	@if(Auth::user() == $tutorial->user)
+	{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
+		
+		<a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}" class="btn btn-info">Edit Tutorial</a>
+
+		<button class="btn btn-danger">Delete</button>
+		
+	{{ Form::close() }}
+	@endif
+
+	{{ $tutorial->voteTotal('upVote') }}
+
+	@if(Auth::user())
+
+		<a href="{{{ action('TutorialsController@vote', [$tutorial->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+		<a href="{{{ action('TutorialsController@vote', [$tutorial->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+	@endif
+
+	{{ $tutorial->voteTotal('downVote') }}
 
 	<h3 class="title-qas-tuts">{{{ $tutorial->title }}}</h3>
 

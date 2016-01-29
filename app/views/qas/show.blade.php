@@ -8,6 +8,30 @@
 
 <div class = 'content content-div'>
 
+<<<<<<< HEAD
+=======
+	@if(Auth::user()== $qa->user)
+	{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
+		
+		<a href="{{{ action('QasController@edit', $qa->id) }}}" class="btn btn-info">Edit Question</a>
+
+		<button class="delete-button btn btn-danger">Delete</button>
+
+	{{ Form::close() }}
+	@endif
+
+	{{ $qa->voteTotal('upVote') }}
+
+	@if(Auth::user())
+
+		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+	
+	@endif
+
+	{{ $qa->voteTotal('downVote') }}
+
+>>>>>>> master
 	<h3 class="title-qas-tuts">{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
 		<img src="{{{ $qa->image }}}" class="col-xs-8 qa-image">

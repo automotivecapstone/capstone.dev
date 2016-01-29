@@ -37,6 +37,12 @@ Route::get('/newsfeed', 'HomeController@usersHome');
 
 Route::get('/store', 'HomeController@showStore');
 
+Route::get('qas/vote/{id}', 'QasController@vote');
+
+Route::get('tutorials/vote/{id}', 'TutorialsController@vote');
+
+Route::get('comments/vote/{id}', 'CommentsController@vote');
+
 Route::resource('tutorials', 'TutorialsController');
 
 Route::resource('qas', 'QasController');
