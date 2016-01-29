@@ -8,8 +8,6 @@
 
 <div class = 'content content-div'>
 
-<<<<<<< HEAD
-=======
 	@if(Auth::user()== $qa->user)
 	{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
 		
@@ -31,7 +29,6 @@
 
 	{{ $qa->voteTotal('downVote') }}
 
->>>>>>> master
 	<h3 class="title-qas-tuts">{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
 		<img src="{{{ $qa->image }}}" class="col-xs-8 qa-image">
