@@ -30,5 +30,20 @@ class Comment extends \Eloquent {
         return $this->morphMany('Vote', 'voteable');
     }
     
+    public function voteTotal($type)
+    {
+        $total = 0;
+
+        foreach($this->votes as $vote)
+        {
+            if($type == 'upVote' && $vote->vote == 1) {
+                $total++;
+            } else if ($type == 'downVote' && $vote->vote == -1){
+                $total++;
+            }
+        }
+
+        return $total;
+    }
 
 }
