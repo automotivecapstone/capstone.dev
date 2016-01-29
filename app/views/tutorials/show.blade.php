@@ -2,6 +2,37 @@
 
 @section('top-script')
 
+	<style type="text/css">
+
+		.title-qas-tuts {
+			padding-top: 0px;
+		}
+
+		.vote-container {
+			padding-top: 15px;
+		}
+
+		.fa-thumbs-up {
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+
+		.fa-thumbs-down {
+			padding-right: 10px;
+		}
+
+		.text-success {
+			font-size: 20px;
+			font-weight: bolder;
+		}
+
+		.text-danger {
+			font-size: 20px;
+			font-weight: bolder;
+		}
+
+	</style>
+
 @stop
 
 @section('content')
@@ -11,23 +42,30 @@
 	@if(Auth::user() == $tutorial->user)
 	{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 		
-		<a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}" class="btn btn-info">Edit Tutorial</a>
-
-		<button class="btn btn-danger">Delete</button>
-		
 	{{ Form::close() }}
 	@endif
 
-	{{ $tutorial->voteTotal('upVote') }}
+	<div class="vote-container">
 
-	@if(Auth::user())
+		<span class="text-success">{{ $tutorial->voteTotal('upVote') }}</span>
 
-		<a href="{{{ action('TutorialsController@vote', [$tutorial->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
-		<a href="{{{ action('TutorialsController@vote', [$tutorial->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+		@if(Auth::check())
 
-	@endif
+			<a href="{{{ action('TutorialsController@vote', [$tutorial->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+			<a href="{{{ action('TutorialsController@vote', [$tutorial->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
 
-	{{ $tutorial->voteTotal('downVote') }}
+		@endif
+
+		@if(!Auth::check())
+
+			<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-up fa-2x"></a>
+			<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+		@endif
+
+		<span class="text-danger">{{ $tutorial->voteTotal('downVote') }}</span>
+
+	</div>
 
 	<h3 class="title-qas-tuts">{{{ $tutorial->title }}}</h3>
 
@@ -65,7 +103,7 @@
 		@if(Auth::user()== $tutorial->user)
 		{{ Form::open(array('action' => array('TutorialsController@destroy', $tutorial->id, 'files' => true), 'method' => 'DELETE')) }}
 			
-			<button class="edit-delete"><a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}">Edit Tutorial</a></button><button class="edit-delete">Delete</button>
+			<button class="gm-button"><a href="{{{ action('TutorialsController@edit', $tutorial->id) }}}">Edit Tutorial</a></button><button class="gm-button">Delete</button>
 			
 		{{ Form::close() }}
 		@endif
@@ -100,6 +138,20 @@
 						<div class="commenterImage">
 							<img src="{{{ $comment->user->image }}}" class="commenter-image">
 							{{{ $comment->user->username }}}
+							<span class="text-success">{{ $comment->voteTotal('upVote') }}</span>
+							@if(Auth::check())
+
+								<a href="{{{ action('CommentsController@vote', [$comment->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+								<a href="{{{ action('CommentsController@vote', [$comment->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+							@endif
+							@if(!Auth::check())
+
+								<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-up fa-2x"></a>
+								<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+							@endif
+							<span class="text-danger">{{ $comment->voteTotal('downVote') }}</p>
 						</div>
 						<blockquote>
 							<p>{{{ $comment->content }}}</p>

@@ -37,9 +37,12 @@
             {{ Form::label('qatags[]', $tag->name)}}
             {{ Form::checkbox('qatags[]', $tag->id)}}
         @endforeach 
+        <br>
+        {{ Form::label('addtag', "Don't see a tag? Add it here!")}}
+        {{ Form::text('addtag', null,array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
     </div>
 
-{{ Form::submit('submit') }}    
+{{ Form::submit('submit', ['class'=>'gm-button']) }}  
 {{ Form::close() }}
 
 </div>
