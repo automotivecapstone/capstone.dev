@@ -100,6 +100,14 @@
 						<div class="commenterImage">
 							<img src="{{{ $comment->user->image }}}" class="commenter-image">
 							{{{ $comment->user->username }}}
+							{{ $comment->voteTotal('upVote') }}
+							@if(Auth::user())
+
+								<a href="{{{ action('CommentsController@vote', [$comment->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+								<a href="{{{ action('CommentsController@vote', [$comment->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+							@endif
+							{{ $comment->voteTotal('downVote') }}
 						</div>
 						<blockquote>
 							<p>{{{ $comment->content }}}</p>
