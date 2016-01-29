@@ -2,6 +2,37 @@
 
 @section('top-script')
 
+	<style type="text/css">
+
+		.title-qas-tuts {
+			padding-top: 0px;
+		}
+
+		.vote-container {
+			padding-top: 15px;
+		}
+
+		.fa-thumbs-up {
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+
+		.fa-thumbs-down {
+			padding-right: 10px;
+		}
+
+		.text-success {
+			font-size: 20px;
+			font-weight: bolder;
+		}
+
+		.text-danger {
+			font-size: 20px;
+			font-weight: bolder;
+		}
+
+	</style>
+
 @stop
 
 @section('content')
@@ -18,20 +49,31 @@
 	{{ Form::close() }}
 	@endif
 
-	{{ $qa->voteTotal('upVote') }}
+	<div class="vote-container">
 
-	@if(Auth::user())
+		<span class="text-success">{{ $qa->voteTotal('upVote') }}</span>
 
-		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
-		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
-	
-	@endif
+		@if(Auth::check())
 
-	{{ $qa->voteTotal('downVote') }}
+			<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+			<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+		
+		@endif
+
+		@if(!Auth::check())
+
+			<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-up fa-2x"></a>
+			<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+		@endif
+
+		<span class="text-danger">{{ $qa->voteTotal('downVote') }}</span>
+
+	</div>
 
 	<h3 class="title-qas-tuts">{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
-		<img src="{{{ $qa->image }}}" class="col-xs-8qa-image">
+		<img src="{{{ $qa->image }}}" class="col-xs-8 qa-image">
 	@endif
 
 	@if (isset($qa->video))
@@ -59,18 +101,28 @@
 </div>
 
 	<blockquote>
-		<p>{{$qa->content}}</p>
+		<p>{{$converter->convertToHtml($qa->content)}}</p>
 		<footer>Created by {{{ $qa->user->username }}}, {{{$qa->created_at->diffForHumans() }}}</footer>
+
+		@if(Auth::user()== $qa->user)
+		{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
+			
+			<a href="{{{ action('QasController@edit', $qa->id) }}}" class="gm-button">Edit Question</a>
+
+			<button class="gm-button">Delete</button>
+
+		{{ Form::close() }}
+		@endif
 
 		{{ Form::open(array('action' => 'CommentsController@store')) }}
 			{{ $errors->first('content', '<div class="alert alert-danger">:message</div>') }}
 			{{ Form::label('content', 'Add a Comment') }}
-			<div class="edit-delete form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
+			<div class="gm-button form-group {{ ($errors->has('content')) ? 'has-error' : '' }}">
 				{{ Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Your comments']) }}
 			</div>
-			<div class="edit-delete form-group">
+			<div class="form-group">
 				<input type="hidden" name="qa_id" value="{{{ $qa->id }}}">
-				<button class="btn btn-default" id="submit">Add</button>
+				<button class="gm-button" id="submit">Add</button>
 			</div>
 		{{ Form::close() }}
 	</blockquote>
@@ -89,6 +141,20 @@
 						<div class="commenterImage">
 							<img src="{{{ $comment->user->image }}}" class="commenter-image">
 							{{{ $comment->user->username }}}
+							<span class="text-success">{{ $comment->voteTotal('upVote') }}</span>
+							@if(Auth::check())
+
+								<a href="{{{ action('CommentsController@vote', [$comment->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+								<a href="{{{ action('CommentsController@vote', [$comment->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+							@endif
+							@if(!Auth::check())
+
+								<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-up fa-2x"></a>
+								<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+							@endif
+							<span class="text-danger">{{ $comment->voteTotal('downVote') }}</span>
 						</div>
 						<blockquote>
 							<p>{{{ $comment->content }}}</p>

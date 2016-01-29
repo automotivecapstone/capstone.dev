@@ -37,11 +37,14 @@
 			@foreach($tags as $tag)
 				{{ Form::label('tuttags[]', $tag->name)}}
 				{{ Form::checkbox('tuttags[]', $tag->id)}}
-			@endforeach 
+			@endforeach
+			<br>
+			{{ Form::label('addtag', "Don't see a tag? Add it here!")}}
+			{{ Form::text('addtag', null,array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
 		</div>
-	</div>
 
-	{{ Form::submit('submit') }}
+	{{ Form::submit('submit', ['class'=>'gm-button']) }}
 	{{ Form::close() }}
+	</div>
 
 @stop
