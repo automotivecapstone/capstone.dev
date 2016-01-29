@@ -1,5 +1,17 @@
 @extends('layouts.master')
 
+@section('top-script')
+
+    <style type="text/css">
+
+        .tags-pad {
+            padding-right: 10px;
+        }
+
+    </style>
+
+@stop
+
 @section('content')
 
 
@@ -36,6 +48,7 @@
         @foreach($tags as $tag)
             {{ Form::label('qatags[]', $tag->name)}}
             {{ Form::checkbox('qatags[]', $tag->id)}}
+            <span class="tags-pad"></span>
         @endforeach 
         <br>
         {{ Form::label('addtag', "Don't see a tag? Add it here!")}}

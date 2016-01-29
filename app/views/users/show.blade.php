@@ -2,6 +2,14 @@
 
 @section('top-script')
 
+	<style type="text/css">
+
+		.cursor {
+			cursor: pointer;
+		}
+
+	</style>
+
 
 @stop
 
@@ -29,11 +37,14 @@
 			<div id="portfolio-profile" class="row">
 				<div class="col-md-4 col-sm-4 text-center">
 					<div class="service-item">
-		                <span class="fa-stack fa-4x">
-		                <i class="fa fa-circle fa-stack-2x"></i>
-		                <i class="fa fa-wrench fa-stack-1x iconcolor"></i></span>
+						<a id="tutajaxlistener" class="cursor">
+			                <span class="fa-stack fa-4x">
+			                	<i class="fa fa-circle fa-stack-2x"></i>
+			                	<i class="fa fa-pencil fa-stack-1x iconcolor"></i>
+			            	</span>
+		            	</a>
 
-						<p><a id="tutajaxlistener">Create a Tutorial</a></p>
+						<p>Create a Tutorial</p>
 				</div>
 					
 						<div class="modal fade" id = "tut_Modal" tabindex="-1" role="dialog">
@@ -67,11 +78,13 @@
 			
 				<div class="col-md-4 col-sm-4 text-center">
 					<div class="service-item">
-	                	<span class="fa-stack fa-4x">
-	                	<i class="fa fa-circle fa-stack-2x"></i>
-	                	<i class="fa fa-wrench fa-stack-1x iconcolor"></i></span>
-					
-						<p><a id="qaajaxlistener">Ask a Question</a></p>
+						<a id="qaajaxlistener" class="cursor">
+	                		<span class="fa-stack fa-4x">
+	                			<i class="fa fa-circle fa-stack-2x"></i>
+	                			<i class="fa fa-question fa-stack-1x iconcolor"></i>
+	                		</span>
+						</a>
+						<p>Ask a Question</p>
 						<div class="modal fade" id = "qa_Modal" tabindex="-1" role="dialog">
 				  			<div class="modal-dialog">
 				    			<div class="modal-content">
@@ -103,11 +116,14 @@
 
 				<div class="col-md-4 col-sm-4 text-center">
 					<div class="service-item">
-	                	<span class="fa-stack fa-4x">
-	                	<i class="fa fa-circle fa-stack-2x"></i>
-	                	<i class="fa fa-wrench fa-stack-1x iconcolor"></i></span>
+						<a href="{{ action('UsersController@edit', $user->id) }}">
+	                		<span class="fa-stack fa-4x">
+	                			<i class="fa fa-circle fa-stack-2x"></i>
+	                			<i class="fa fa-wrench fa-stack-1x iconcolor"></i>
+	                		</span>
+	                	</a>
 				
-						<p><a href = "{{{action('UsersController@edit', $user->id)}}}">Edit Profile</a></p>
+						<p>Edit Profile</p>
 
 
 			      	</div>
