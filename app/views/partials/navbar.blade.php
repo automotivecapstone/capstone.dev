@@ -10,7 +10,7 @@
 	<div class="collapse navbar-collapse" id="navbar-collapse-01">
 		<ul class="nav navbar-nav navbar-left">
 			@if(!Auth::check())
-				<li><a href="{{ action('HomeController@getLogin') }}">Log In</a></li>
+				<li data-step = "1"data-intro = "Start by Loggin in or Creating a new account"><a href="{{ action('HomeController@getLogin') }}">Log In</a></li>
 				<li><a href="{{ action('UsersController@create') }}">Sign Up</a></li>
 				<li><a href="{{ action('TutorialsController@index') }}">Tutorials</a></li>
 				<li><a href="{{ action('QasController@index') }}">Q &amp; A</a></li>

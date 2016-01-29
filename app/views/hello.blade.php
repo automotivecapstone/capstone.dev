@@ -13,16 +13,6 @@
 
 
 @section('content')
-{{-- 
-	<header>
-
-		<div class="title">
-			<h1><span class="font-magneto">Grease Monkey</span></h1>
-			<img src="/css/monkey-transparent.png" alt="GreaseMonkey">
-		</div>
-
-	</header> --}}
-
 
 <body>
 	<header>
@@ -86,17 +76,16 @@
 
                 <div class="col-md-4 col-sm-4 text-center">
                     <div class="service-item">
-                        <a href="#">
+                        <a id = "begintour" href="#">
                             <span class="fa-stack fa-4x">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-wrench fa-stack-1x iconcolor"></i>
                             </span>
                         </a>
                         <h4>
-                            <strong>Need a pro?</strong>
+                            <strong>Take a tour</strong>
                         </h4>
-                        <p>Chat with one of our mechanics</p>
-                        <a href="#" class="btn ">Learn More</a>
+                        <p>Learn how to use our site</p>
                     </div>
                 </div>
             </div>
@@ -123,4 +112,17 @@
     </section>
 
 </body>
+@stop
+
+@section('bottom-script')
+    <script type="text/javascript">
+        (function(){
+            "use strict";
+
+            $("#begintour").click(function(e){
+                introJs().start();
+            });
+
+        })();
+    </script>
 @stop
