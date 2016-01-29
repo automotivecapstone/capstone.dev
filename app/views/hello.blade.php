@@ -141,12 +141,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 text-center">
                         <div class="service-item">
-                            <a href="{{ action('QasController@create') }}">
-                                <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-users fa-stack-1x iconcolor"></i>
-                                </span>
-                            </a>
+                            <img src="/img/hampton1-16_0031.jpg">
                             <h4>
                                 <strong>Pascal Allen</strong>
                             </h4>
@@ -154,12 +149,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 text-center">
                         <div class="service-item">
-                            <a href="{{ action('QasController@create') }}">
-                                <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-users fa-stack-1x iconcolor"></i>
-                                </span>
-                            </a>
+                            <img src="/img/hampton1-16_0032.jpg">
                             <h4>
                                 <strong>MK Warren</strong>
                             </h4>
