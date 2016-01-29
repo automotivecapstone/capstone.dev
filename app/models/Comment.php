@@ -25,6 +25,25 @@ class Comment extends \Eloquent {
     	return $this->belongsTo('Qa')->orderBy('created_at', 'desc');
     }
 
+    public function votes()
+    {
+        return $this->morphMany('Vote', 'voteable');
+    }
     
+    public function voteTotal($type)
+    {
+        $total = 0;
+
+        foreach($this->votes as $vote)
+        {
+            if($type == 'upVote' && $vote->vote == 1) {
+                $total++;
+            } else if ($type == 'downVote' && $vote->vote == -1){
+                $total++;
+            }
+        }
+
+        return $total;
+    }
 
 }

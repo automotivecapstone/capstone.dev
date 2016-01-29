@@ -18,6 +18,17 @@
 	{{ Form::close() }}
 	@endif
 
+	{{ $qa->voteTotal('upVote') }}
+
+	@if(Auth::user())
+
+		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+	
+	@endif
+
+	{{ $qa->voteTotal('downVote') }}
+
 	<h3 class="title-qas-tuts">{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
 		<img src="{{{ $qa->image }}}" class="col-xs-8qa-image">
