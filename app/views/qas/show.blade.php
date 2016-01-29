@@ -2,6 +2,37 @@
 
 @section('top-script')
 
+	<style type="text/css">
+
+		.title-qas-tuts {
+			padding-top: 0px;
+		}
+
+		.vote-container {
+			padding-top: 15px;
+		}
+
+		.fa-thumbs-up {
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+
+		.fa-thumbs-down {
+			padding-right: 10px;
+		}
+
+		.text-success {
+			font-size: 20px;
+			font-weight: bolder;
+		}
+
+		.text-danger {
+			font-size: 20px;
+			font-weight: bolder;
+		}
+
+	</style>
+
 @stop
 
 @section('content')
@@ -18,16 +49,27 @@
 	{{ Form::close() }}
 	@endif
 
-	{{ $qa->voteTotal('upVote') }}
+	<div class="vote-container">
 
-	@if(Auth::user())
+		<span class="text-success">{{ $qa->voteTotal('upVote') }}</span>
 
-		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
-		<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
-	
-	@endif
+		@if(Auth::check())
 
-	{{ $qa->voteTotal('downVote') }}
+			<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+			<a href="{{{ action('QasController@vote', [$qa->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+		
+		@endif
+
+		@if(!Auth::check())
+
+			<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-up fa-2x"></a>
+			<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+		@endif
+
+		<span class="text-danger">{{ $qa->voteTotal('downVote') }}</span>
+
+	</div>
 
 	<h3 class="title-qas-tuts">{{$converter->convertToHtml($qa->question)}}</h3>
 	@if (isset($qa->image))
@@ -89,6 +131,20 @@
 						<div class="commenterImage">
 							<img src="{{{ $comment->user->image }}}" class="commenter-image">
 							{{{ $comment->user->username }}}
+							<span class="text-success">{{ $comment->voteTotal('upVote') }}</span>
+							@if(Auth::check())
+
+								<a href="{{{ action('CommentsController@vote', [$comment->id, 'vote' => '1']) }}}" class="fa fa-thumbs-up fa-2x"></a>
+								<a href="{{{ action('CommentsController@vote', [$comment->id, 'vote' => '-1']) }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+							@endif
+							@if(!Auth::check())
+
+								<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-up fa-2x"></a>
+								<a href="{{{ action('HomeController@getLogin') }}}" class="fa fa-thumbs-down fa-2x"></a>
+
+							@endif
+							<span class="text-danger">{{ $comment->voteTotal('downVote') }}</span>
 						</div>
 						<blockquote>
 							<p>{{{ $comment->content }}}</p>
