@@ -727,4 +727,11 @@ input:focus, textarea:focus {
     }
 }
 
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    float:left;
+}
+
 

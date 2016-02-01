@@ -13,7 +13,7 @@
 
         #begintour{
             background-color: #73341D;
-
+            cursor: pointer;
         }
 
     </style>
@@ -90,12 +90,12 @@
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-wrench fa-stack-1x iconcolor"></i>
                             </span>
-                        
+                        </a>
                         <h4>
                             <strong>Take a tour</strong>
                         </h4>
                         <p>Learn how to use our site</p>
-                        </a>
+                        
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-4 text-center">
                         <div class="service-item">
-                            <img src="/css/monkey-icon-wht-on-blk.png">              
+                            <p><img class ="profile-image"src="/img/crystal_profile.jpg"></p>             
                             <h4>
                                 <strong>Crystal Wyrick</strong>
                             </h4>
@@ -141,12 +141,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 text-center">
                         <div class="service-item">
-                            <a href="{{ action('QasController@create') }}">
-                                <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-users fa-stack-1x iconcolor"></i>
-                                </span>
-                            </a>
+                            <img class = "profile-image"src="/img/hampton1-16_0031.jpg">
                             <h4>
                                 <strong>Pascal Allen</strong>
                             </h4>
@@ -154,12 +149,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 text-center">
                         <div class="service-item">
-                            <a href="{{ action('QasController@create') }}">
-                                <span class="fa-stack fa-4x">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-users fa-stack-1x iconcolor"></i>
-                                </span>
-                            </a>
+                            <img class="profile-image"src="/img/hampton1-16_0032.jpg">
                             <h4>
                                 <strong>MK Warren</strong>
                             </h4>
