@@ -13,7 +13,7 @@
 
         #begintour{
             background-color: #73341D;
-
+            cursor: pointer;
         }
 
     </style>
