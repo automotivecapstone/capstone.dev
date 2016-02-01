@@ -17,12 +17,12 @@
 
 		</ul>
 		<ul class = "nav navbar-nav navbar-right">
-			<li data-step="4" data-intro="Shop for some sweet Frank the Greasemonkey swag.">
+			<li data-step="3" data-intro="Shop for some sweet Frank the Greasemonkey swag.">
 				<a href="{{action('InventoriesController@index')}}">Merch</a>
 			</li>
 		{{ Form::open(array('action' => array('HomeController@search'), 'method' => 'GET', 'class' => 'navbar-form navbar-right')) }}
 			<div class="form-group">
-				<div class="input-group" data-step="3" data-intro="Search our site for topics you're interested in.">
+				<div class="input-group" data-step="4" data-intro="Search our site for topics you're interested in.">
 					{{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search']) }}
 					<span class="input-group-btn">
 						<button type="submit" class="btn"><span class="fa fa-search"></span></button>
@@ -59,12 +59,12 @@
 			
 		</ul>
 		<ul class = "nav navbar-nav navbar-right">
-			<li data-step="4" data-intro="Shop for some sweet Frank the Greasemonkey swag.">
+			<li data-step="3" data-intro="Shop for some sweet Frank the Greasemonkey swag.">
 				<a href="{{action('InventoriesController@index')}}">Merch</a>
 			</li>
 		{{ Form::open(array('action' => array('HomeController@search'), 'method' => 'GET', 'class' => 'navbar-form navbar-right')) }}
 			<div class="form-group">
-				<div class="input-group" data-step="3" data-intro="Search our site for topics you're interested in.">
+				<div class="input-group" data-step="4" data-intro="Search our site for topics you're interested in.">
 					{{ Form::text('search', null, ['class' => 'form-control', 'placeholder' => 'Search']) }}
 					<span class="input-group-btn">
 						<button type="submit" class="btn"><span class="fa fa-search"></span></button>
