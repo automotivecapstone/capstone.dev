@@ -157,7 +157,10 @@
 					<td><a href="{{{action('QasController@show', $qa->id)}}}">{{{$qa->question}}}</a></td>
 					@if(Auth::id()==$user->id)
 					<td><a href="{{{action('QasController@edit', $qa->id)}}}"><button class = "gm-button">Edit</button></a></td>
-					<td><a href="{{{action('QasController@destroy', $qa->id)}}}"><button class = "gm-button">Delete</button></a></td>
+
+					{{ Form::open(array('action' => array('QasController@destroy', $qa->id, 'files' => true), 'method' => 'DELETE')) }}
+					<td><button class = "gm-button">Delete</button></td>
+					{{Form::close()}}
 					@endif
 				</tr>
 			@endforeach
