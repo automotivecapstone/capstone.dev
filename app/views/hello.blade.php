@@ -133,7 +133,7 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-4 text-center">
                         <div class="service-item">
-                            <p><img class ="profile-image"src="/img/crystal_profile.jpg"></p>             
+                            <p><img class ="profile-image img-responsive"src="/img/crystal_profile.jpg"></p>             
                             <h4>
                                 <strong>Crystal Wyrick</strong>
                             </h4>
@@ -141,7 +141,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 text-center">
                         <div class="service-item">
-                            <img class = "profile-image"src="/img/hampton1-16_0031.jpg">
+                            <img class = "profile-image img-responsive"src="/img/hampton1-16_0031.jpg">
                             <h4>
                                 <strong>Pascal Allen</strong>
                             </h4>
@@ -149,7 +149,7 @@
                     </div>
                     <div class="col-md-4 col-sm-4 text-center">
                         <div class="service-item">
-                            <img class="profile-image"src="/img/hampton1-16_0032.jpg">
+                            <img class="profile-image img-responsive"src="/img/hampton1-16_0032.jpg">
                             <h4>
                                 <strong>MK Warren</strong>
                             </h4>
