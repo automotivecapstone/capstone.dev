@@ -10,7 +10,7 @@
 	<div class="collapse navbar-collapse" id="navbar-collapse-01">
 		<ul class="nav navbar-nav navbar-left">
 			@if(!Auth::check())
-				<li data-step="1" data-intro = "Start by logging in or creating a new account. Once that is done, you'll have full access to the site and be able to not only view our tutorials and question, but also comment on them or post your own. /n Not ready for that kind of commitment? Totally fine. You can always browse our content without being a registered user."><a href="{{ action('HomeController@getLogin') }}">Log In</a></li>
+				<li data-step="1" data-intro = "Start by logging in or creating a new account. Once that is done, you'll have full access to the site and be able to not only view our tutorials and question, but also comment on them or post your own. Not ready for that kind of commitment? Totally fine. You can always browse our content without being a registered user."><a href="{{ action('HomeController@getLogin') }}">Log In</a></li>
 				<li><a href="{{ action('UsersController@create') }}">Sign Up</a></li>
 				<li data-step="2" data-intro="Browse through our tutorials and questions with these two buttons!"><a href="{{ action('TutorialsController@index') }}">Tutorials</a></li>
 				<li><a href="{{ action('QasController@index') }}">Q &amp; A</a></li>
