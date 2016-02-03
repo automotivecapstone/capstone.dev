@@ -8,6 +8,13 @@
 			padding-right: 10px;
 		}
 
+		.modal-body, .modal-title {
+			color: #F2E4DC;
+		}
+
+		.add-tag {
+			color: black;
+		}
 	</style>
 
 @stop
@@ -31,13 +38,15 @@
  				
  				
  				@foreach($tags as $tag)
- 					{{ Form::label('usertags[]', $tag->name)}}
- 					{{ Form::checkbox('usertags[]', $tag->id)}}
- 					<span class="tags-pad"></span>
+	 					{{ Form::label('usertags[]', $tag->name)}}
+	 					{{ Form::checkbox('usertags[]', $tag->id)}}
+	 					<span class="tags-pad"></span>
  				@endforeach 
 
  				{{ Form::label('addtag', "Don't see a tag? Add it here!")}}
- 				{{ Form::text('addtag', null,array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
+ 				<div class="add-tag">
+ 					{{ Form::text('addtag', null,array('id' => 'addtag', 'placeholder'=>'Add a Tag!'))}}
+ 				</div>
  
  				
  		      </div>

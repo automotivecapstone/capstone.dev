@@ -125,7 +125,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>The Greasemonkies</h2>
+                    <h2>The Greasemonkeys</h2>
                     <hr class="horizontalrule">
                 </div>
 
