@@ -6,7 +6,8 @@ This is our capstone project for the Code Up Full Stack Bootcamp. We created an 
 
 ###Technologies Used
 - Laravel Framework
-	Packages:
+	Packages:  
+	
 	-Mailgun
 	-Commonmark
 	-Guzzle 
