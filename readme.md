@@ -8,14 +8,10 @@ This is our capstone project for the Code Up Full Stack Bootcamp. We created an 
 - Laravel Framework  
 
 	Packages:  
-	
-	-Mailgun  
-
-	-Commonmark  
-
-	-Guzzle   
-	
-	-Faker
+	- Mailgun  
+	- Commonmark  
+	- Guzzle   
+	- Faker
 - Intro.js library
 - Ajax requests
 - MySql database 
